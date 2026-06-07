@@ -3,163 +3,224 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<meta name="theme-color" content="#0b1437" />
+<meta name="theme-color" content="#12002e" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 <meta name="apple-mobile-web-app-title" content="WC 2026" />
 <title>World Cup 2026 — Schedule</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚽</text></svg>" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#0b1437; --bg2:#101c4d; --card:#16224f; --card2:#1b2a63;
-    --line:#2a3a78; --txt:#eaf0ff; --dim:#9fb0e0; --accent:#34d399;
-    --gold:#ffd75e; --live:#ff4d4d; --tor:#4cc2ff; --darj:#ff9f43;
+    --ink:#13003a; --ink2:#1c0050;
+    --txt:#fff; --dim:#c9bdf2;
+    --mag:#ff1e88; --pur:#8a2be2; --blu:#2b6bff; --cyan:#16e0d4; --lime:#c6ff3a; --orng:#ff7a1a; --gold:#ffd029;
+    --tor:#22e0ff; --ist:#ff9b3d; --live:#ff2e4d;
+    --disp:'Anton','Archivo Black','Oswald',Impact,'Haettenschweiler',sans-serif;
+    --body:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
   }
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
   html,body{margin:0;padding:0}
   body{
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    background:linear-gradient(160deg,var(--bg),#070d24 70%);
-    color:var(--txt); min-height:100vh;
+    font-family:var(--body); color:var(--txt); min-height:100vh; overflow-x:hidden;
+    background:#0a0024;
+    background-image:
+      radial-gradient(circle at 12% 8%, rgba(255,30,136,.42), transparent 42%),
+      radial-gradient(circle at 88% 4%, rgba(43,107,255,.40), transparent 40%),
+      radial-gradient(circle at 78% 38%, rgba(22,224,212,.30), transparent 38%),
+      radial-gradient(circle at 8% 55%, rgba(138,43,226,.42), transparent 45%),
+      radial-gradient(circle at 95% 80%, rgba(255,122,26,.28), transparent 40%),
+      radial-gradient(circle at 30% 96%, rgba(198,255,58,.18), transparent 42%),
+      linear-gradient(160deg,#150038,#0a0022 60%,#06001a);
+    background-attachment:fixed;
     padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
   }
-  header{
-    position:sticky; top:0; z-index:20;
-    background:rgba(11,20,55,.92); backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--line); padding:14px 14px 10px;
+  /* ---------- header / hero ---------- */
+  header{position:sticky; top:0; z-index:30}
+  .hero{
+    position:relative; padding:18px 16px 14px; overflow:hidden;
+    background:linear-gradient(135deg, rgba(255,30,136,.22), rgba(43,107,255,.18) 55%, rgba(22,224,212,.16));
+    border-bottom:1px solid rgba(255,255,255,.12);
+    -webkit-backdrop-filter:blur(14px); backdrop-filter:blur(14px);
   }
-  .title{display:flex; align-items:center; gap:9px; font-size:20px; font-weight:800; letter-spacing:.3px}
-  .title .ball{font-size:24px}
-  .title small{font-weight:600; color:var(--dim); font-size:12px; margin-left:auto}
-  .clocks{display:flex; gap:8px; margin-top:10px}
-  .clock{
-    flex:1; background:var(--card); border:1px solid var(--line); border-radius:12px;
-    padding:8px 10px; display:flex; flex-direction:column; gap:1px;
+  .hero::after{ /* pitch stripes */
+    content:""; position:absolute; inset:0; opacity:.06; pointer-events:none;
+    background:repeating-linear-gradient(90deg, #fff 0 2px, transparent 2px 46px);
   }
-  .clock .lbl{font-size:11px; color:var(--dim); font-weight:700; letter-spacing:.5px; display:flex; align-items:center; gap:5px}
-  .clock.tor .lbl b{color:var(--tor)} .clock.darj .lbl b{color:var(--darj)}
-  .clock .t{font-size:18px; font-weight:800; font-variant-numeric:tabular-nums}
-  .clock .d{font-size:11px; color:var(--dim)}
-  .filters{display:flex; gap:7px; margin-top:11px; overflow-x:auto; padding-bottom:3px; scrollbar-width:none}
+  .kicker{display:flex; align-items:center; gap:8px; font-family:var(--body); font-weight:700;
+    font-size:11px; letter-spacing:2.5px; color:var(--dim); text-transform:uppercase}
+  .kicker .hosts{margin-left:auto; font-size:16px; letter-spacing:0}
+  .wordmark{
+    font-family:var(--disp); font-weight:400; line-height:.86; margin:6px 0 2px;
+    font-size:clamp(40px,13vw,66px); letter-spacing:1px; text-transform:uppercase;
+    background:linear-gradient(92deg,#fff 0%, #ffd6ec 18%, #b9e0ff 42%, #b7fff6 64%, #fff 100%);
+    -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+    filter:drop-shadow(0 3px 18px rgba(255,30,136,.35));
+  }
+  .wordmark .yr{
+    -webkit-text-fill-color:transparent; background:linear-gradient(92deg,var(--mag),var(--orng) 50%,var(--gold));
+    -webkit-background-clip:text; background-clip:text;
+  }
+  .subline{font-family:var(--body); font-weight:700; font-size:11.5px; letter-spacing:3px; color:#fff; opacity:.85; text-transform:uppercase}
+  .clocks{display:flex; gap:10px; margin-top:13px}
+  .clock{flex:1; position:relative; border-radius:15px; padding:9px 12px;
+    background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.14); overflow:hidden}
+  .clock::before{content:""; position:absolute; left:0; top:0; bottom:0; width:4px}
+  .clock.tor::before{background:var(--tor)} .clock.ist::before{background:var(--ist)}
+  .clock .lbl{font-size:10px; font-weight:800; letter-spacing:1.2px; color:var(--dim); display:flex; gap:6px; align-items:center}
+  .clock.tor .lbl{color:var(--tor)} .clock.ist .lbl{color:var(--ist)}
+  .clock .t{font-family:var(--disp); font-size:25px; letter-spacing:1px; line-height:1.05; margin-top:1px; font-variant-numeric:tabular-nums}
+  .clock .d{font-size:10.5px; color:var(--dim); font-weight:600}
+
+  /* ---------- controls ---------- */
+  .controls{background:rgba(10,0,34,.86); -webkit-backdrop-filter:blur(12px); backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(255,255,255,.08); padding:11px 12px}
+  .filters{display:flex; gap:8px; overflow-x:auto; scrollbar-width:none; padding-bottom:2px}
   .filters::-webkit-scrollbar{display:none}
-  .chip{
-    flex:0 0 auto; border:1px solid var(--line); background:var(--card);
-    color:var(--dim); padding:7px 13px; border-radius:999px; font-size:13px;
-    font-weight:600; cursor:pointer; white-space:nowrap; transition:.15s;
-  }
-  .chip.active{background:var(--accent); color:#04231a; border-color:var(--accent)}
-  .toolbar{display:flex; gap:8px; margin-top:9px}
-  select,input{
-    background:var(--card); color:var(--txt); border:1px solid var(--line);
-    border-radius:10px; padding:9px 11px; font-size:14px; font-family:inherit; flex:1; min-width:0;
-  }
-  main{padding:12px 12px 80px; max-width:680px; margin:0 auto}
-  .banner{
-    background:var(--card2); border:1px solid var(--line); border-radius:12px;
-    padding:11px 12px; font-size:12.5px; color:var(--dim); margin-bottom:14px;
-    display:flex; gap:9px; align-items:flex-start; line-height:1.5;
-  }
-  .banner b{color:var(--txt)}
-  .banner .x{margin-left:auto; color:var(--dim); cursor:pointer; font-size:18px; line-height:1; padding:0 2px}
-  .daterow{
-    display:flex; align-items:center; gap:9px; margin:18px 2px 9px;
-    font-size:13px; font-weight:800; color:var(--gold); letter-spacing:.4px; text-transform:uppercase;
-  }
-  .daterow:first-child{margin-top:4px}
-  .daterow .line{flex:1; height:1px; background:var(--line)}
-  .card{
-    background:var(--card); border:1px solid var(--line); border-radius:14px;
-    padding:12px 13px; margin-bottom:10px; position:relative; overflow:hidden;
-  }
-  .card.today{border-color:var(--gold); box-shadow:0 0 0 1px rgba(255,215,94,.25)}
-  .card.live{border-color:var(--live)}
-  .card .top{display:flex; align-items:center; gap:8px; margin-bottom:10px}
-  .badge{font-size:10.5px; font-weight:800; padding:3px 8px; border-radius:999px; letter-spacing:.4px}
-  .badge.grp{background:rgba(76,194,255,.16); color:var(--tor)}
-  .badge.ko{background:rgba(255,215,94,.16); color:var(--gold)}
-  .status{margin-left:auto; font-size:10.5px; font-weight:800; letter-spacing:.5px; padding:3px 9px; border-radius:999px}
-  .status.up{background:rgba(159,176,224,.14); color:var(--dim)}
-  .status.live{background:var(--live); color:#fff; animation:pulse 1.4s infinite}
-  .status.ft{background:rgba(52,211,153,.15); color:var(--accent)}
-  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.45}}
-  .teams{display:flex; flex-direction:column; gap:8px}
-  .team{display:flex; align-items:center; gap:11px; font-size:16.5px; font-weight:700}
-  .team .flag{font-size:23px; width:30px; text-align:center; flex:0 0 auto}
-  .team .nm{flex:1}
-  .vs{font-size:11px; color:var(--dim); font-weight:700; padding-left:41px; margin:-2px 0}
-  .meta{display:flex; gap:10px; margin-top:11px; padding-top:10px; border-top:1px solid var(--line); flex-wrap:wrap; align-items:center}
-  .venue{font-size:12px; color:var(--dim); display:flex; align-items:center; gap:5px; flex:1; min-width:140px}
-  .times{display:flex; gap:7px}
-  .pill{border-radius:9px; padding:5px 9px; text-align:center; line-height:1.15; border:1px solid var(--line)}
-  .pill .z{font-size:9.5px; font-weight:800; letter-spacing:.4px}
-  .pill .v{font-size:13.5px; font-weight:800; font-variant-numeric:tabular-nums; white-space:nowrap}
-  .pill .dd{font-size:9px; color:var(--dim)}
-  .pill.tor{background:rgba(76,194,255,.1)} .pill.tor .z{color:var(--tor)}
-  .pill.darj{background:rgba(255,159,67,.1)} .pill.darj .z{color:var(--darj)}
-  .empty{text-align:center; color:var(--dim); padding:50px 20px; font-size:14px}
-  .kohdr{font-size:15px; font-weight:800; margin:22px 2px 6px; color:var(--txt)}
-  footer{text-align:center; color:var(--dim); font-size:11px; padding:20px 16px 30px; line-height:1.6}
-  footer a{color:var(--tor)}
+  .chip{flex:0 0 auto; border:1px solid rgba(255,255,255,.16); background:rgba(255,255,255,.05);
+    color:var(--dim); padding:8px 15px; border-radius:999px; font-size:13px; font-weight:700;
+    cursor:pointer; white-space:nowrap; transition:.18s; letter-spacing:.3px}
+  .chip:active{transform:scale(.95)}
+  .chip.active{color:#fff; border-color:transparent;
+    background:linear-gradient(92deg,var(--mag),var(--pur)); box-shadow:0 4px 16px rgba(255,30,136,.4)}
+  .toolbar{display:flex; gap:9px; margin-top:9px}
+  select{flex:1; min-width:0; -webkit-appearance:none; appearance:none;
+    background:rgba(255,255,255,.06) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23c9bdf2' stroke-width='3'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 12px center;
+    color:#fff; border:1px solid rgba(255,255,255,.16); border-radius:11px; padding:10px 30px 10px 12px;
+    font-size:14px; font-family:inherit; font-weight:600}
+  select option{background:#1c0050; color:#fff}
+
+  main{padding:14px 13px 90px; max-width:700px; margin:0 auto}
+
+  /* ---------- featured "up next" ---------- */
+  .feat{position:relative; border-radius:22px; padding:16px 16px 15px; margin-bottom:18px; overflow:hidden;
+    background:linear-gradient(135deg, rgba(255,30,136,.9), rgba(138,43,226,.86) 55%, rgba(43,107,255,.9));
+    box-shadow:0 16px 40px -12px rgba(255,30,136,.55)}
+  .feat::after{content:""; position:absolute; right:-40px; top:-40px; width:170px; height:170px;
+    background:radial-gradient(circle,rgba(255,255,255,.28),transparent 70%)}
+  .feat .ftag{display:inline-flex; align-items:center; gap:7px; font-size:10.5px; font-weight:800;
+    letter-spacing:1.6px; text-transform:uppercase; background:rgba(0,0,0,.28); padding:5px 11px; border-radius:999px}
+  .feat .frow{display:flex; align-items:center; gap:10px; margin-top:14px}
+  .feat .fteam{flex:1; text-align:center}
+  .feat .fteam .ff{font-size:46px; line-height:1; filter:drop-shadow(0 4px 8px rgba(0,0,0,.4))}
+  .feat .fteam .fn{font-family:var(--disp); font-size:19px; letter-spacing:.5px; margin-top:7px; text-transform:uppercase}
+  .feat .fmid{flex:0 0 auto; text-align:center; min-width:78px}
+  .feat .fmid .cd{font-family:var(--disp); font-size:23px; letter-spacing:.5px; line-height:1; font-variant-numeric:tabular-nums}
+  .feat .fmid .cdl{font-size:9px; font-weight:800; letter-spacing:1.4px; opacity:.85; margin-top:4px}
+  .feat .fmeta{display:flex; justify-content:center; gap:14px; margin-top:14px; flex-wrap:wrap;
+    border-top:1px solid rgba(255,255,255,.25); padding-top:11px; font-size:12px; font-weight:600}
+  .feat .fmeta b{font-weight:800}
+
+  /* ---------- day divider ---------- */
+  .daterow{display:flex; align-items:center; gap:11px; margin:22px 3px 11px}
+  .daterow span.dt{font-family:var(--disp); font-size:15px; letter-spacing:1.5px; text-transform:uppercase;
+    background:linear-gradient(92deg,var(--cyan),var(--lime)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent}
+  .daterow .line{flex:1; height:2px; border-radius:2px; background:linear-gradient(90deg,rgba(255,255,255,.25),transparent)}
+
+  /* ---------- match card ---------- */
+  .card{position:relative; border-radius:18px; padding:14px 15px 13px; margin-bottom:12px; overflow:hidden;
+    background:rgba(255,255,255,.055); border:1px solid rgba(255,255,255,.11);
+    -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px); transition:.18s}
+  .card::before{content:""; position:absolute; left:0; top:0; bottom:0; width:5px; background:var(--gc,#fff)}
+  .card.live{border-color:rgba(255,46,77,.6); box-shadow:0 0 0 1px rgba(255,46,77,.4), 0 8px 26px -10px rgba(255,46,77,.6)}
+  .card.today:not(.live){border-color:rgba(255,208,41,.45)}
+  .top{display:flex; align-items:center; gap:9px; margin-bottom:11px}
+  .badge{font-size:10px; font-weight:800; padding:4px 10px; border-radius:999px; letter-spacing:.8px;
+    color:var(--gc,#fff); background:color-mix(in srgb, var(--gc,#fff) 18%, transparent);
+    border:1px solid color-mix(in srgb, var(--gc,#fff) 45%, transparent)}
+  .status{margin-left:auto; font-size:10px; font-weight:800; letter-spacing:1px; padding:4px 11px; border-radius:999px}
+  .status.up{background:rgba(255,255,255,.1); color:var(--dim)}
+  .status.live{background:var(--live); color:#fff; animation:pulse 1.3s infinite}
+  .status.ft{background:rgba(54,211,153,.16); color:#3becb0; border:1px solid rgba(54,211,153,.4)}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+  .teams{display:flex; align-items:stretch; gap:8px}
+  .side{flex:1; display:flex; align-items:center; gap:11px; min-width:0}
+  .side.away{flex-direction:row-reverse; text-align:right}
+  .side .flag{font-size:30px; flex:0 0 auto; filter:drop-shadow(0 2px 4px rgba(0,0,0,.4))}
+  .side .nm{font-family:var(--disp); font-size:17px; letter-spacing:.4px; line-height:1.04; text-transform:uppercase; min-width:0}
+  .mid{flex:0 0 auto; display:flex; align-items:center}
+  .vs{font-family:var(--disp); font-size:13px; color:var(--dim); padding:5px 9px; border-radius:9px; background:rgba(255,255,255,.06)}
+  .meta{display:flex; gap:10px; margin-top:13px; padding-top:11px; border-top:1px solid rgba(255,255,255,.1); align-items:center; flex-wrap:wrap}
+  .venue{flex:1; min-width:130px; font-size:12px; color:var(--dim); font-weight:500; display:flex; gap:5px; align-items:center}
+  .times{display:flex; gap:8px}
+  .pill{border-radius:11px; padding:6px 11px; text-align:center; line-height:1.1; position:relative; overflow:hidden}
+  .pill .z{font-size:9px; font-weight:800; letter-spacing:1px}
+  .pill .v{font-family:var(--disp); font-size:16px; letter-spacing:.5px; font-variant-numeric:tabular-nums; white-space:nowrap}
+  .pill .dd{font-size:8.5px; color:var(--dim); font-weight:600}
+  .pill.tor{background:rgba(34,224,255,.12)} .pill.tor .z{color:var(--tor)}
+  .pill.ist{background:rgba(255,155,61,.12)} .pill.ist .z{color:var(--ist)}
+
+  /* ---------- knockout ---------- */
+  .kohdr{font-family:var(--disp); font-size:22px; letter-spacing:1.5px; text-transform:uppercase; margin:26px 3px 12px;
+    display:flex; align-items:center; gap:9px;
+    background:linear-gradient(92deg,var(--gold),var(--orng)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent}
+  .card.final{background:linear-gradient(135deg, rgba(255,208,41,.22), rgba(255,122,26,.16)); border-color:rgba(255,208,41,.5)}
+  .card.final::before{background:linear-gradient(var(--gold),var(--orng))}
+
+  .banner{background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); border-radius:14px;
+    padding:12px 13px; font-size:12px; color:var(--dim); margin-bottom:16px; display:flex; gap:9px; line-height:1.5}
+  .banner b{color:#fff} .banner a{color:var(--tor)}
+  .banner .x{margin-left:auto; cursor:pointer; font-size:19px; line-height:1; color:var(--dim)}
+  .empty{text-align:center; color:var(--dim); padding:54px 20px; font-size:14px; line-height:1.6}
+  footer{text-align:center; color:var(--dim); font-size:11px; padding:10px 16px 36px; line-height:1.7; opacity:.75}
 </style>
 </head>
 <body>
 <header>
-  <div class="title"><span class="ball">⚽</span> World Cup 2026 <small id="cup-dates">Jun 11 – Jul 19</small></div>
-  <div class="clocks">
-    <div class="clock tor"><span class="lbl"><b>●</b> TORONTO</span><span class="t" id="clk-tor">—</span><span class="d" id="dt-tor"></span></div>
-    <div class="clock darj"><span class="lbl"><b>●</b> DARJEELING (IST)</span><span class="t" id="clk-darj">—</span><span class="d" id="dt-darj"></span></div>
+  <div class="hero">
+    <div class="kicker"><span>⚽ The Tournament</span><span class="hosts">🇨🇦 🇲🇽 🇺🇸</span></div>
+    <div class="wordmark">World Cup <span class="yr">26</span></div>
+    <div class="subline">Canada · Mexico · USA</div>
+    <div class="clocks">
+      <div class="clock tor"><div class="lbl">● TORONTO</div><div class="t" id="clk-tor">—</div><div class="d" id="dt-tor"></div></div>
+      <div class="clock ist"><div class="lbl">● DARJEELING · IST</div><div class="t" id="clk-ist">—</div><div class="d" id="dt-ist"></div></div>
+    </div>
   </div>
-  <div class="filters" id="filters"></div>
-  <div class="toolbar">
-    <select id="teamSel"><option value="">All teams</option></select>
-    <select id="groupSel">
-      <option value="">All groups</option>
-      <option>A</option><option>B</option><option>C</option><option>D</option>
-      <option>E</option><option>F</option><option>G</option><option>H</option>
-      <option>I</option><option>J</option><option>K</option><option>L</option>
-    </select>
+  <div class="controls">
+    <div class="filters" id="filters"></div>
+    <div class="toolbar">
+      <select id="teamSel"><option value="">⚽ All teams</option></select>
+      <select id="groupSel">
+        <option value="">All groups</option>
+        <option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option>
+        <option>G</option><option>H</option><option>I</option><option>J</option><option>K</option><option>L</option>
+      </select>
+    </div>
   </div>
 </header>
 
 <main>
+  <div id="featured"></div>
   <div class="banner" id="banner">
     <span>ℹ️</span>
-    <div><b>Times shown in Toronto (ET) &amp; Darjeeling (IST)</b>, auto-adjusted for daylight saving.
-    Group fixtures compiled Jun 7, 2026 from public sources; a few mid-round venues are still <b>TBC</b>.
-    Knockout matchups are set once the group stage ends. Verify key times on
-    <a href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures" target="_blank" rel="noopener">FIFA.com</a>.</div>
+    <div><b>Times in Toronto (ET) &amp; Darjeeling (IST)</b>, auto-adjusted for daylight saving. Group fixtures
+    compiled Jun 2026 from public sources (a few mid-round venues are <b>TBC</b>); knockout matchups lock after the
+    group stage. Verify on <a href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures" target="_blank" rel="noopener">FIFA.com</a>.</div>
     <span class="x" id="bx">×</span>
   </div>
   <div id="list"></div>
 </main>
 
-<footer>
-  Unofficial personal tracker • All times Toronto / Darjeeling (IST)<br/>
-  Built Jun 2026 — schedule subject to change by FIFA.
-</footer>
+<footer>Unofficial fan-made tracker • Times shown for Toronto &amp; Darjeeling (IST) • Schedule subject to change</footer>
 
 <script>
 /* ---------- flags ---------- */
-const FLAG = {
-  "Mexico":"🇲🇽","South Africa":"🇿🇦","Korea Republic":"🇰🇷","Czechia":"🇨🇿",
-  "Canada":"🇨🇦","Bosnia & Herzegovina":"🇧🇦","Qatar":"🇶🇦","Switzerland":"🇨🇭",
-  "Brazil":"🇧🇷","Morocco":"🇲🇦","Haiti":"🇭🇹","Scotland":"🏴󠁧󠁢󠁳󠁣󠁴󠁿",
-  "United States":"🇺🇸","Paraguay":"🇵🇾","Australia":"🇦🇺","Türkiye":"🇹🇷",
-  "Germany":"🇩🇪","Curaçao":"🇨🇼","Ivory Coast":"🇨🇮","Ecuador":"🇪🇨",
-  "Netherlands":"🇳🇱","Japan":"🇯🇵","Sweden":"🇸🇪","Tunisia":"🇹🇳",
-  "Belgium":"🇧🇪","Egypt":"🇪🇬","Iran":"🇮🇷","New Zealand":"🇳🇿",
-  "Spain":"🇪🇸","Cape Verde":"🇨🇻","Saudi Arabia":"🇸🇦","Uruguay":"🇺🇾",
-  "France":"🇫🇷","Senegal":"🇸🇳","Iraq":"🇮🇶","Norway":"🇳🇴",
-  "Argentina":"🇦🇷","Algeria":"🇩🇿","Austria":"🇦🇹","Jordan":"🇯🇴",
-  "Portugal":"🇵🇹","DR Congo":"🇨🇩","Uzbekistan":"🇺🇿","Colombia":"🇨🇴",
-  "England":"🏴󠁧󠁢󠁥󠁮󠁧󠁿","Croatia":"🇭🇷","Ghana":"🇬🇭","Panama":"🇵🇦","TBD":"🏳️"
-};
-const fl = t => FLAG[t] || "⚽";
+const FLAG={"Mexico":"🇲🇽","South Africa":"🇿🇦","Korea Republic":"🇰🇷","Czechia":"🇨🇿","Canada":"🇨🇦",
+"Bosnia & Herzegovina":"🇧🇦","Qatar":"🇶🇦","Switzerland":"🇨🇭","Brazil":"🇧🇷","Morocco":"🇲🇦","Haiti":"🇭🇹",
+"Scotland":"🏴󠁧󠁢󠁳󠁣󠁴󠁿","United States":"🇺🇸","Paraguay":"🇵🇾","Australia":"🇦🇺","Türkiye":"🇹🇷","Germany":"🇩🇪",
+"Curaçao":"🇨🇼","Ivory Coast":"🇨🇮","Ecuador":"🇪🇨","Netherlands":"🇳🇱","Japan":"🇯🇵","Sweden":"🇸🇪","Tunisia":"🇹🇳",
+"Belgium":"🇧🇪","Egypt":"🇪🇬","Iran":"🇮🇷","New Zealand":"🇳🇿","Spain":"🇪🇸","Cape Verde":"🇨🇻","Saudi Arabia":"🇸🇦",
+"Uruguay":"🇺🇾","France":"🇫🇷","Senegal":"🇸🇳","Iraq":"🇮🇶","Norway":"🇳🇴","Argentina":"🇦🇷","Algeria":"🇩🇿",
+"Austria":"🇦🇹","Jordan":"🇯🇴","Portugal":"🇵🇹","DR Congo":"🇨🇩","Uzbekistan":"🇺🇿","Colombia":"🇨🇴",
+"England":"🏴󠁧󠁢󠁥󠁮󠁧󠁿","Croatia":"🇭🇷","Ghana":"🇬🇭","Panama":"🇵🇦","TBD":"🏳️"};
+const fl=t=>FLAG[t]||"⚽";
+const GC={A:"#ff1e88",B:"#ff7a1a",C:"#ffd029",D:"#8ce64a",E:"#16e0d4",F:"#2bb3ff",
+G:"#5d6bff",H:"#a35cff",I:"#ff5ca8",J:"#ff9b3d",K:"#36d399",L:"#22e0ff"};
 
-/* ---------- group stage (ET / Toronto kickoff times) ---------- */
-/* g=group, t1/t2=teams, city, st=stadium, iso=Eastern time, tbc=time unknown */
-const M = [
-  // Matchday 1
+/* ---------- group stage (Eastern / Toronto kickoff) ---------- */
+const M=[
   {g:"A",t1:"Mexico",t2:"South Africa",city:"Mexico City",st:"Estadio Azteca",iso:"2026-06-11T15:00:00-04:00"},
   {g:"A",t1:"Korea Republic",t2:"Czechia",city:"Guadalajara",st:"Estadio Akron",iso:"2026-06-11T22:00:00-04:00"},
   {g:"B",t1:"Canada",t2:"Bosnia & Herzegovina",city:"Toronto",st:"BMO Field",iso:"2026-06-12T15:00:00-04:00"},
@@ -184,7 +245,6 @@ const M = [
   {g:"L",t1:"England",t2:"Croatia",city:"",st:"",iso:"2026-06-17T16:00:00-04:00"},
   {g:"L",t1:"Ghana",t2:"Panama",city:"",st:"",iso:"2026-06-17T19:00:00-04:00"},
   {g:"K",t1:"Uzbekistan",t2:"Colombia",city:"",st:"",iso:"2026-06-17T22:00:00-04:00"},
-  // Matchday 2
   {g:"A",t1:"Czechia",t2:"South Africa",city:"Atlanta",st:"Mercedes-Benz Stadium",iso:"2026-06-18T12:00:00-04:00"},
   {g:"B",t1:"Switzerland",t2:"Bosnia & Herzegovina",city:"Los Angeles",st:"SoFi Stadium",iso:"2026-06-18T15:00:00-04:00"},
   {g:"B",t1:"Canada",t2:"Qatar",city:"Vancouver",st:"BC Place",iso:"2026-06-18T18:00:00-04:00"},
@@ -209,7 +269,6 @@ const M = [
   {g:"L",t1:"England",t2:"Ghana",city:"Boston",st:"Gillette Stadium",iso:"2026-06-23T16:00:00-04:00"},
   {g:"L",t1:"Panama",t2:"Croatia",city:"Toronto",st:"BMO Field",iso:"2026-06-23T19:00:00-04:00"},
   {g:"K",t1:"Colombia",t2:"DR Congo",city:"Guadalajara",st:"Estadio Akron",iso:"2026-06-23T22:00:00-04:00"},
-  // Matchday 3 (final group games kick off simultaneously)
   {g:"B",t1:"Switzerland",t2:"Canada",city:"Vancouver",st:"BC Place",iso:"2026-06-24T15:00:00-04:00"},
   {g:"B",t1:"Bosnia & Herzegovina",t2:"Qatar",city:"Seattle",st:"Lumen Field",iso:"2026-06-24T15:00:00-04:00"},
   {g:"C",t1:"Scotland",t2:"Brazil",city:"Miami",st:"Hard Rock Stadium",iso:"2026-06-24T18:00:00-04:00"},
@@ -235,177 +294,162 @@ const M = [
   {g:"J",t1:"Jordan",t2:"Argentina",city:"Dallas",st:"AT&T Stadium",iso:"2026-06-27T22:00:00-04:00"},
   {g:"J",t1:"Algeria",t2:"Austria",city:"Kansas City",st:"Arrowhead Stadium",iso:"2026-06-27T22:00:00-04:00"}
 ];
-
-/* ---------- knockout bracket (matchups decided after groups) ---------- */
-const KO = [
-  {r:"Round of 32", note:"16 matches", dateText:"Jun 28 – Jul 3, 2026", venue:"Across host cities"},
-  {r:"Round of 16", note:"8 matches", dateText:"Jul 4 – 7, 2026", venue:"Across host cities"},
-  {r:"Quarter-finals", note:"4 matches", dateText:"Jul 9 – 11, 2026", venue:"Across host cities"},
-  {r:"Semi-final 1", note:"", dateText:"2026-07-14T15:00:00-04:00", venue:"Dallas — AT&T Stadium", iso:true},
-  {r:"Semi-final 2", note:"", dateText:"2026-07-15T15:00:00-04:00", venue:"Atlanta — Mercedes-Benz Stadium", iso:true},
-  {r:"Third-place play-off", note:"", dateText:"2026-07-18T17:00:00-04:00", venue:"Miami — Hard Rock Stadium", iso:true},
-  {r:"FINAL", note:"", dateText:"2026-07-19T15:00:00-04:00", venue:"New York / New Jersey — MetLife Stadium", iso:true, final:true}
+const KO=[
+  {r:"Round of 32",note:"16 matches",dateText:"Jun 28 – Jul 3, 2026",venue:"Across host cities"},
+  {r:"Round of 16",note:"8 matches",dateText:"Jul 4 – 7, 2026",venue:"Across host cities"},
+  {r:"Quarter-finals",note:"4 matches",dateText:"Jul 9 – 11, 2026",venue:"Across host cities"},
+  {r:"Semi-final 1",dateText:"2026-07-14T15:00:00-04:00",venue:"Dallas — AT&T Stadium",iso:true},
+  {r:"Semi-final 2",dateText:"2026-07-15T15:00:00-04:00",venue:"Atlanta — Mercedes-Benz Stadium",iso:true},
+  {r:"Third place",dateText:"2026-07-18T17:00:00-04:00",venue:"Miami — Hard Rock Stadium",iso:true},
+  {r:"FINAL",dateText:"2026-07-19T15:00:00-04:00",venue:"New York / New Jersey — MetLife Stadium",iso:true,final:true}
 ];
 
-/* ---------- formatting ---------- */
-const TOR="America/Toronto", DARJ="Asia/Kolkata";
-const fmtTime=(d,tz)=>new Intl.DateTimeFormat("en-US",{hour:"numeric",minute:"2-digit",timeZone:tz}).format(d);
-const fmtDay =(d,tz)=>new Intl.DateTimeFormat("en-US",{weekday:"short",month:"short",day:"numeric",timeZone:tz}).format(d);
-const fmtFull=(d,tz)=>new Intl.DateTimeFormat("en-US",{weekday:"long",month:"long",day:"numeric",timeZone:tz}).format(d);
-const torDateKey=d=>new Intl.DateTimeFormat("en-CA",{year:"numeric",month:"2-digit",day:"2-digit",timeZone:TOR}).format(d);
+/* ---------- format helpers ---------- */
+const TOR="America/Toronto",IST="Asia/Kolkata";
+const fmtT =(d,tz)=>new Intl.DateTimeFormat("en-US",{hour:"numeric",minute:"2-digit",timeZone:tz}).format(d);
+const fmtD =(d,tz)=>new Intl.DateTimeFormat("en-US",{weekday:"short",month:"short",day:"numeric",timeZone:tz}).format(d);
+const fmtF =(d,tz)=>new Intl.DateTimeFormat("en-US",{weekday:"long",month:"long",day:"numeric",timeZone:tz}).format(d);
+const dayKey=d=>new Intl.DateTimeFormat("en-CA",{year:"numeric",month:"2-digit",day:"2-digit",timeZone:TOR}).format(d);
+function statusOf(s){const n=Date.now(),e=s+125*6e4;return n<s?["up","UPCOMING"]:n<=e?["live","● LIVE"]:["ft","FULL TIME"];}
+function countdown(toMs){const x=toMs-Date.now();if(x<=0)return null;
+  const d=Math.floor(x/864e5),h=Math.floor(x%864e5/36e5),m=Math.floor(x%36e5/6e4),s=Math.floor(x%6e4/1e3);
+  return d>0?`${d}d ${h}h`:h>0?`${h}h ${m}m`:`${m}m ${s}s`;}
 
-function statusOf(start){
-  const now=Date.now(), s=start.getTime(), e=s+125*60000;
-  if(now<s) return ["up","UPCOMING"];
-  if(now<=e) return ["live","● LIVE"];
-  return ["ft","FULL TIME"];
-}
+let stage="all",group="",team="",featMatch=null;
 
-/* ---------- state ---------- */
-let stage="all", group="", team="";
-
-/* ---------- render ---------- */
+/* ---------- cards ---------- */
 function matchCard(m){
-  const d=new Date(m.iso);
-  const [sc,st]=m.tbc?["up","TBC"]:statusOf(d);
-  const today=torDateKey(d)===torDateKey(new Date());
-  const torT=m.tbc?"TBC":fmtTime(d,TOR);
-  const darjT=m.tbc?"TBC":fmtTime(d,DARJ);
-  const darjDay=m.tbc?"":fmtDay(d,DARJ).split(",")[0];
+  const d=new Date(m.iso),[sc,st]=m.tbc?["up","TBC"]:statusOf(d.getTime());
+  const today=dayKey(d)===dayKey(new Date());
+  const torT=m.tbc?"TBC":fmtT(d,TOR),istT=m.tbc?"TBC":fmtT(d,IST),istD=m.tbc?"":fmtD(d,IST).split(",")[0];
   const venue=(m.city||m.st)?`📍 ${[m.st,m.city].filter(Boolean).join(", ")}`:"📍 Venue TBC";
-  return `<div class="card ${today?"today":""} ${sc==="live"?"live":""}">
-    <div class="top">
-      <span class="badge grp">GROUP ${m.g}</span>
-      <span class="status ${sc}">${st}</span>
-    </div>
+  return `<div class="card ${today?"today":""} ${sc==="live"?"live":""}" style="--gc:${GC[m.g]}">
+    <div class="top"><span class="badge">GROUP ${m.g}</span><span class="status ${sc}">${st}</span></div>
     <div class="teams">
-      <div class="team"><span class="flag">${fl(m.t1)}</span><span class="nm">${m.t1}</span></div>
-      <div class="vs">vs</div>
-      <div class="team"><span class="flag">${fl(m.t2)}</span><span class="nm">${m.t2}</span></div>
+      <div class="side home"><span class="flag">${fl(m.t1)}</span><span class="nm">${m.t1}</span></div>
+      <div class="mid"><span class="vs">VS</span></div>
+      <div class="side away"><span class="flag">${fl(m.t2)}</span><span class="nm">${m.t2}</span></div>
     </div>
-    <div class="meta">
-      <span class="venue">${venue}</span>
+    <div class="meta"><span class="venue">${venue}</span>
       <div class="times">
         <div class="pill tor"><div class="z">TOR</div><div class="v">${torT}</div></div>
-        <div class="pill darj"><div class="z">IST</div><div class="v">${darjT}</div><div class="dd">${darjDay}</div></div>
-      </div>
-    </div>
-  </div>`;
+        <div class="pill ist"><div class="z">IST</div><div class="v">${istT}</div><div class="dd">${istD}</div></div>
+      </div></div></div>`;
 }
-
 function koCard(k){
-  let dateText=k.dateText, torT="", darjT="", darjDay="";
-  if(k.iso){
-    const d=new Date(k.dateText);
-    dateText=fmtFull(d,TOR);
-    torT=fmtTime(d,TOR); darjT=fmtTime(d,DARJ); darjDay=fmtDay(d,DARJ).split(",")[0];
-  }
-  const times=k.iso?`<div class="times">
-      <div class="pill tor"><div class="z">TOR</div><div class="v">${torT}</div></div>
-      <div class="pill darj"><div class="z">IST</div><div class="v">${darjT}</div><div class="dd">${darjDay}</div></div>
-    </div>`:`<span class="venue">${k.note}</span>`;
-  return `<div class="card ${k.final?"today":""}">
-    <div class="top"><span class="badge ko">${k.r}</span><span class="status up">${dateText}</span></div>
+  let dateText=k.dateText,times=`<span class="venue" style="justify-content:flex-end">${k.note||""}</span>`;
+  if(k.iso){const d=new Date(k.dateText);dateText=fmtF(d,TOR);
+    times=`<div class="times">
+      <div class="pill tor"><div class="z">TOR</div><div class="v">${fmtT(d,TOR)}</div></div>
+      <div class="pill ist"><div class="z">IST</div><div class="v">${fmtT(d,IST)}</div><div class="dd">${fmtD(d,IST).split(",")[0]}</div></div></div>`;}
+  return `<div class="card ${k.final?"final":""}" style="--gc:${k.final?"#ffd029":"#a35cff"}">
+    <div class="top"><span class="badge">${k.final?"🏆 ":""}${k.r}</span><span class="status up">${dateText}</span></div>
     <div class="teams">
-      <div class="team"><span class="flag">🏳️</span><span class="nm" style="color:var(--dim)">To be decided</span></div>
-      <div class="vs">vs</div>
-      <div class="team"><span class="flag">🏳️</span><span class="nm" style="color:var(--dim)">To be decided</span></div>
+      <div class="side home"><span class="flag">🏳️</span><span class="nm" style="color:var(--dim)">TBD</span></div>
+      <div class="mid"><span class="vs">VS</span></div>
+      <div class="side away"><span class="flag">🏳️</span><span class="nm" style="color:var(--dim)">TBD</span></div>
     </div>
-    <div class="meta"><span class="venue">📍 ${k.venue}</span>${times}</div>
-  </div>`;
+    <div class="meta"><span class="venue">📍 ${k.venue}</span>${times}</div></div>`;
 }
 
+/* ---------- featured "up next" ---------- */
+function pickFeatured(){
+  const now=Date.now();
+  const pool=M.filter(m=>!m.tbc&&(!team||m.t1===team||m.t2===team)&&new Date(m.iso).getTime()+125*6e4>now)
+    .sort((a,b)=>new Date(a.iso)-new Date(b.iso));
+  return pool[0]||null;
+}
+function renderFeatured(){
+  const el=document.getElementById("featured");
+  featMatch=pickFeatured();
+  if(!featMatch){el.innerHTML="";return;}
+  const m=featMatch,d=new Date(m.iso),live=statusOf(d.getTime())[0]==="live";
+  el.innerHTML=`<div class="feat">
+    <span class="ftag">${live?"● LIVE NOW":"⚡ Up Next"}${team?" · "+team:""}</span>
+    <div class="frow">
+      <div class="fteam"><div class="ff">${fl(m.t1)}</div><div class="fn">${m.t1}</div></div>
+      <div class="fmid"><div class="cd" id="feat-cd">${live?"LIVE":(countdown(d.getTime())||"—")}</div><div class="cdl">${live?"IN PLAY":"TO KICK-OFF"}</div></div>
+      <div class="fteam"><div class="ff">${fl(m.t2)}</div><div class="fn">${m.t2}</div></div>
+    </div>
+    <div class="fmeta">
+      <span>🏆 <b>Group ${m.g}</b></span>
+      <span>🕐 TOR <b>${fmtT(d,TOR)}</b></span>
+      <span>🕐 IST <b>${fmtT(d,IST)}</b></span>
+      ${(m.city)?`<span>📍 <b>${m.city}</b></span>`:""}
+    </div></div>`;
+}
+
+/* ---------- main render ---------- */
 function render(){
+  renderFeatured();
   const list=document.getElementById("list");
-  const showGroups = stage==="all"||stage==="group";
-  const showKO = stage==="all"||stage==="ko";
+  const showG=stage==="all"||stage==="group", showK=(stage==="all"||stage==="ko")&&!team&&!group;
   let html="";
-
-  if(showGroups){
-    let ms=M.filter(m=>(!group||m.g===group)&&(!team||m.t1===team||m.t2===team));
-    ms.sort((a,b)=>new Date(a.iso)-new Date(b.iso));
-    let curKey="";
-    ms.forEach(m=>{
-      const d=new Date(m.iso), key=torDateKey(d);
-      if(key!==curKey){
-        curKey=key;
-        html+=`<div class="daterow"><span>${fmtFull(d,TOR)}</span><span class="line"></span></div>`;
-      }
-      html+=matchCard(m);
-    });
-    if(!ms.length && stage==="group") html+=`<div class="empty">No group matches for this filter.</div>`;
+  if(showG){
+    let ms=M.filter(m=>(!group||m.g===group)&&(!team||m.t1===team||m.t2===team)).sort((a,b)=>new Date(a.iso)-new Date(b.iso));
+    let cur="";ms.forEach(m=>{const d=new Date(m.iso),k=dayKey(d);
+      if(k!==cur){cur=k;html+=`<div class="daterow"><span class="dt">${fmtF(d,TOR)}</span><span class="line"></span></div>`;}
+      html+=matchCard(m);});
+    if(!ms.length&&stage==="group")html+=`<div class="empty">No group matches for this filter.</div>`;
   }
-
-  if(showKO && !team && !group){
-    html+=`<div class="kohdr">🏆 Knockout stage</div>`;
-    KO.forEach(k=>html+=koCard(k));
-  }
-
-  if(!html) html=`<div class="empty">Nothing matches your filters.<br/>Try “All”.</div>`;
-  list.innerHTML=html;
+  if(showK){html+=`<div class="kohdr">🏆 Knockout Stage</div>`;KO.forEach(k=>html+=koCard(k));}
+  list.innerHTML=html||`<div class="empty">Nothing matches your filters.<br/>Tap “All”.</div>`;
 }
 
-/* ---------- clocks ---------- */
+/* ---------- clocks + live countdown ---------- */
 function tick(){
-  const now=new Date();
-  document.getElementById("clk-tor").textContent=fmtTime(now,TOR);
-  document.getElementById("clk-darj").textContent=fmtTime(now,DARJ);
-  document.getElementById("dt-tor").textContent=fmtDay(now,TOR);
-  document.getElementById("dt-darj").textContent=fmtDay(now,DARJ);
+  const n=new Date();
+  document.getElementById("clk-tor").textContent=fmtT(n,TOR);
+  document.getElementById("dt-tor").textContent=fmtD(n,TOR);
+  document.getElementById("clk-ist").textContent=fmtT(n,IST);
+  document.getElementById("dt-ist").textContent=fmtD(n,IST);
+  const cd=document.getElementById("feat-cd");
+  if(cd&&featMatch){const d=new Date(featMatch.iso).getTime();
+    cd.textContent=statusOf(d)[0]==="live"?"LIVE":(countdown(d)||"—");}
 }
 
-/* ---------- filters UI ---------- */
+/* ---------- filters ---------- */
 const STAGES=[["all","All"],["group","Group stage"],["ko","Knockout"],["today","Today"],["next","Upcoming"]];
 function buildFilters(){
   const f=document.getElementById("filters");
-  f.innerHTML=STAGES.map(([k,l])=>`<div class="chip ${k==="all"?"active":""}" data-k="${k}">${l}</div>`).join("");
+  f.innerHTML=STAGES.map(([k,l],i)=>`<div class="chip ${i===0?"active":""}" data-k="${k}">${l}</div>`).join("");
   f.querySelectorAll(".chip").forEach(c=>c.onclick=()=>{
-    f.querySelectorAll(".chip").forEach(x=>x.classList.remove("active"));
-    c.classList.add("active");
+    f.querySelectorAll(".chip").forEach(x=>x.classList.remove("active"));c.classList.add("active");
     const k=c.dataset.k;
-    if(k==="today"){stage="group"; filterToday();}
-    else if(k==="next"){stage="group"; filterUpcoming();}
-    else {stage=k; render();}
+    if(k==="today")quickDay();else if(k==="next")quickNext();else{stage=k;render();}
   });
 }
-function filterToday(){
-  const list=document.getElementById("list");
-  const todayKey=torDateKey(new Date());
-  const ms=M.filter(m=>torDateKey(new Date(m.iso))===todayKey).sort((a,b)=>new Date(a.iso)-new Date(b.iso));
-  list.innerHTML = ms.length ? ms.map(matchCard).join("") :
-    `<div class="empty">No matches today (${fmtFull(new Date(),TOR)}).<br/>Tap “Upcoming” for what's next.</div>`;
+function quickDay(){
+  renderFeatured();const tk=dayKey(new Date());
+  const ms=M.filter(m=>dayKey(new Date(m.iso))===tk).sort((a,b)=>new Date(a.iso)-new Date(b.iso));
+  document.getElementById("list").innerHTML=ms.length?
+    `<div class="daterow"><span class="dt">Today · ${fmtF(new Date(),TOR)}</span><span class="line"></span></div>`+ms.map(matchCard).join(""):
+    `<div class="empty">No matches today.<br/>Tap “Upcoming” to see what's next.</div>`;
 }
-function filterUpcoming(){
-  const list=document.getElementById("list");
-  const now=Date.now();
-  const ms=M.filter(m=>new Date(m.iso).getTime()+125*60000>now).sort((a,b)=>new Date(a.iso)-new Date(b.iso)).slice(0,12);
-  let html="", curKey="";
-  ms.forEach(m=>{const d=new Date(m.iso),key=torDateKey(d);
-    if(key!==curKey){curKey=key;html+=`<div class="daterow"><span>${fmtFull(d,TOR)}</span><span class="line"></span></div>`;}
+function quickNext(){
+  renderFeatured();const now=Date.now();
+  const ms=M.filter(m=>new Date(m.iso).getTime()+125*6e4>now).sort((a,b)=>new Date(a.iso)-new Date(b.iso)).slice(0,14);
+  let html="",cur="";ms.forEach(m=>{const d=new Date(m.iso),k=dayKey(d);
+    if(k!==cur){cur=k;html+=`<div class="daterow"><span class="dt">${fmtF(d,TOR)}</span><span class="line"></span></div>`;}
     html+=matchCard(m);});
-  list.innerHTML = html || `<div class="empty">The group stage is over — check the Knockout tab.</div>`;
+  document.getElementById("list").innerHTML=html||`<div class="empty">Group stage finished — check Knockout.</div>`;
 }
 
-/* ---------- team dropdown ---------- */
+/* ---------- selects ---------- */
 function buildTeams(){
   const sel=document.getElementById("teamSel");
-  const teams=[...new Set(M.flatMap(m=>[m.t1,m.t2]))].sort();
-  teams.forEach(t=>{const o=document.createElement("option");o.value=t;o.textContent=`${fl(t)}  ${t}`;sel.appendChild(o);});
-  sel.onchange=()=>{team=sel.value; resetChips(); render();};
-  document.getElementById("groupSel").onchange=e=>{group=e.target.value; resetChips(); render();};
+  [...new Set(M.flatMap(m=>[m.t1,m.t2]))].sort().forEach(t=>{
+    const o=document.createElement("option");o.value=t;o.textContent=`${fl(t)}  ${t}`;sel.appendChild(o);});
+  sel.onchange=()=>{team=sel.value;resetChips();render();};
+  document.getElementById("groupSel").onchange=e=>{group=e.target.value;resetChips();render();};
 }
-function resetChips(){
-  stage="all";
-  document.querySelectorAll("#filters .chip").forEach((x,i)=>x.classList.toggle("active",i===0));
-}
+function resetChips(){stage="all";document.querySelectorAll("#filters .chip").forEach((x,i)=>x.classList.toggle("active",i===0));}
 
 /* ---------- init ---------- */
-document.getElementById("bx").onclick=()=>document.getElementById("banner").style.display="none";
-buildFilters(); buildTeams(); tick(); render();
+document.getElementById("bx").onclick=()=>banner.style.display="none";
+buildFilters();buildTeams();tick();render();
 setInterval(tick,1000);
-setInterval(()=>{ // refresh live/FT statuses if viewing the full list
-  if(stage==="all"||stage==="group") render();
-},60000);
+setInterval(()=>{if(stage==="all"||stage==="group")render();},60000);
 </script>
 </body>
 </html>
