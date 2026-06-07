@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<meta name="theme-color" content="#12002e" />
+<meta name="theme-color" content="#0e1b4d" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 <meta name="apple-mobile-web-app-title" content="WC 2026" />
@@ -14,21 +14,21 @@
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
   :root{
-    --txt:#fff; --dim:#c9bdf2;
-    --mag:#ff1e88; --pur:#8a2be2; --blu:#2b6bff; --cyan:#16e0d4; --lime:#c6ff3a; --orng:#ff7a1a; --gold:#ffd029;
-    --tor:#22e0ff; --ist:#ff9b3d; --live:#ff2e4d;
+    --txt:#fff; --dim:#aeb8e0;
+    --mag:#3a52c9; --pur:#3942a3; --blu:#2b4dd6; --cyan:#3f8fbf; --lime:#4bb3a8; --orng:#c98a4e; --gold:#e6c068;
+    --tor:#6aa6e8; --ist:#e6c068; --live:#d9495e;
     --disp:'Anton','Archivo Black','Oswald',Impact,'Haettenschweiler',sans-serif;
     --body:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
   }
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
   html,body{margin:0;padding:0}
-  body{font-family:var(--body); color:var(--txt); min-height:100vh; overflow-x:hidden; background:#08001e;
+  body{font-family:var(--body); color:var(--txt); min-height:100vh; overflow-x:hidden; background:#060c24;
     padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)}
 
-  /* ---------- reactive aurora ---------- */
+  /* ---------- reactive aurora (matte royal) ---------- */
   .bg{position:fixed; inset:-8%; z-index:-2; overflow:hidden; will-change:transform;
-    background:linear-gradient(160deg,#16003c,#0a0024 55%,#05001a)}
-  .bg span{position:absolute; width:64vw; height:64vw; border-radius:50%; filter:blur(70px); opacity:.45; mix-blend-mode:screen; animation:float 20s ease-in-out infinite}
+    background:linear-gradient(160deg,#102050,#0a1438 55%,#060c24)}
+  .bg span{position:absolute; width:64vw; height:64vw; border-radius:50%; filter:blur(82px); opacity:.3; mix-blend-mode:screen; animation:float 22s ease-in-out infinite}
   .bg .b1{background:var(--mag); top:-14%; left:-14%}
   .bg .b2{background:var(--blu); top:-8%; right:-18%; animation-delay:-5s}
   .bg .b3{background:var(--cyan); bottom:-18%; left:6%; animation-delay:-10s}
@@ -40,14 +40,11 @@
   #confetti{position:fixed; inset:0; z-index:60; pointer-events:none}
 
   /* ---------- hero (scrolls away) ---------- */
-  .hero{position:relative; padding:14px 16px 13px; overflow:hidden}
+  .hero{position:relative; padding:16px 16px 14px; overflow:visible}
   .kicker{display:flex; align-items:center; gap:8px; font-weight:800; font-size:10px; letter-spacing:2.4px; color:var(--dim); text-transform:uppercase}
   .kicker .hosts{margin-left:auto; font-size:16px; letter-spacing:0; filter:drop-shadow(0 2px 4px rgba(0,0,0,.4))}
-  .wordmark{font-family:var(--disp); line-height:.82; margin:4px 0 8px; font-size:clamp(36px,10.5vw,58px); letter-spacing:1px; text-transform:uppercase; cursor:pointer; user-select:none;
-    background:linear-gradient(92deg,#fff,#ffd6ec 16%,#b9e0ff 40%,#b7fff6 60%,#fff 78%,#ffd6ec 100%); background-size:220% auto;
-    -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; filter:drop-shadow(0 3px 22px rgba(255,30,136,.45)); animation:shine 7s linear infinite}
-  .wordmark .yr{background:linear-gradient(92deg,var(--mag),var(--orng) 45%,var(--gold)); background-size:220% auto; -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; animation:shine 7s linear infinite}
-  @keyframes shine{to{background-position:220% center}}
+  .wordmark{font-family:var(--disp); line-height:.96; margin:2px 0 11px; padding:3px 0 4px; font-size:clamp(34px,10vw,56px); letter-spacing:1px; text-transform:uppercase; cursor:pointer; user-select:none; color:#e8edff}
+  .wordmark .yr{color:var(--gold)}
   .heroline{display:flex; flex-wrap:wrap; align-items:center; gap:7px; font-size:11.5px; font-weight:700; color:var(--dim)}
   .heroline .cb{display:inline-flex; align-items:center; gap:6px; padding:5px 11px; border-radius:999px; background:rgba(0,0,0,.3); border:1px solid rgba(255,255,255,.16); color:#fff}
   .heroline .cb .cdv{font-family:var(--disp); letter-spacing:.8px; color:var(--gold); font-variant-numeric:tabular-nums}
@@ -60,15 +57,15 @@
   .seg{display:flex; flex:1; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.16); border-radius:12px; padding:3px; gap:3px}
   .seg button{flex:1; border:0; background:transparent; color:var(--dim); font-family:var(--body); font-weight:800; font-size:12.5px; padding:8px 4px; border-radius:9px; cursor:pointer; transition:.18s; white-space:nowrap}
   .seg button:active{transform:scale(.96)}
-  .seg button[data-loc="TOR"].active{color:#03212b; background:linear-gradient(92deg,var(--tor),#8af0ff); box-shadow:0 4px 16px rgba(34,224,255,.45)}
-  .seg button[data-loc="IST"].active{color:#311800; background:linear-gradient(92deg,var(--ist),#ffc98a); box-shadow:0 4px 16px rgba(255,155,61,.45)}
+  .seg button[data-loc="TOR"].active{color:#fff; background:linear-gradient(92deg,#2b4dd6,#4f7fd6); box-shadow:0 3px 12px rgba(43,77,214,.4)}
+  .seg button[data-loc="IST"].active{color:#2a1d00; background:linear-gradient(92deg,var(--ist),#d9b25a); box-shadow:0 3px 12px rgba(176,140,60,.4)}
   .mclock{flex:0 0 auto; text-align:right; font-size:11px; font-weight:700; color:var(--dim); line-height:1.25; font-variant-numeric:tabular-nums}
   .mclock b{color:#fff; font-weight:800}
   .filters{display:flex; gap:8px; overflow-x:auto; scrollbar-width:none; padding-bottom:1px}
   .filters::-webkit-scrollbar{display:none}
   .chip{flex:0 0 auto; border:1px solid rgba(255,255,255,.16); background:rgba(255,255,255,.05); color:var(--dim); padding:7px 14px; border-radius:999px; font-size:12.5px; font-weight:700; cursor:pointer; white-space:nowrap; transition:.18s}
   .chip:active{transform:scale(.95)}
-  .chip.active{color:#fff; border-color:transparent; background:linear-gradient(92deg,var(--mag),var(--pur)); box-shadow:0 4px 16px rgba(255,30,136,.4)}
+  .chip.active{color:#fff; border-color:transparent; background:linear-gradient(92deg,#2b4dd6,#3942a3); box-shadow:0 3px 12px rgba(43,77,214,.35)}
   .toolbar{display:flex; gap:8px; margin-top:8px}
   select{flex:1; min-width:0; -webkit-appearance:none; appearance:none;
     background:rgba(255,255,255,.06) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23c9bdf2' stroke-width='3'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 11px center;
@@ -78,10 +75,10 @@
   main{padding:14px 13px 90px; max-width:700px; margin:0 auto}
 
   /* ---------- featured ---------- */
-  .feat{position:relative; border-radius:22px; padding:16px 16px 14px; margin-bottom:18px; overflow:hidden;
-    background:linear-gradient(135deg, rgba(255,30,136,.92), rgba(138,43,226,.88) 52%, rgba(43,107,255,.92)); box-shadow:0 18px 46px -12px rgba(255,30,136,.6)}
-  .feat::after{content:""; position:absolute; top:-60%; left:-60%; width:80%; height:220%; transform:rotate(18deg); background:linear-gradient(90deg,transparent,rgba(255,255,255,.28),transparent); animation:sheen 5.5s ease-in-out infinite}
-  @keyframes sheen{0%{left:-60%}55%,100%{left:130%}}
+  .feat{position:relative; border-radius:20px; padding:16px 16px 14px; margin-bottom:18px; overflow:hidden;
+    background:linear-gradient(135deg,#2b4dd6,#1f338f 60%,#1a2a6e); border:1px solid rgba(255,255,255,.14); box-shadow:0 14px 36px -16px rgba(20,40,120,.7)}
+  .feat::after{content:none}
+  .feat .ftag{border:1px solid rgba(255,255,255,.18)}
   .feat .ftag{display:inline-flex; align-items:center; gap:7px; font-size:10.5px; font-weight:900; letter-spacing:1.6px; text-transform:uppercase; background:rgba(0,0,0,.3); padding:6px 12px; border-radius:999px; position:relative; z-index:1}
   .feat .frow{display:flex; align-items:center; gap:8px; margin-top:14px; position:relative; z-index:1}
   .feat .fteam{flex:1; text-align:center; min-width:0}
@@ -95,16 +92,16 @@
 
   /* ---------- day divider ---------- */
   .daterow{display:flex; align-items:center; gap:11px; margin:22px 3px 11px}
-  .daterow .dt{font-family:var(--disp); font-size:15px; letter-spacing:1.4px; text-transform:uppercase; background:linear-gradient(92deg,var(--cyan),var(--lime)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent}
+  .daterow .dt{font-family:var(--disp); font-size:15px; letter-spacing:1.4px; text-transform:uppercase; background:linear-gradient(92deg,var(--tor),var(--gold)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent}
   .daterow .line{flex:1; height:2px; border-radius:2px; background:linear-gradient(90deg,rgba(255,255,255,.3),transparent)}
 
   /* ---------- match card ---------- */
   .card{position:relative; border-radius:18px; padding:14px 15px 13px; margin-bottom:12px; overflow:hidden; cursor:pointer;
     background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); -webkit-backdrop-filter:blur(7px); backdrop-filter:blur(7px); transition:transform .15s, border-color .2s}
   .card:active{transform:scale(.992)}
-  .card::before{content:""; position:absolute; left:0; top:0; bottom:0; width:5px; background:var(--gc,#fff); box-shadow:0 0 16px var(--gc,#fff)}
-  .card.live{border-color:rgba(255,46,77,.6); box-shadow:0 0 0 1px rgba(255,46,77,.45),0 10px 28px -10px rgba(255,46,77,.7)}
-  .card.today:not(.live){border-color:rgba(255,208,41,.5)}
+  .card::before{content:""; position:absolute; left:0; top:0; bottom:0; width:4px; background:var(--gc,#fff)}
+  .card.live{border-color:rgba(217,73,94,.55)}
+  .card.today:not(.live){border-color:rgba(230,192,104,.45)}
   .top{display:flex; align-items:center; gap:9px; margin-bottom:11px}
   .badge{font-size:10px; font-weight:900; padding:4px 10px; border-radius:999px; letter-spacing:.8px; color:var(--gc,#fff); background:color-mix(in srgb,var(--gc,#fff) 20%,transparent); border:1px solid color-mix(in srgb,var(--gc,#fff) 50%,transparent)}
   .status{margin-left:auto; font-size:10px; font-weight:900; letter-spacing:1px; padding:4px 11px; border-radius:999px}
@@ -137,7 +134,7 @@
   /* ---------- knockout ---------- */
   .kohdr{font-family:var(--disp); font-size:23px; letter-spacing:1.4px; text-transform:uppercase; margin:26px 3px 12px; display:flex; align-items:center; gap:9px; cursor:pointer;
     background:linear-gradient(92deg,var(--gold),var(--orng)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent}
-  .card.final{background:linear-gradient(135deg,rgba(255,208,41,.24),rgba(255,122,26,.16)); border-color:rgba(255,208,41,.55)}
+  .card.final{background:linear-gradient(135deg,rgba(230,192,104,.2),rgba(201,138,78,.13)); border-color:rgba(230,192,104,.5)}
   .card.final::before{background:linear-gradient(var(--gold),var(--orng))}
 
   .banner{background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); border-radius:14px; padding:12px 13px; font-size:12px; color:var(--dim); margin-bottom:16px; display:flex; gap:9px; line-height:1.5}
@@ -204,7 +201,7 @@ const FLAG={"Mexico":"🇲🇽","South Africa":"🇿🇦","Korea Republic":"🇰
 "Austria":"🇦🇹","Jordan":"🇯🇴","Portugal":"🇵🇹","DR Congo":"🇨🇩","Uzbekistan":"🇺🇿","Colombia":"🇨🇴",
 "England":"🏴󠁧󠁢󠁥󠁮󠁧󠁿","Croatia":"🇭🇷","Ghana":"🇬🇭","Panama":"🇵🇦","TBD":"🏳️"};
 const fl=t=>FLAG[t]||"⚽";
-const GC={A:"#ff1e88",B:"#ff7a1a",C:"#ffd029",D:"#8ce64a",E:"#16e0d4",F:"#2bb3ff",G:"#5d6bff",H:"#a35cff",I:"#ff5ca8",J:"#ff9b3d",K:"#36d399",L:"#22e0ff"};
+const GC={A:"#e6c068",B:"#cf8a5b",C:"#cdb24a",D:"#7bbf86",E:"#4bb3a8",F:"#5b8def",G:"#5566c4",H:"#8c7bd8",I:"#b97fae",J:"#d09a5b",K:"#5bb38a",L:"#6aa6d8"};
 
 /* ---------- group stage (Eastern / Toronto kickoff) ---------- */
 const M=[
@@ -342,7 +339,7 @@ function koCard(k){
       <div class="drow">${s.flag} <b>${s.label}</b>: ${fmtF(d,s.tz)} · ${fmtT(d,s.tz)}</div>
       <div class="drow">📍 ${k.venue}</div>
       <div class="drow"><span class="kick">⏱ <span class="live-cd" data-ts="${ts}">…</span></span></div></div>`;}
-  return `<div class="card ${k.final?"final":""}" style="--gc:${k.final?"#ffd029":"#a35cff"}">
+  return `<div class="card ${k.final?"final":""}" style="--gc:${k.final?"#e6c068":"#5b8def"}">
     <div class="top"><span class="badge">${k.final?"🏆 ":""}${k.r}</span><span class="status up">${dateText}</span>${k.iso?'<span class="chev">⌄</span>':''}</div>
     <div class="teams">
       <div class="side home"><span class="flag">🏳️</span><span class="nm" style="color:var(--dim)">TBD</span></div>
@@ -469,7 +466,7 @@ const cvs=document.getElementById("confetti"),ctx=cvs.getContext("2d");
 let parts=[],raf=null,dpr=Math.min(devicePixelRatio||1,2);
 function resize(){dpr=Math.min(devicePixelRatio||1,2);cvs.width=innerWidth*dpr;cvs.height=innerHeight*dpr;cvs.style.width=innerWidth+"px";cvs.style.height=innerHeight+"px";ctx.setTransform(dpr,0,0,dpr,0,0);}
 resize();addEventListener("resize",resize);
-const CFC=["#ff1e88","#ffd029","#16e0d4","#2b6bff","#8a2be2","#c6ff3a","#ff7a1a","#ffffff"];
+const CFC=["#2b4dd6","#5b8def","#e6c068","#ffffff","#cdd9ff","#1f338f","#c9a94e","#9fb4e6"];
 function burst(n=100,colors){if(reduce)return;colors=colors||CFC;
   for(let i=0;i<n;i++)parts.push({x:innerWidth*(.5+(Math.random()-.5)*.5),y:innerHeight*.28,
     vx:(Math.random()-.5)*11,vy:Math.random()*-13-4,g:.32+Math.random()*.22,
