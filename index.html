@@ -499,10 +499,11 @@ addEventListener("pointermove",e=>{px=(e.clientX/innerWidth-.5)*22;py=(e.clientY
 document.getElementById("bx").onclick=()=>document.getElementById("banner").style.display="none";
 document.getElementById("wm").onclick=()=>burst(110);
 document.getElementById("wclogo").onclick=()=>burst(120);
-(function(){var wi=document.getElementById("wclogo-img"),sv=document.getElementById("wclogo-svg");
-  wi.onload=function(){if(wi.naturalWidth){wi.style.display="block";sv.style.display="none";}};
-  wi.onerror=function(){wi.style.display="none";};
-  wi.src="logo.png";})();
+(function(){var wi=document.getElementById("wclogo-img"),sv=document.getElementById("wclogo-svg"),
+  cands=["logo.png","logo.jpg","logo.jpeg","logo.svg","logo.webp","logo.avif"],i=0;
+  function tryNext(){if(i>=cands.length){wi.style.display="none";return;}wi.src=cands[i++];}
+  wi.onload=function(){if(wi.naturalWidth){wi.style.display="block";sv.style.display="none";}else tryNext();};
+  wi.onerror=tryNext; tryNext();})();
 buildFilters();buildLoc();buildTeams();buildTicker();tick();render();
 setInterval(tick,1000);
 setInterval(()=>{if(activeView==="list"&&(stage==="all"||stage==="group")){if(!document.querySelector(".card.open"))render();}},60000);
