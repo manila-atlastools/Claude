@@ -43,11 +43,18 @@
 
   /* ---------- hero ---------- */
   .hero{position:relative; padding:18px 16px 13px}
-  .wclogo{position:absolute; top:10px; right:13px; width:82px; z-index:2; cursor:pointer; animation:bob 7s ease-in-out infinite; filter:drop-shadow(0 8px 16px rgba(0,0,20,.45))}
-  .wclogo svg{display:block; width:100%; height:auto}
-  .wclogo.has-img{width:128px}
-  .wclogo img{display:none; width:100%; height:auto; max-height:78px; object-fit:contain; border-radius:9px}
+  .masthead{display:flex; justify-content:center; align-items:center; margin:12px 0 9px; cursor:pointer}
+  .masthead .crest{display:block; width:88px; height:auto; animation:bob 7s ease-in-out infinite; filter:drop-shadow(0 8px 16px rgba(0,0,20,.45))}
+  .masthead img{display:none; width:auto; max-width:min(290px,84%); max-height:120px; object-fit:contain; border-radius:16px;
+    border:1px solid var(--line2); box-shadow:0 6px 0 -4px rgba(255,255,255,.06) inset, 0 20px 44px -22px rgba(0,0,20,.8); padding:3px; background:linear-gradient(160deg,rgba(236,232,221,.06),rgba(20,29,51,.2))}
   @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+  .hero.has-img{text-align:center}
+  .hero.has-img .crest{display:none}
+  .hero.has-img .masthead img{display:block}
+  .hero.has-img .wordmark{display:none}
+  .hero.has-img .kicker{justify-content:center}
+  .hero.has-img .accentbar{margin-left:auto; margin-right:auto}
+  .hero.has-img .heroline{justify-content:center}
   .kicker{display:flex; align-items:center; gap:8px; font-weight:700; font-size:10px; letter-spacing:2.8px; color:var(--brassSoft); text-transform:uppercase; opacity:.85}
   .kicker .ball{display:inline-block; animation:spin 7s linear infinite} @keyframes spin{to{transform:rotate(360deg)}}
   .wordmark{font-family:var(--disp); line-height:.92; margin:8px 0 5px; padding:3px 0; font-size:clamp(36px,11vw,60px); letter-spacing:1.5px; text-transform:uppercase; cursor:pointer; user-select:none; color:var(--chalk)}
@@ -163,10 +170,11 @@
 <div class="grain"></div>
 <canvas id="confetti"></canvas>
 
-<div class="hero">
-  <div class="wclogo" id="wclogo" title="World Cup 26">
+<div class="hero" id="hero">
+  <div class="kicker"><span><span class="ball">⚽</span> Canada · Mexico · USA</span></div>
+  <div class="masthead" id="masthead" title="World Cup 26">
     <img id="wclogo-img" alt="World Cup 26 logo" />
-    <svg id="wclogo-svg" viewBox="0 0 90 106" role="img" aria-label="World Cup 26 crest">
+    <svg id="wclogo-svg" class="crest" viewBox="0 0 90 106" role="img" aria-label="World Cup 26 crest">
       <defs>
         <linearGradient id="brass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cdbb92"/><stop offset="1" stop-color="#937f52"/></linearGradient>
         <linearGradient id="nav" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1c2746"/><stop offset="1" stop-color="#121a30"/></linearGradient>
@@ -182,7 +190,6 @@
       <text x="45" y="92" text-anchor="middle" font-family="'Baloo 2',sans-serif" font-weight="800" font-size="19" letter-spacing="-1" fill="url(#brass)">26</text>
     </svg>
   </div>
-  <div class="kicker"><span><span class="ball">⚽</span> The Beautiful Game</span></div>
   <div class="wordmark" id="wm" title="tap me">World Cup</div>
   <div class="accentbar"></div>
   <div class="heroline">
@@ -499,11 +506,11 @@ addEventListener("pointermove",e=>{px=(e.clientX/innerWidth-.5)*22;py=(e.clientY
 
 document.getElementById("bx").onclick=()=>document.getElementById("banner").style.display="none";
 document.getElementById("wm").onclick=()=>burst(110);
-document.getElementById("wclogo").onclick=()=>burst(120);
+document.getElementById("masthead").onclick=()=>burst(120);
 (function(){var wi=document.getElementById("wclogo-img"),sv=document.getElementById("wclogo-svg"),
   cands=["logo.png","logo.jpg","logo.jpeg","logo.svg","logo.webp","logo.avif"],i=0;
   function tryNext(){if(i>=cands.length){wi.style.display="none";return;}wi.src=cands[i++];}
-  wi.onload=function(){if(wi.naturalWidth){wi.style.display="block";sv.style.display="none";document.getElementById("wclogo").classList.add("has-img");}else tryNext();};
+  wi.onload=function(){if(wi.naturalWidth){document.getElementById("hero").classList.add("has-img");}else tryNext();};
   wi.onerror=tryNext; tryNext();})();
 buildFilters();buildLoc();buildTeams();buildTicker();tick();render();
 setInterval(tick,1000);
