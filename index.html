@@ -45,6 +45,7 @@
   .hero{position:relative; padding:18px 16px 13px}
   .wclogo{position:absolute; top:10px; right:13px; width:82px; z-index:2; cursor:pointer; animation:bob 7s ease-in-out infinite; filter:drop-shadow(0 8px 16px rgba(0,0,20,.45))}
   .wclogo svg{display:block; width:100%; height:auto}
+  .wclogo img{display:none; width:100%; height:auto; border-radius:8px}
   @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
   .kicker{display:flex; align-items:center; gap:8px; font-weight:700; font-size:10px; letter-spacing:2.8px; color:var(--brassSoft); text-transform:uppercase; opacity:.85}
   .kicker .ball{display:inline-block; animation:spin 7s linear infinite} @keyframes spin{to{transform:rotate(360deg)}}
@@ -163,7 +164,8 @@
 
 <div class="hero">
   <div class="wclogo" id="wclogo" title="World Cup 26">
-    <svg viewBox="0 0 90 106" role="img" aria-label="World Cup 26 crest">
+    <img id="wclogo-img" alt="World Cup 26 logo" />
+    <svg id="wclogo-svg" viewBox="0 0 90 106" role="img" aria-label="World Cup 26 crest">
       <defs>
         <linearGradient id="brass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cdbb92"/><stop offset="1" stop-color="#937f52"/></linearGradient>
         <linearGradient id="nav" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1c2746"/><stop offset="1" stop-color="#121a30"/></linearGradient>
@@ -497,6 +499,10 @@ addEventListener("pointermove",e=>{px=(e.clientX/innerWidth-.5)*22;py=(e.clientY
 document.getElementById("bx").onclick=()=>document.getElementById("banner").style.display="none";
 document.getElementById("wm").onclick=()=>burst(110);
 document.getElementById("wclogo").onclick=()=>burst(120);
+(function(){var wi=document.getElementById("wclogo-img"),sv=document.getElementById("wclogo-svg");
+  wi.onload=function(){if(wi.naturalWidth){wi.style.display="block";sv.style.display="none";}};
+  wi.onerror=function(){wi.style.display="none";};
+  wi.src="logo.png";})();
 buildFilters();buildLoc();buildTeams();buildTicker();tick();render();
 setInterval(tick,1000);
 setInterval(()=>{if(activeView==="list"&&(stage==="all"||stage==="group")){if(!document.querySelector(".card.open"))render();}},60000);
