@@ -43,21 +43,20 @@
 
   /* ---------- hero ---------- */
   .hero{position:relative; padding:18px 16px 13px}
-  .masthead{display:flex; justify-content:center; align-items:center; margin:12px 0 9px; cursor:pointer}
+  .herobanner{display:none; position:relative; width:100%; line-height:0; cursor:pointer; border-bottom:1px solid var(--line)}
+  .herobanner img{width:100%; height:auto; max-height:190px; object-fit:cover; object-position:center; display:block}
+  .herobanner::after{content:""; position:absolute; left:0; right:0; bottom:0; height:56px; background:linear-gradient(to top,var(--navy2),transparent); pointer-events:none}
+  .masthead{display:flex; justify-content:center; align-items:center; margin:12px 0 9px}
   .masthead .crest{display:block; width:88px; height:auto; animation:bob 7s ease-in-out infinite; filter:drop-shadow(0 8px 16px rgba(0,0,20,.45))}
-  .masthead img{display:none; width:auto; max-width:min(290px,84%); max-height:120px; object-fit:contain; border-radius:16px;
-    border:1px solid var(--line2); box-shadow:0 6px 0 -4px rgba(255,255,255,.06) inset, 0 20px 44px -22px rgba(0,0,20,.8); padding:3px; background:linear-gradient(160deg,rgba(236,232,221,.06),rgba(20,29,51,.2))}
   @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
   .hero.has-img{text-align:center}
-  .hero.has-img .crest{display:none}
-  .hero.has-img .masthead img{display:block}
-  .hero.has-img .wordmark{display:none}
+  .hero.has-img .masthead{display:none}
   .hero.has-img .kicker{justify-content:center}
   .hero.has-img .accentbar{margin-left:auto; margin-right:auto}
   .hero.has-img .heroline{justify-content:center}
   .kicker{display:flex; align-items:center; gap:8px; font-weight:700; font-size:10px; letter-spacing:2.8px; color:var(--brassSoft); text-transform:uppercase; opacity:.85}
   .kicker .ball{display:inline-block; animation:spin 7s linear infinite} @keyframes spin{to{transform:rotate(360deg)}}
-  .wordmark{font-family:var(--disp); line-height:.92; margin:8px 0 5px; padding:3px 0; font-size:clamp(36px,11vw,60px); letter-spacing:1.5px; text-transform:uppercase; cursor:pointer; user-select:none; color:var(--chalk)}
+  .wordmark{font-family:var(--disp); line-height:.94; margin:8px 0 5px; padding:3px 0; font-size:clamp(28px,8.5vw,48px); letter-spacing:1.2px; text-transform:uppercase; cursor:pointer; user-select:none; color:var(--chalk)}
   .accentbar{height:5px; width:118px; border-radius:5px; margin:3px 0 12px; background:linear-gradient(90deg,var(--brass),var(--brass2) 60%,rgba(156,135,90,0))}
   .heroline{display:flex; flex-wrap:wrap; align-items:center; gap:9px; font-size:11.5px; font-weight:600; color:var(--chalkDim)}
   .scoreclip{display:inline-flex; align-items:center; gap:8px; padding:6px 13px; border-radius:8px; background:linear-gradient(160deg,var(--panel),var(--panel2)); border:1px solid var(--line)}
@@ -170,10 +169,10 @@
 <div class="grain"></div>
 <canvas id="confetti"></canvas>
 
+<div class="herobanner" id="herobanner" title="World Cup 26"><img id="wclogo-img" alt="FIFA World Cup 2026 logo" /></div>
 <div class="hero" id="hero">
   <div class="kicker"><span><span class="ball">⚽</span> Canada · Mexico · USA</span></div>
-  <div class="masthead" id="masthead" title="World Cup 26">
-    <img id="wclogo-img" alt="World Cup 26 logo" />
+  <div class="masthead" id="masthead">
     <svg id="wclogo-svg" class="crest" viewBox="0 0 90 106" role="img" aria-label="World Cup 26 crest">
       <defs>
         <linearGradient id="brass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cdbb92"/><stop offset="1" stop-color="#937f52"/></linearGradient>
@@ -190,7 +189,7 @@
       <text x="45" y="92" text-anchor="middle" font-family="'Baloo 2',sans-serif" font-weight="800" font-size="19" letter-spacing="-1" fill="url(#brass)">26</text>
     </svg>
   </div>
-  <div class="wordmark" id="wm" title="tap me">World Cup</div>
+  <div class="wordmark" id="wm" title="tap me">FIFA World Cup 2026</div>
   <div class="accentbar"></div>
   <div class="heroline">
     <span class="scoreclip">⚽ <span id="hero-cd">—</span></span>
@@ -506,11 +505,11 @@ addEventListener("pointermove",e=>{px=(e.clientX/innerWidth-.5)*22;py=(e.clientY
 
 document.getElementById("bx").onclick=()=>document.getElementById("banner").style.display="none";
 document.getElementById("wm").onclick=()=>burst(110);
-document.getElementById("masthead").onclick=()=>burst(120);
+document.getElementById("herobanner").onclick=()=>burst(120);
 (function(){var wi=document.getElementById("wclogo-img"),sv=document.getElementById("wclogo-svg"),
   cands=["logo.png","logo.jpg","logo.jpeg","logo.svg","logo.webp","logo.avif"],i=0;
   function tryNext(){if(i>=cands.length){wi.style.display="none";return;}wi.src=cands[i++];}
-  wi.onload=function(){if(wi.naturalWidth){document.getElementById("hero").classList.add("has-img");}else tryNext();};
+  wi.onload=function(){if(wi.naturalWidth){document.getElementById("hero").classList.add("has-img");document.getElementById("herobanner").style.display="block";}else tryNext();};
   wi.onerror=tryNext; tryNext();})();
 buildFilters();buildLoc();buildTeams();buildTicker();tick();render();
 setInterval(tick,1000);
