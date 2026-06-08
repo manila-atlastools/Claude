@@ -43,9 +43,9 @@
 
   /* ---------- hero ---------- */
   .hero{position:relative; padding:18px 16px 13px}
-  .herobanner{display:none; position:relative; width:100%; line-height:0; cursor:pointer; border-bottom:1px solid var(--line)}
-  .herobanner img{width:100%; height:auto; max-height:190px; object-fit:cover; object-position:center; display:block}
-  .herobanner::after{content:""; position:absolute; left:0; right:0; bottom:0; height:56px; background:linear-gradient(to top,var(--navy2),transparent); pointer-events:none}
+  .herobanner{display:none; position:relative; width:100%; max-width:560px; margin:0 auto; line-height:0; cursor:pointer}
+  .herobanner img{width:100%; height:auto; object-fit:contain; display:block}
+  .herobanner::after{content:""; position:absolute; left:0; right:0; bottom:0; height:38px; background:linear-gradient(to top,var(--navy2),transparent); pointer-events:none}
   .masthead{display:flex; justify-content:center; align-items:center; margin:12px 0 9px}
   .masthead .crest{display:block; width:88px; height:auto; animation:bob 7s ease-in-out infinite; filter:drop-shadow(0 8px 16px rgba(0,0,20,.45))}
   @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
