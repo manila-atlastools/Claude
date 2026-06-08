@@ -43,7 +43,7 @@
 
   /* ---------- hero ---------- */
   .hero{position:relative; padding:18px 16px 13px}
-  .herobanner{display:none; position:relative; width:100%; max-width:560px; margin:0 auto; line-height:0; cursor:pointer}
+  .herobanner{display:none; position:relative; width:100%; max-width:440px; margin:0 auto; line-height:0; cursor:pointer}
   .herobanner img{width:100%; height:auto; object-fit:contain; display:block}
   .herobanner::after{content:""; position:absolute; left:0; right:0; bottom:0; height:38px; background:linear-gradient(to top,var(--navy2),transparent); pointer-events:none}
   .masthead{display:flex; justify-content:center; align-items:center; margin:12px 0 9px}
@@ -57,7 +57,8 @@
   .kicker{display:flex; align-items:center; gap:8px; font-weight:700; font-size:10px; letter-spacing:2.8px; color:var(--brassSoft); text-transform:uppercase; opacity:.85}
   .kicker .ball{display:inline-block; animation:spin 7s linear infinite} @keyframes spin{to{transform:rotate(360deg)}}
   .wordmark{font-family:var(--disp); line-height:.94; margin:8px 0 5px; padding:3px 0; font-size:clamp(28px,8.5vw,48px); letter-spacing:1.2px; text-transform:uppercase; cursor:pointer; user-select:none; color:var(--chalk)}
-  .accentbar{height:5px; width:118px; border-radius:5px; margin:3px 0 12px; background:linear-gradient(90deg,var(--brass),var(--brass2) 60%,rgba(156,135,90,0))}
+  .accentbar{height:5px; width:118px; border-radius:5px; margin:3px 0 10px; background:linear-gradient(90deg,var(--brass),var(--brass2) 60%,rgba(156,135,90,0))}
+  .tagline{font-family:var(--body); font-weight:700; font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--brassSoft); opacity:.92; margin:0 0 12px}
   .heroline{display:flex; flex-wrap:wrap; align-items:center; gap:9px; font-size:11.5px; font-weight:600; color:var(--chalkDim)}
   .scoreclip{display:inline-flex; align-items:center; gap:8px; padding:6px 13px; border-radius:8px; background:linear-gradient(160deg,var(--panel),var(--panel2)); border:1px solid var(--line)}
   .scoreclip .cdv{font-family:var(--disp); letter-spacing:1.2px; color:var(--brassSoft); font-variant-numeric:tabular-nums}
@@ -66,7 +67,7 @@
   /* ---------- ticker ---------- */
   .ticker{position:relative; overflow:hidden; white-space:nowrap; border-top:1px solid var(--line); border-bottom:1px solid var(--line); background:rgba(13,20,40,.45); padding:7px 0}
   .ticker .lbl{position:absolute; left:0; top:0; bottom:0; z-index:2; display:flex; align-items:center; padding:0 13px; font-family:var(--disp); font-size:12px; letter-spacing:1.6px; color:var(--navy2); background:linear-gradient(160deg,var(--brassSoft),var(--brass2))}
-  .track{display:inline-block; padding-left:98px; animation:march 46s linear infinite; font-size:12.5px; font-weight:600; color:var(--chalkDim)}
+  .track{display:inline-block; padding-left:100px; animation:march 85s linear infinite; font-size:12.5px; font-weight:600; color:var(--chalkDim)}
   .ticker:hover .track{animation-play-state:paused}
   .track b{color:var(--chalk)} .track .dot{color:var(--brass); margin:0 12px; opacity:.7}
   @keyframes march{from{transform:translateX(0)}to{transform:translateX(-50%)}}
@@ -191,13 +192,14 @@
   </div>
   <div class="wordmark" id="wm" title="tap me">FIFA World Cup 2026</div>
   <div class="accentbar"></div>
+  <div class="tagline">The Beautiful Game</div>
   <div class="heroline">
     <span class="scoreclip">⚽ <span id="hero-cd">—</span></span>
     <span class="meta">🇨🇦 🇲🇽 🇺🇸 · <b>48</b> teams · <b>104</b> matches</span>
   </div>
 </div>
 
-<div class="ticker"><span class="lbl">FIXTURES</span><span class="track" id="ticker">Loading…</span></div>
+<div class="ticker"><span class="lbl">NEXT 48H</span><span class="track" id="ticker">Loading…</span></div>
 
 <div class="controls">
   <div class="row1">
@@ -432,10 +434,14 @@ function quickNext(){
 function refresh(){activeView==="today"?quickDay():activeView==="next"?quickNext():render();buildTicker();}
 
 function buildTicker(){
-  const now=Date.now(),p=P();
-  const ms=M.filter(m=>!m.tbc&&new Date(m.iso).getTime()+125*6e4>now).sort((a,b)=>new Date(a.iso)-new Date(b.iso)).slice(0,16);
-  const seg=ms.map(m=>{const d=new Date(m.iso);return `${fl(m.t1)} <b>${m.t1}</b> v <b>${m.t2}</b> ${fl(m.t2)} · ${fmtD(d,p.tz).split(",")[0]} ${fmtT(d,p.tz)}`;}).join('<span class="dot">◆</span>');
-  const all=seg?seg+'<span class="dot">◆</span>':"Schedule complete — see knockout bracket ";
+  const now=Date.now(),p=P(),end=now+48*36e5;
+  const item=m=>{const d=new Date(m.iso);return `${fl(m.t1)} <b>${m.t1}</b> v <b>${m.t2}</b> ${fl(m.t2)} · ${fmtD(d,p.tz).split(",")[0]} ${fmtT(d,p.tz)}`;};
+  const ms=M.filter(m=>!m.tbc&&new Date(m.iso).getTime()+125*6e4>now&&new Date(m.iso).getTime()<=end).sort((a,b)=>new Date(a.iso)-new Date(b.iso));
+  let seg;
+  if(ms.length){seg=ms.map(item).join('<span class="dot">◆</span>');}
+  else{const nxt=M.filter(m=>!m.tbc&&new Date(m.iso).getTime()+125*6e4>now).sort((a,b)=>new Date(a.iso)-new Date(b.iso))[0];
+    seg=nxt?`No matches in the next 48 hours · First up: ${item(nxt)}`:"Group stage complete — see the knockout bracket";}
+  const all=seg+'<span class="dot">◆</span>';
   document.getElementById("ticker").innerHTML=all+all;
 }
 
