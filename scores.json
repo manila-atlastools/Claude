@@ -25,11 +25,11 @@
     "home": "Canada",
     "away": "Bosnia-Herzegovina",
     "utcDate": "2026-06-12T19:00:00Z",
-    "status": "TIMED",
+    "status": "IN_PLAY",
     "minute": null,
     "score": [
-      null,
-      null
+      0,
+      0
     ]
   },
   {
