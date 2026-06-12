@@ -1,0 +1,34 @@
+name: Probe API-Football
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Probe API-Football
+        env:
+          KEY: ${{ secrets.FOOTBALL_API_KEY }}
+        run: |
+          set -e
+          base="https://v3.football.api-sports.io"
+          echo "=== status (key check) ==="
+          curl -sS -H "x-apisports-key: $KEY" "$base/status" \
+            | jq '{errors, plan: .response.subscription.plan, active: .response.subscription.active, reqs: .response.requests}' || true
+          echo ""
+          echo "=== fixtures league=1 season=2026 ==="
+          FX=$(curl -sS -H "x-apisports-key: $KEY" "$base/fixtures?league=1&season=2026")
+          echo "$FX" | jq '{results, errors}'
+          echo "--- first 6 ---"
+          echo "$FX" | jq -r '.response[:6][] | "\(.fixture.id) \(.fixture.status.short) \(.fixture.date) | \(.teams.home.name) v \(.teams.away.name)"'
+          echo "--- started/finished (non-NS) ---"
+          echo "$FX" | jq -r '[.response[] | select(.fixture.status.short!="NS")][:10][] | "\(.fixture.id) \(.fixture.status.short) | \(.teams.home.name) v \(.teams.away.name)"'
+          ID=$(echo "$FX" | jq -r '([.response[] | select(.fixture.status.short!="NS")][0].fixture.id) // .response[0].fixture.id')
+          echo ""
+          echo "=== lineups for fixture $ID ==="
+          LU=$(curl -sS -H "x-apisports-key: $KEY" "$base/fixtures/lineups?fixture=$ID")
+          echo "$LU" | jq '{results, errors}'
+          echo "$LU" | jq -rc '.response[]? | {team: .team.name, formation, coach: .coach.name, xi: (.startXI|length), sample: (.startXI[0].player // null)}'
