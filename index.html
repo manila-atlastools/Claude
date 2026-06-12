@@ -139,6 +139,7 @@
   .card.open .side .flag{transform:scale(1.12)}
   .side .nm{font-family:var(--disp); font-size:17px; letter-spacing:.4px; line-height:1.04; text-transform:uppercase; min-width:0; color:var(--chalk)}
   .mid .vs{font-family:var(--disp); font-size:12px; color:var(--brassSoft); background:rgba(188,165,114,.1); border:1px solid var(--line); padding:5px 8px; border-radius:7px}
+  .mid .vs.score{font-size:16px; color:var(--chalk); background:rgba(188,165,114,.2); border-color:var(--line2); letter-spacing:.5px; font-variant-numeric:tabular-nums; padding:5px 11px}
   .meta{display:flex; gap:10px; margin-top:12px; padding-top:10px; border-top:1px solid var(--line); align-items:flex-end}
   .venue{flex:1; min-width:0; font-size:12px; color:var(--chalkDim); font-weight:500; display:flex; gap:5px; align-items:center}
   .timebox{text-align:right; flex:0 0 auto}
@@ -353,23 +354,46 @@ const fmtT=(d,tz)=>new Intl.DateTimeFormat("en-US",{hour:"numeric",minute:"2-dig
 const fmtD=(d,tz)=>new Intl.DateTimeFormat("en-US",{weekday:"short",month:"short",day:"numeric",timeZone:tz}).format(d);
 const fmtF=(d,tz)=>new Intl.DateTimeFormat("en-US",{weekday:"long",month:"long",day:"numeric",timeZone:tz}).format(d);
 const dayKey=d=>new Intl.DateTimeFormat("en-CA",{year:"numeric",month:"2-digit",day:"2-digit",timeZone:P().tz}).format(d);
-function statusOf(s){const n=Date.now(),e=s+125*6e4;return n<s?["up","UPCOMING"]:n<=e?["live","● LIVE"]:["ft","FULL TIME"];}
+/* ---------- live scores ---------- */
+const NORM={"South Korea":"Korea Republic","Czech Republic":"Czechia","Bosnia and Herzegovina":"Bosnia & Herzegovina","Côte d'Ivoire":"Ivory Coast","Cape Verde Islands":"Cape Verde","Cabo Verde":"Cape Verde","Turkey":"Türkiye","Congo DR":"DR Congo","USA":"United States","IR Iran":"Iran","Korea DPR":"Korea Republic"};
+const norm=n=>NORM[n]||n;
+const mkKey=(a,b,utc)=>[norm(a),norm(b)].sort().join("|")+"|"+utc.slice(0,10);
+let SCORES={};
+function scoreOf(m){try{const utc=new Date(m.iso).toISOString().slice(0,10);return SCORES[mkKey(m.t1,m.t2,utc)];}catch(e){return null;}}
+const LIVE_STATUSES=["LIVE","IN_PLAY","PAUSED"];
+async function fetchScores(){
+  try{const r=await fetch("scores.json?t="+Date.now());if(!r.ok)return;
+    const arr=await r.json();const next={};
+    arr.forEach(x=>{if(!x.utcDate)return;next[mkKey(x.home,x.away,x.utcDate)]=x;});
+    SCORES=next;
+    if(!document.querySelector(".card.open"))refresh();
+  }catch(e){}
+}
+function statusOf(s,m){
+  if(m){const sc=scoreOf(m);if(sc){
+    if(sc.status==="FINISHED")return["ft","FULL TIME"];
+    if(LIVE_STATUSES.includes(sc.status))return["live",sc.minute?`● ${sc.minute}'`:"● LIVE"];
+  }}
+  const n=Date.now(),e=s+125*6e4;return n<s?["up","UPCOMING"]:n<=e?["live","● LIVE"]:["ft","FULL TIME"];
+}
 function countdown(toMs){const x=toMs-Date.now();if(x<=0)return null;const d=Math.floor(x/864e5),h=Math.floor(x%864e5/36e5),m=Math.floor(x%36e5/6e4),s=Math.floor(x%6e4/1e3);return d>0?`${d}d ${h}h ${m}m`:h>0?`${h}h ${m}m ${s}s`:`${m}m ${s}s`;}
 
 let stage="all",group="",team="",featMatch=null,activeView="list";
 
 function matchCard(m){
-  const d=new Date(m.iso),ts=d.getTime(),[sc,st]=m.tbc?["up","TBC"]:statusOf(ts);
+  const d=new Date(m.iso),ts=d.getTime(),[sc,st]=m.tbc?["up","TBC"]:statusOf(ts,m);
   const today=dayKey(d)===dayKey(new Date()),p=P(),s=S();
   const pTime=m.tbc?"TBC":fmtT(d,p.tz);
   const sLine=m.tbc?"":`${s.flag} ${s.short} <b>${fmtT(d,s.tz)}</b> · ${fmtD(d,s.tz).split(",")[0]}`;
   const venue=(m.city||m.st)?`📍 ${[m.st,m.city].filter(Boolean).join(", ")}`:"📍 Venue TBC";
   const kick=m.tbc?`<span class="kick">⏱ Time to be confirmed</span>`:`<span class="kick">⏱ <span class="live-cd" data-ts="${ts}">…</span></span>`;
+  const scd=scoreOf(m),hasScore=scd&&scd.score&&scd.score[0]!=null;
+  const mid=hasScore?`<span class="vs score">${scd.score[0]}–${scd.score[1]}</span>`:`<span class="vs">VS</span>`;
   return `<div class="card ${today?"today":""} ${sc==="live"?"live":""}" style="--gc:${GC[m.g]}">
     <div class="top"><span class="badge">GROUP ${m.g}</span><span class="status ${sc}">${st}</span><span class="chev">⌄</span></div>
     <div class="teams">
       <div class="side home"><span class="flag">${fl(m.t1)}</span><span class="nm">${m.t1}</span></div>
-      <div class="mid"><span class="vs">VS</span></div>
+      <div class="mid">${mid}</div>
       <div class="side away"><span class="flag">${fl(m.t2)}</span><span class="nm">${m.t2}</span></div>
     </div>
     <div class="meta"><span class="venue">${venue}</span>
@@ -401,16 +425,19 @@ function koCard(k){
     <div class="meta"><span class="venue">📍 ${k.venue}</span>${tb}</div>${detail}</div>`;
 }
 
-function pickFeatured(){const now=Date.now();return M.filter(m=>!m.tbc&&(!team||m.t1===team||m.t2===team)&&new Date(m.iso).getTime()+125*6e4>now).sort((a,b)=>new Date(a.iso)-new Date(b.iso))[0]||null;}
+function pickFeatured(){return M.filter(m=>!m.tbc&&!isDone(m)&&(!team||m.t1===team||m.t2===team)).sort((a,b)=>new Date(a.iso)-new Date(b.iso))[0]||null;}
 function renderFeatured(){
   const el=document.getElementById("featured"); featMatch=pickFeatured();
   if(!featMatch){el.innerHTML="";return;}
-  const m=featMatch,d=new Date(m.iso),live=statusOf(d.getTime())[0]==="live",p=P(),s=S();
+  const m=featMatch,d=new Date(m.iso),live=statusOf(d.getTime(),m)[0]==="live",p=P(),s=S();
+  const scd=scoreOf(m),hasScore=scd&&scd.score&&scd.score[0]!=null;
+  const cdMain=hasScore?`${scd.score[0]}–${scd.score[1]}`:(live?"LIVE":(countdown(d.getTime())||"—"));
+  const cdLbl=hasScore?(live?(scd.minute?scd.minute+"'":"IN PLAY"):"FULL TIME"):(live?"IN PLAY":"TO KICK-OFF");
   el.innerHTML=`<div class="feat">
     <span class="ftag">${live?"● LIVE NOW":"⚡ Up Next"}${team?" · "+team:""}</span>
     <div class="frow">
       <div class="fteam"><div class="ff">${fl(m.t1)}</div><div class="fn">${m.t1}</div></div>
-      <div class="fmid"><div class="cd" id="feat-cd">${live?"LIVE":(countdown(d.getTime())||"—")}</div><div class="cdl">${live?"IN PLAY":"TO KICK-OFF"}</div></div>
+      <div class="fmid"><div class="cd" id="feat-cd">${cdMain}</div><div class="cdl">${cdLbl}</div></div>
       <div class="fteam"><div class="ff">${fl(m.t2)}</div><div class="fn">${m.t2}</div></div>
     </div>
     <div class="fmeta">
@@ -504,7 +531,7 @@ function tick(){
 function updLiveCd(sel){document.querySelectorAll(sel).forEach(el=>{const t=+el.dataset.ts,s=statusOf(t)[0];el.textContent=s==="live"?"LIVE NOW":s==="ft"?"Full time":("Kicks off in "+(countdown(t)||"—"));});}
 
 const STAGES=[["all","All"],["groups","Groups"],["group","Group stage"],["ko","Knockout"],["today","Today"],["next","Upcoming"],["done","Completed"]];
-const isDone=m=>!m.tbc&&Date.now()>new Date(m.iso).getTime()+125*6e4;
+const isDone=m=>{const sc=scoreOf(m);if(sc){if(sc.status==="FINISHED")return true;if(LIVE_STATUSES.includes(sc.status))return false;}return !m.tbc&&Date.now()>new Date(m.iso).getTime()+125*6e4;};
 function buildFilters(){
   const f=document.getElementById("filters");
   f.innerHTML=STAGES.map(([k,l],i)=>`<div class="chip ${i===0?"active":""}" data-k="${k}">${l}</div>`).join("");
@@ -562,8 +589,10 @@ document.getElementById("herobanner").onclick=()=>burst(120);
   wi.onload=function(){if(wi.naturalWidth){document.getElementById("hero").classList.add("has-img");document.getElementById("herobanner").style.display="block";}else tryNext();};
   wi.onerror=tryNext; tryNext();})();
 buildFilters();buildLoc();buildTeams();buildTicker();tick();render();
+fetchScores();
 setInterval(tick,1000);
 setInterval(()=>{if(activeView==="list"&&(stage==="all"||stage==="group")){if(!document.querySelector(".card.open"))render();}},60000);
+setInterval(fetchScores,60000);
 setTimeout(()=>burst(100),500);
 </script>
 </body>
