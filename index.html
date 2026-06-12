@@ -408,16 +408,32 @@ function renderFeatured(){
 function render(){
   activeView="list"; renderFeatured();
   const list=document.getElementById("list");
-  const showG=stage==="all"||stage==="group", showK=(stage==="all"||stage==="ko")&&!team&&!group;
+  const filt=m=>(!group||m.g===group)&&(!team||m.t1===team||m.t2===team);
   let html="";
+  if(stage==="done"){
+    const ms=M.filter(m=>filt(m)&&isDone(m)).sort((a,b)=>new Date(b.iso)-new Date(a.iso));
+    let cur=""; ms.forEach(m=>{const d=new Date(m.iso),k=dayKey(d);
+      if(k!==cur){cur=k;html+=`<div class="daterow"><span class="dt">${fmtF(d,P().tz)}</span><span class="line"></span></div>`;}
+      html+=matchCard(m);});
+    if(!ms.length)html=`<div class="empty">No matches have finished yet.</div>`;
+    list.innerHTML=html; return;
+  }
+  const showG=stage==="all"||stage==="group", showK=(stage==="all"||stage==="ko")&&!team&&!group;
   if(showG){
-    let ms=M.filter(m=>(!group||m.g===group)&&(!team||m.t1===team||m.t2===team)).sort((a,b)=>new Date(a.iso)-new Date(b.iso));
+    const ms=M.filter(m=>filt(m)&&!isDone(m)).sort((a,b)=>new Date(a.iso)-new Date(b.iso));
     let cur=""; ms.forEach(m=>{const d=new Date(m.iso),k=dayKey(d);
       if(k!==cur){cur=k;html+=`<div class="daterow"><span class="dt">${fmtF(d,P().tz)}</span><span class="line"></span></div>`;}
       html+=matchCard(m);});
     if(!ms.length&&stage==="group")html+=`<div class="empty">No group matches for this filter.</div>`;
   }
   if(showK){html+=`<div class="kohdr" id="kohdr">🏆 Knockout Stage</div>`;KO.forEach(k=>html+=koCard(k));}
+  if(stage==="all"||stage==="group"){
+    const done=M.filter(m=>filt(m)&&isDone(m)).sort((a,b)=>new Date(b.iso)-new Date(a.iso));
+    if(done.length){
+      html+=`<div class="kohdr" id="donehdr">✅ Completed <span style="font-size:13px;color:var(--chalkDim);letter-spacing:1px">(${done.length})</span></div>`;
+      done.forEach(m=>html+=matchCard(m));
+    }
+  }
   list.innerHTML=html||`<div class="empty">Nothing matches your filters.<br/>Tap “All”.</div>`;
 }
 function quickDay(){
@@ -460,7 +476,8 @@ function tick(){
 }
 function updLiveCd(sel){document.querySelectorAll(sel).forEach(el=>{const t=+el.dataset.ts,s=statusOf(t)[0];el.textContent=s==="live"?"LIVE NOW":s==="ft"?"Full time":("Kicks off in "+(countdown(t)||"—"));});}
 
-const STAGES=[["all","All"],["group","Group stage"],["ko","Knockout"],["today","Today"],["next","Upcoming"]];
+const STAGES=[["all","All"],["group","Group stage"],["ko","Knockout"],["today","Today"],["next","Upcoming"],["done","Completed"]];
+const isDone=m=>!m.tbc&&Date.now()>new Date(m.iso).getTime()+125*6e4;
 function buildFilters(){
   const f=document.getElementById("filters");
   f.innerHTML=STAGES.map(([k,l],i)=>`<div class="chip ${i===0?"active":""}" data-k="${k}">${l}</div>`).join("");
