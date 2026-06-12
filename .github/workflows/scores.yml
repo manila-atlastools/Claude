@@ -1,7 +1,9 @@
 name: Update scores
 on:
   schedule:
-    - cron: "*/5 * * * *"
+    # Offset off the :00/:05 boundary — GitHub drops crons that land on the
+    # congested top-of-5-minute slots. Runs at :02,:07,:12,… every 5 min.
+    - cron: "2-57/5 * * * *"
   workflow_dispatch:
 
 permissions:
