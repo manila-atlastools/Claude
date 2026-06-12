@@ -394,7 +394,7 @@ const fmtD=(d,tz)=>new Intl.DateTimeFormat("en-US",{weekday:"short",month:"short
 const fmtF=(d,tz)=>new Intl.DateTimeFormat("en-US",{weekday:"long",month:"long",day:"numeric",timeZone:tz}).format(d);
 const dayKey=d=>new Intl.DateTimeFormat("en-CA",{year:"numeric",month:"2-digit",day:"2-digit",timeZone:P().tz}).format(d);
 /* ---------- live scores ---------- */
-const NORM={"South Korea":"Korea Republic","Czech Republic":"Czechia","Bosnia and Herzegovina":"Bosnia & Herzegovina","Côte d'Ivoire":"Ivory Coast","Cape Verde Islands":"Cape Verde","Cabo Verde":"Cape Verde","Turkey":"Türkiye","Congo DR":"DR Congo","USA":"United States","IR Iran":"Iran","Korea DPR":"Korea Republic"};
+const NORM={"South Korea":"Korea Republic","Czech Republic":"Czechia","Bosnia and Herzegovina":"Bosnia & Herzegovina","Bosnia-Herzegovina":"Bosnia & Herzegovina","Côte d'Ivoire":"Ivory Coast","Cape Verde Islands":"Cape Verde","Cabo Verde":"Cape Verde","Turkey":"Türkiye","Congo DR":"DR Congo","USA":"United States","IR Iran":"Iran","Korea DPR":"Korea Republic"};
 const norm=n=>NORM[n]||n;
 const mkKey=(a,b,utc)=>[norm(a),norm(b)].sort().join("|")+"|"+utc.slice(0,10);
 let SCORES={};
