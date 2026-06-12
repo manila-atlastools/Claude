@@ -74,8 +74,29 @@
 
   /* ---------- sticky controls ---------- */
   .controls{position:sticky; top:0; z-index:40; background:rgba(15,24,46,.8); -webkit-backdrop-filter:blur(16px); backdrop-filter:blur(16px); border-bottom:1px solid var(--line); padding:9px 12px}
-  .row1{display:flex; align-items:center; gap:10px; margin-bottom:8px}
-  .seg{display:flex; flex:1; background:rgba(10,17,36,.5); border:1px solid var(--line); border-radius:12px; padding:3px; gap:3px}
+  .row1{display:flex; align-items:center; gap:9px}
+  .hamb{flex:0 0 auto; width:38px; height:38px; display:flex; align-items:center; justify-content:center; border:1px solid var(--line); border-radius:10px; background:rgba(10,17,36,.5); cursor:pointer; color:var(--chalk); padding:0}
+  .hamb:active{transform:scale(.94)}
+  .hamb svg{width:18px; height:18px}
+  .viewlabel{flex:1; min-width:0; font-family:var(--disp); font-size:13px; letter-spacing:1.4px; color:var(--brassSoft); text-transform:uppercase; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+
+  .backdrop{position:fixed; inset:0; z-index:90; background:rgba(5,9,20,.55); -webkit-backdrop-filter:blur(4px); backdrop-filter:blur(4px); opacity:0; pointer-events:none; transition:opacity .25s}
+  .backdrop.open{opacity:1; pointer-events:auto}
+  .drawer{position:fixed; top:0; left:0; bottom:0; width:288px; max-width:84vw; z-index:91; background:linear-gradient(170deg,#1a2440,#121a31); border-right:1px solid var(--line2); transform:translateX(-100%); transition:transform .28s ease; display:flex; flex-direction:column; padding-top:env(safe-area-inset-top); padding-bottom:env(safe-area-inset-bottom); overflow-y:auto; box-shadow:24px 0 48px -24px rgba(0,0,0,.6)}
+  .drawer.open{transform:translateX(0)}
+  .drawer .dhdr{display:flex; align-items:center; justify-content:space-between; padding:16px 18px 12px; border-bottom:1px solid var(--line)}
+  .drawer .dhdr .dt{font-family:var(--disp); font-size:15px; letter-spacing:1.6px; color:var(--chalk)}
+  .drawer .dx{font-size:24px; color:var(--chalkDim); cursor:pointer; line-height:1; padding:2px 8px; border-radius:6px}
+  .drawer .dx:hover{color:var(--chalk); background:rgba(255,255,255,.05)}
+  .drawer .dlist{padding:10px 10px 4px; display:flex; flex-direction:column; gap:3px}
+  .drawer .ditem{display:flex; align-items:center; gap:12px; padding:11px 13px; border-radius:10px; cursor:pointer; font-size:13.5px; font-weight:700; color:var(--chalkDim); border:1px solid transparent; transition:.18s; letter-spacing:.3px}
+  .drawer .ditem:hover{background:rgba(255,255,255,.04); color:var(--chalk)}
+  .drawer .ditem.active{background:linear-gradient(160deg,var(--brassSoft),var(--brass2)); color:var(--navy2); border-color:transparent}
+  .drawer .ditem .ico{font-size:16px; width:22px; text-align:center; flex:0 0 auto}
+  .drawer .dsec{padding:14px 18px 6px; font-size:9.5px; letter-spacing:2.2px; color:var(--chalkDim); text-transform:uppercase; opacity:.7}
+  .drawer select{margin:6px 14px 10px}
+
+  .seg{display:flex; flex:0 0 auto; background:rgba(10,17,36,.5); border:1px solid var(--line); border-radius:12px; padding:3px; gap:3px}
   .seg button{flex:1; border:0; background:transparent; color:var(--chalkDim); font-family:var(--body); font-weight:700; font-size:12.5px; padding:8px 4px; border-radius:9px; cursor:pointer; transition:.2s; white-space:nowrap}
   .seg button:active{transform:scale(.97)}
   .seg button.active{color:var(--navy2); background:linear-gradient(160deg,var(--brassSoft),var(--brass2))}
@@ -159,7 +180,17 @@
   .card.final .badge{background:linear-gradient(160deg,var(--brassSoft),var(--brass2)); color:var(--navy2); border-color:transparent}
 
   /* ---------- groups grid ---------- */
-  .grpgrid{display:grid; grid-template-columns:repeat(auto-fill,minmax(165px,1fr)); gap:11px; margin:4px 0 18px}
+  .grpgrid{display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:11px; margin:4px 0 18px}
+  @media (max-width:480px){.grpgrid{grid-template-columns:1fr}}
+  .stcols{display:grid; grid-template-columns:18px 22px 1fr 22px 22px 22px 22px 30px 30px; gap:5px; padding:6px 4px 4px; font-size:9.5px; font-weight:800; letter-spacing:1.2px; color:var(--chalkDim); text-transform:uppercase; border-bottom:1px solid var(--line); margin-bottom:4px}
+  .stcols span{text-align:center}
+  .stcols .ptsh{color:var(--brassSoft)}
+  .grpteams li.stdrow{display:grid; grid-template-columns:18px 22px 1fr 22px 22px 22px 22px 30px 30px; gap:5px; align-items:center; padding:4px 4px}
+  .grpteams li.stdrow .rk{font-family:var(--disp); font-size:12px; color:var(--brassSoft); text-align:center}
+  .grpteams li.stdrow .flag{font-size:18px; text-align:center}
+  .grpteams li.stdrow .nm{font-size:12px; font-weight:600}
+  .grpteams li.stdrow .n{text-align:center; font-size:12px; font-weight:600; color:var(--chalkDim); font-variant-numeric:tabular-nums}
+  .grpteams li.stdrow .n.pts{color:var(--brassSoft); font-weight:800; font-family:var(--disp); font-size:14px}
   .grpcard{position:relative; border-radius:14px; padding:12px 13px 11px; overflow:hidden; cursor:pointer;
     background:linear-gradient(165deg,var(--panel),var(--panel2)); border:1px solid var(--line);
     box-shadow:0 16px 36px -26px rgba(0,0,20,.8); transition:transform .18s, border-color .25s}
@@ -220,20 +251,28 @@
 
 <div class="controls">
   <div class="row1">
+    <button class="hamb" id="hamb" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <div class="viewlabel" id="viewlabel">All matches</div>
     <div class="seg" id="seg">
-      <button data-loc="TOR">🇨🇦 Toronto</button>
-      <button data-loc="IST">🇮🇳 Darjeeling</button>
+      <button data-loc="TOR">🇨🇦 TOR</button>
+      <button data-loc="IST">🇮🇳 IST</button>
     </div>
     <div class="mclock"><div>🇨🇦 <b id="mc-tor">—</b></div><div>🇮🇳 <b id="mc-ist">—</b></div></div>
   </div>
-  <div class="filters" id="filters"></div>
-  <div class="toolbar">
-    <select id="teamSel"><option value="">⚽ All teams</option></select>
-    <select id="groupSel"><option value="">All groups</option>
-      <option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option>
-      <option>G</option><option>H</option><option>I</option><option>J</option><option>K</option><option>L</option></select>
-  </div>
 </div>
+
+<div class="backdrop" id="bd"></div>
+<aside class="drawer" id="dr" aria-hidden="true">
+  <div class="dhdr"><span class="dt">⚽ World Cup 26</span><span class="dx" id="drx" aria-label="Close menu">×</span></div>
+  <div class="dlist" id="filters"></div>
+  <div class="dsec">Filter</div>
+  <select id="teamSel"><option value="">⚽ All teams</option></select>
+  <select id="groupSel"><option value="">All groups</option>
+    <option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option>
+    <option>G</option><option>H</option><option>I</option><option>J</option><option>K</option><option>L</option></select>
+</aside>
 
 <main>
   <div id="featured"></div>
@@ -473,22 +512,44 @@ function render(){
   list.innerHTML=html||`<div class="empty">Nothing matches your filters.<br/>Tap “All”.</div>`;
 }
 
+function computeStandings(g){
+  const ms=M.filter(m=>m.g===g);
+  const T={};
+  ms.flatMap(m=>[m.t1,m.t2]).forEach(t=>{if(!T[t])T[t]={t,P:0,W:0,D:0,L:0,GF:0,GA:0,GD:0,Pts:0};});
+  ms.forEach(m=>{const sc=scoreOf(m);if(!sc||sc.status!=="FINISHED")return;
+    const a=T[m.t1],b=T[m.t2],sa=+sc.score[0],sb=+sc.score[1];
+    if(!a||!b||Number.isNaN(sa)||Number.isNaN(sb))return;
+    a.P++;b.P++;a.GF+=sa;a.GA+=sb;b.GF+=sb;b.GA+=sa;
+    if(sa>sb){a.W++;b.L++;a.Pts+=3;}
+    else if(sa<sb){b.W++;a.L++;b.Pts+=3;}
+    else{a.D++;b.D++;a.Pts++;b.Pts++;}
+  });
+  Object.values(T).forEach(t=>t.GD=t.GF-t.GA);
+  return Object.values(T).sort((a,b)=>b.Pts-a.Pts||b.GD-a.GD||b.GF-a.GF||a.t.localeCompare(b.t));
+}
 function renderGroups(){
   activeView="groups"; renderFeatured();
   const groups="ABCDEFGHIJKL".split("");
   let html=`<div class="grpgrid">`;
   groups.forEach(g=>{
     const ms=M.filter(m=>m.g===g);
-    const teams=[...new Set(ms.flatMap(m=>[m.t1,m.t2]))];
-    const played=ms.filter(isDone).length;
+    const played=ms.filter(m=>{const sc=scoreOf(m);return sc&&sc.status==="FINISHED";}).length;
+    const st=computeStandings(g);
+    const anyPlayed=played>0;
     html+=`<div class="grpcard" style="--gc:${GC[g]}" data-g="${g}">
       <div class="grphdr"><span class="grpbadge">GROUP ${g}</span><span class="grpprog">${played}/${ms.length} played</span></div>
-      <ul class="grpteams">${teams.map(t=>`<li><span class="flag">${fl(t)}</span><span class="nm">${t}</span></li>`).join("")}</ul>
+      ${anyPlayed?`<div class="stcols"><span></span><span></span><span></span><span>P</span><span>W</span><span>D</span><span>L</span><span>GD</span><span class="ptsh">Pts</span></div>`:""}
+      <ul class="grpteams">${st.map((s,i)=>`<li class="${anyPlayed?'stdrow':''}">
+        ${anyPlayed?`<span class="rk">${i+1}</span>`:""}
+        <span class="flag">${fl(s.t)}</span>
+        <span class="nm">${s.t}</span>
+        ${anyPlayed?`<span class="n">${s.P}</span><span class="n">${s.W}</span><span class="n">${s.D}</span><span class="n">${s.L}</span><span class="n">${s.GD>0?'+'+s.GD:s.GD}</span><span class="n pts">${s.Pts}</span>`:""}
+      </li>`).join("")}</ul>
     </div>`;
   });
   html+=`</div>`;
   document.getElementById("list").innerHTML=html;
-  document.querySelectorAll(".grpcard").forEach(c=>c.onclick=()=>{group=c.dataset.g;document.getElementById("groupSel").value=group;stage="all";document.querySelectorAll("#filters .chip").forEach((x,i)=>x.classList.toggle("active",i===0));render();});
+  document.querySelectorAll(".grpcard").forEach(c=>c.onclick=()=>{group=c.dataset.g;document.getElementById("groupSel").value=group;stage="all";setViewLabel("all");document.querySelectorAll("#filters .ditem").forEach((x,i)=>x.classList.toggle("active",i===0));render();});
 }
 function quickDay(){
   activeView="today"; renderFeatured(); const tk=dayKey(new Date());
@@ -501,7 +562,7 @@ function quickNext(){
   let html="",cur=""; ms.forEach(m=>{const d=new Date(m.iso),k=dayKey(d);if(k!==cur){cur=k;html+=`<div class="daterow"><span class="dt">${fmtF(d,P().tz)}</span><span class="line"></span></div>`;}html+=matchCard(m);});
   document.getElementById("list").innerHTML=html||`<div class="empty">Group stage finished — check Knockout.</div>`;
 }
-function refresh(){activeView==="today"?quickDay():activeView==="next"?quickNext():render();buildTicker();}
+function refresh(){activeView==="today"?quickDay():activeView==="next"?quickNext():activeView==="groups"?renderGroups():render();buildTicker();}
 
 function buildTicker(){
   const now=Date.now(),p=P(),end=now+48*36e5;
@@ -530,12 +591,31 @@ function tick(){
 }
 function updLiveCd(sel){document.querySelectorAll(sel).forEach(el=>{const t=+el.dataset.ts,s=statusOf(t)[0];el.textContent=s==="live"?"LIVE NOW":s==="ft"?"Full time":("Kicks off in "+(countdown(t)||"—"));});}
 
-const STAGES=[["all","All"],["groups","Groups"],["group","Group stage"],["ko","Knockout"],["today","Today"],["next","Upcoming"],["done","Completed"]];
+const STAGES=[
+  ["all","All matches","⚽"],
+  ["groups","Groups","🅰"],
+  ["group","Group stage","🏟"],
+  ["ko","Knockout","🏆"],
+  ["today","Today","📅"],
+  ["next","Upcoming","⏭"],
+  ["done","Completed","✅"]
+];
+function closeDrawer(){document.getElementById("dr").classList.remove("open");document.getElementById("bd").classList.remove("open");}
+function openDrawer(){document.getElementById("dr").classList.add("open");document.getElementById("bd").classList.add("open");}
+function setViewLabel(k){const s=STAGES.find(x=>x[0]===k);if(s)document.getElementById("viewlabel").textContent=s[1];}
 const isDone=m=>{const sc=scoreOf(m);if(sc){if(sc.status==="FINISHED")return true;if(LIVE_STATUSES.includes(sc.status))return false;}return !m.tbc&&Date.now()>new Date(m.iso).getTime()+125*6e4;};
 function buildFilters(){
   const f=document.getElementById("filters");
-  f.innerHTML=STAGES.map(([k,l],i)=>`<div class="chip ${i===0?"active":""}" data-k="${k}">${l}</div>`).join("");
-  f.querySelectorAll(".chip").forEach(c=>c.onclick=()=>{f.querySelectorAll(".chip").forEach(x=>x.classList.remove("active"));c.classList.add("active");const k=c.dataset.k;if(k==="today")quickDay();else if(k==="next")quickNext();else if(k==="groups")renderGroups();else{stage=k;render();}});
+  f.innerHTML=STAGES.map(([k,l,ic],i)=>`<div class="ditem ${i===0?"active":""}" data-k="${k}"><span class="ico">${ic}</span><span>${l}</span></div>`).join("");
+  f.querySelectorAll(".ditem").forEach(c=>c.onclick=()=>{
+    f.querySelectorAll(".ditem").forEach(x=>x.classList.remove("active"));
+    c.classList.add("active");
+    const k=c.dataset.k; setViewLabel(k); closeDrawer();
+    if(k==="today")quickDay();else if(k==="next")quickNext();else if(k==="groups")renderGroups();else{stage=k;render();}
+  });
+  document.getElementById("hamb").onclick=openDrawer;
+  document.getElementById("drx").onclick=closeDrawer;
+  document.getElementById("bd").onclick=closeDrawer;
 }
 function setSegSel(){document.querySelectorAll("#seg button").forEach(b=>b.classList.toggle("active",b.dataset.loc===loc));}
 function buildLoc(){
@@ -548,7 +628,7 @@ function buildTeams(){
   sel.onchange=()=>{team=sel.value;resetChips();render();if(team)burst(70);};
   document.getElementById("groupSel").onchange=e=>{group=e.target.value;resetChips();render();};
 }
-function resetChips(){stage="all";document.querySelectorAll("#filters .chip").forEach((x,i)=>x.classList.toggle("active",i===0));}
+function resetChips(){stage="all";setViewLabel("all");document.querySelectorAll("#filters .ditem").forEach((x,i)=>x.classList.toggle("active",i===0));}
 
 document.getElementById("list").addEventListener("click",e=>{
   if(e.target.closest("a"))return;
