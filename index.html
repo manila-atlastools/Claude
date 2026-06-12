@@ -157,6 +157,22 @@
   .card.final::before{background:linear-gradient(var(--brassSoft),var(--brass2)); opacity:1}
   .card.final .badge{background:linear-gradient(160deg,var(--brassSoft),var(--brass2)); color:var(--navy2); border-color:transparent}
 
+  /* ---------- groups grid ---------- */
+  .grpgrid{display:grid; grid-template-columns:repeat(auto-fill,minmax(165px,1fr)); gap:11px; margin:4px 0 18px}
+  .grpcard{position:relative; border-radius:14px; padding:12px 13px 11px; overflow:hidden; cursor:pointer;
+    background:linear-gradient(165deg,var(--panel),var(--panel2)); border:1px solid var(--line);
+    box-shadow:0 16px 36px -26px rgba(0,0,20,.8); transition:transform .18s, border-color .25s}
+  .grpcard:hover{transform:translateY(-2px); border-color:var(--line2)}
+  .grpcard:active{transform:scale(.985)}
+  .grpcard::before{content:""; position:absolute; left:0; top:0; bottom:0; width:4px; background:var(--gc,var(--brass)); opacity:.85}
+  .grphdr{display:flex; align-items:center; justify-content:space-between; margin-bottom:9px}
+  .grpbadge{font-family:var(--disp); font-size:13px; letter-spacing:1.3px; color:var(--chalk)}
+  .grpprog{font-size:9.5px; font-weight:800; letter-spacing:1px; color:var(--brassSoft); background:rgba(188,165,114,.1); border:1px solid var(--line); padding:3px 7px; border-radius:6px}
+  .grpteams{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:6px}
+  .grpteams li{display:flex; align-items:center; gap:8px; font-size:12.5px; font-weight:600; color:var(--chalk); min-width:0}
+  .grpteams li .flag{font-size:18px; flex:0 0 auto}
+  .grpteams li .nm{overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+
   .banner{background:rgba(255,255,255,.04); border:1px solid var(--line); border-radius:14px; padding:12px 13px; font-size:12px; color:var(--chalkDim); margin-bottom:16px; display:flex; gap:9px; line-height:1.5}
   .banner b{color:var(--chalk)} .banner a{color:var(--brassSoft)}
   .banner .x{margin-left:auto; cursor:pointer; font-size:19px; line-height:1; color:var(--chalkDim)}
@@ -427,14 +443,25 @@ function render(){
     if(!ms.length&&stage==="group")html+=`<div class="empty">No group matches for this filter.</div>`;
   }
   if(showK){html+=`<div class="kohdr" id="kohdr">🏆 Knockout Stage</div>`;KO.forEach(k=>html+=koCard(k));}
-  if(stage==="all"||stage==="group"){
-    const done=M.filter(m=>filt(m)&&isDone(m)).sort((a,b)=>new Date(b.iso)-new Date(a.iso));
-    if(done.length){
-      html+=`<div class="kohdr" id="donehdr">✅ Completed <span style="font-size:13px;color:var(--chalkDim);letter-spacing:1px">(${done.length})</span></div>`;
-      done.forEach(m=>html+=matchCard(m));
-    }
-  }
   list.innerHTML=html||`<div class="empty">Nothing matches your filters.<br/>Tap “All”.</div>`;
+}
+
+function renderGroups(){
+  activeView="groups"; renderFeatured();
+  const groups="ABCDEFGHIJKL".split("");
+  let html=`<div class="grpgrid">`;
+  groups.forEach(g=>{
+    const ms=M.filter(m=>m.g===g);
+    const teams=[...new Set(ms.flatMap(m=>[m.t1,m.t2]))];
+    const played=ms.filter(isDone).length;
+    html+=`<div class="grpcard" style="--gc:${GC[g]}" data-g="${g}">
+      <div class="grphdr"><span class="grpbadge">GROUP ${g}</span><span class="grpprog">${played}/${ms.length} played</span></div>
+      <ul class="grpteams">${teams.map(t=>`<li><span class="flag">${fl(t)}</span><span class="nm">${t}</span></li>`).join("")}</ul>
+    </div>`;
+  });
+  html+=`</div>`;
+  document.getElementById("list").innerHTML=html;
+  document.querySelectorAll(".grpcard").forEach(c=>c.onclick=()=>{group=c.dataset.g;document.getElementById("groupSel").value=group;stage="all";document.querySelectorAll("#filters .chip").forEach((x,i)=>x.classList.toggle("active",i===0));render();});
 }
 function quickDay(){
   activeView="today"; renderFeatured(); const tk=dayKey(new Date());
@@ -476,12 +503,12 @@ function tick(){
 }
 function updLiveCd(sel){document.querySelectorAll(sel).forEach(el=>{const t=+el.dataset.ts,s=statusOf(t)[0];el.textContent=s==="live"?"LIVE NOW":s==="ft"?"Full time":("Kicks off in "+(countdown(t)||"—"));});}
 
-const STAGES=[["all","All"],["group","Group stage"],["ko","Knockout"],["today","Today"],["next","Upcoming"],["done","Completed"]];
+const STAGES=[["all","All"],["groups","Groups"],["group","Group stage"],["ko","Knockout"],["today","Today"],["next","Upcoming"],["done","Completed"]];
 const isDone=m=>!m.tbc&&Date.now()>new Date(m.iso).getTime()+125*6e4;
 function buildFilters(){
   const f=document.getElementById("filters");
   f.innerHTML=STAGES.map(([k,l],i)=>`<div class="chip ${i===0?"active":""}" data-k="${k}">${l}</div>`).join("");
-  f.querySelectorAll(".chip").forEach(c=>c.onclick=()=>{f.querySelectorAll(".chip").forEach(x=>x.classList.remove("active"));c.classList.add("active");const k=c.dataset.k;if(k==="today")quickDay();else if(k==="next")quickNext();else{stage=k;render();}});
+  f.querySelectorAll(".chip").forEach(c=>c.onclick=()=>{f.querySelectorAll(".chip").forEach(x=>x.classList.remove("active"));c.classList.add("active");const k=c.dataset.k;if(k==="today")quickDay();else if(k==="next")quickNext();else if(k==="groups")renderGroups();else{stage=k;render();}});
 }
 function setSegSel(){document.querySelectorAll("#seg button").forEach(b=>b.classList.toggle("active",b.dataset.loc===loc));}
 function buildLoc(){
