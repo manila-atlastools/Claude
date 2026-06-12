@@ -284,9 +284,7 @@
   <div id="featured"></div>
   <div class="banner" id="banner">
     <span>ℹ️</span>
-    <div><b>Tap any match</b> for a live kick-off countdown. Toronto &amp; Darjeeling sit ~9½h apart, so a game can fall
-    on a different day in each — the small line shows the other zone. Knockout matchups lock after the group stage.
-    <a href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures" target="_blank" rel="noopener">FIFA.com</a></div>
+    <div><b>Tap any match</b> for a kick-off countdown and venue. The small line under each time shows the other zone.</div>
     <span class="x" id="bx">×</span>
   </div>
   <div id="list"></div>
@@ -666,7 +664,10 @@ function markBg(){if(!bgDirty&&!reduce){bgDirty=true;requestAnimationFrame(apply
 addEventListener("scroll",()=>{sy=scrollY;markBg();},{passive:true});
 addEventListener("pointermove",e=>{px=(e.clientX/innerWidth-.5)*22;py=(e.clientY/innerHeight-.5)*22;markBg();},{passive:true});
 
-document.getElementById("bx").onclick=()=>document.getElementById("banner").style.display="none";
+(function(){var bn=document.getElementById("banner");
+  try{if(localStorage.getItem("wc26tip")==="off")bn.style.display="none";}catch(e){}
+  document.getElementById("bx").onclick=()=>{bn.style.display="none";try{localStorage.setItem("wc26tip","off")}catch(e){}};
+})();
 document.getElementById("wm").onclick=()=>burst(110);
 document.getElementById("herobanner").onclick=()=>burst(120);
 (function(){var wi=document.getElementById("wclogo-img"),sv=document.getElementById("wclogo-svg"),
