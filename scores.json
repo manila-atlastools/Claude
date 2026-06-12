@@ -1,0 +1,1146 @@
+[
+  {
+    "home": "Mexico",
+    "away": "South Africa",
+    "utcDate": "2026-06-11T19:00:00Z",
+    "status": "FINISHED",
+    "minute": null,
+    "score": [
+      2,
+      0
+    ]
+  },
+  {
+    "home": "South Korea",
+    "away": "Czechia",
+    "utcDate": "2026-06-12T02:00:00Z",
+    "status": "FINISHED",
+    "minute": null,
+    "score": [
+      2,
+      1
+    ]
+  },
+  {
+    "home": "Canada",
+    "away": "Bosnia-Herzegovina",
+    "utcDate": "2026-06-12T19:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "United States",
+    "away": "Paraguay",
+    "utcDate": "2026-06-13T01:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "Qatar",
+    "away": "Switzerland",
+    "utcDate": "2026-06-13T19:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "Brazil",
+    "away": "Morocco",
+    "utcDate": "2026-06-13T22:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "Haiti",
+    "away": "Scotland",
+    "utcDate": "2026-06-14T01:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "Australia",
+    "away": "Turkey",
+    "utcDate": "2026-06-14T04:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "Germany",
+    "away": "Curaçao",
+    "utcDate": "2026-06-14T17:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "Netherlands",
+    "away": "Japan",
+    "utcDate": "2026-06-14T20:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "Ivory Coast",
+    "away": "Ecuador",
+    "utcDate": "2026-06-14T23:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "Sweden",
+    "away": "Tunisia",
+    "utcDate": "2026-06-15T02:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "Spain",
+    "away": "Cape Verde Islands",
+    "utcDate": "2026-06-15T16:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "Belgium",
+    "away": "Egypt",
+    "utcDate": "2026-06-15T19:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "Saudi Arabia",
+    "away": "Uruguay",
+    "utcDate": "2026-06-15T22:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "Iran",
+    "away": "New Zealand",
+    "utcDate": "2026-06-16T01:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "France",
+    "away": "Senegal",
+    "utcDate": "2026-06-16T19:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "Iraq",
+    "away": "Norway",
+    "utcDate": "2026-06-16T22:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "Argentina",
+    "away": "Algeria",
+    "utcDate": "2026-06-17T01:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "Austria",
+    "away": "Jordan",
+    "utcDate": "2026-06-17T04:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "Portugal",
+    "away": "Congo DR",
+    "utcDate": "2026-06-17T17:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "England",
+    "away": "Croatia",
+    "utcDate": "2026-06-17T20:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "Ghana",
+    "away": "Panama",
+    "utcDate": "2026-06-17T23:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "Uzbekistan",
+    "away": "Colombia",
+    "utcDate": "2026-06-18T02:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "Czechia",
+    "away": "South Africa",
+    "utcDate": "2026-06-18T16:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "Switzerland",
+    "away": "Bosnia-Herzegovina",
+    "utcDate": "2026-06-18T19:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "Canada",
+    "away": "Qatar",
+    "utcDate": "2026-06-18T22:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "Mexico",
+    "away": "South Korea",
+    "utcDate": "2026-06-19T01:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "United States",
+    "away": "Australia",
+    "utcDate": "2026-06-19T19:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "Scotland",
+    "away": "Morocco",
+    "utcDate": "2026-06-19T22:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "Brazil",
+    "away": "Haiti",
+    "utcDate": "2026-06-20T00:30:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "Turkey",
+    "away": "Paraguay",
+    "utcDate": "2026-06-20T03:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "Netherlands",
+    "away": "Sweden",
+    "utcDate": "2026-06-20T17:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "Germany",
+    "away": "Ivory Coast",
+    "utcDate": "2026-06-20T20:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "Ecuador",
+    "away": "Curaçao",
+    "utcDate": "2026-06-21T00:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "Tunisia",
+    "away": "Japan",
+    "utcDate": "2026-06-21T04:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "Spain",
+    "away": "Saudi Arabia",
+    "utcDate": "2026-06-21T16:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "Belgium",
+    "away": "Iran",
+    "utcDate": "2026-06-21T19:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "Uruguay",
+    "away": "Cape Verde Islands",
+    "utcDate": "2026-06-21T22:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "New Zealand",
+    "away": "Egypt",
+    "utcDate": "2026-06-22T01:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "Argentina",
+    "away": "Austria",
+    "utcDate": "2026-06-22T17:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "France",
+    "away": "Iraq",
+    "utcDate": "2026-06-22T21:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "Norway",
+    "away": "Senegal",
+    "utcDate": "2026-06-23T00:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "Jordan",
+    "away": "Algeria",
+    "utcDate": "2026-06-23T03:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "Portugal",
+    "away": "Uzbekistan",
+    "utcDate": "2026-06-23T17:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "England",
+    "away": "Ghana",
+    "utcDate": "2026-06-23T20:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "Panama",
+    "away": "Croatia",
+    "utcDate": "2026-06-23T23:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "Colombia",
+    "away": "Congo DR",
+    "utcDate": "2026-06-24T02:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "Switzerland",
+    "away": "Canada",
+    "utcDate": "2026-06-24T19:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "Bosnia-Herzegovina",
+    "away": "Qatar",
+    "utcDate": "2026-06-24T19:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "Morocco",
+    "away": "Haiti",
+    "utcDate": "2026-06-24T22:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "Scotland",
+    "away": "Brazil",
+    "utcDate": "2026-06-24T22:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "Czechia",
+    "away": "Mexico",
+    "utcDate": "2026-06-25T01:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "South Africa",
+    "away": "South Korea",
+    "utcDate": "2026-06-25T01:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "Ecuador",
+    "away": "Germany",
+    "utcDate": "2026-06-25T20:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "Curaçao",
+    "away": "Ivory Coast",
+    "utcDate": "2026-06-25T20:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "Tunisia",
+    "away": "Netherlands",
+    "utcDate": "2026-06-25T23:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "Japan",
+    "away": "Sweden",
+    "utcDate": "2026-06-25T23:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "Turkey",
+    "away": "United States",
+    "utcDate": "2026-06-26T02:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "Paraguay",
+    "away": "Australia",
+    "utcDate": "2026-06-26T02:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "Norway",
+    "away": "France",
+    "utcDate": "2026-06-26T19:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "Senegal",
+    "away": "Iraq",
+    "utcDate": "2026-06-26T19:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "Uruguay",
+    "away": "Spain",
+    "utcDate": "2026-06-27T00:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "Cape Verde Islands",
+    "away": "Saudi Arabia",
+    "utcDate": "2026-06-27T00:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "New Zealand",
+    "away": "Belgium",
+    "utcDate": "2026-06-27T03:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "Egypt",
+    "away": "Iran",
+    "utcDate": "2026-06-27T03:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "Panama",
+    "away": "England",
+    "utcDate": "2026-06-27T21:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "Croatia",
+    "away": "Ghana",
+    "utcDate": "2026-06-27T21:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "Colombia",
+    "away": "Portugal",
+    "utcDate": "2026-06-27T23:30:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "Congo DR",
+    "away": "Uzbekistan",
+    "utcDate": "2026-06-27T23:30:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "Jordan",
+    "away": "Argentina",
+    "utcDate": "2026-06-28T02:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": "Algeria",
+    "away": "Austria",
+    "utcDate": "2026-06-28T02:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": null,
+    "away": null,
+    "utcDate": "2026-06-28T19:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": null,
+    "away": null,
+    "utcDate": "2026-06-29T17:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": null,
+    "away": null,
+    "utcDate": "2026-06-29T20:30:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": null,
+    "away": null,
+    "utcDate": "2026-06-30T01:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": null,
+    "away": null,
+    "utcDate": "2026-06-30T17:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": null,
+    "away": null,
+    "utcDate": "2026-06-30T21:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": null,
+    "away": null,
+    "utcDate": "2026-07-01T01:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": null,
+    "away": null,
+    "utcDate": "2026-07-01T16:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": null,
+    "away": null,
+    "utcDate": "2026-07-01T20:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": null,
+    "away": null,
+    "utcDate": "2026-07-02T00:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": null,
+    "away": null,
+    "utcDate": "2026-07-02T19:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": null,
+    "away": null,
+    "utcDate": "2026-07-02T23:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": null,
+    "away": null,
+    "utcDate": "2026-07-03T03:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": null,
+    "away": null,
+    "utcDate": "2026-07-03T18:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": null,
+    "away": null,
+    "utcDate": "2026-07-03T22:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": null,
+    "away": null,
+    "utcDate": "2026-07-04T01:30:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": null,
+    "away": null,
+    "utcDate": "2026-07-04T17:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": null,
+    "away": null,
+    "utcDate": "2026-07-04T21:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": null,
+    "away": null,
+    "utcDate": "2026-07-05T20:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": null,
+    "away": null,
+    "utcDate": "2026-07-06T00:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": null,
+    "away": null,
+    "utcDate": "2026-07-06T19:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": null,
+    "away": null,
+    "utcDate": "2026-07-07T00:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": null,
+    "away": null,
+    "utcDate": "2026-07-07T16:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": null,
+    "away": null,
+    "utcDate": "2026-07-07T20:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": null,
+    "away": null,
+    "utcDate": "2026-07-09T20:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": null,
+    "away": null,
+    "utcDate": "2026-07-10T19:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": null,
+    "away": null,
+    "utcDate": "2026-07-11T21:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": null,
+    "away": null,
+    "utcDate": "2026-07-12T01:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": null,
+    "away": null,
+    "utcDate": "2026-07-14T19:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": null,
+    "away": null,
+    "utcDate": "2026-07-15T19:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": null,
+    "away": null,
+    "utcDate": "2026-07-18T21:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  },
+  {
+    "home": null,
+    "away": null,
+    "utcDate": "2026-07-19T19:00:00Z",
+    "status": "TIMED",
+    "minute": null,
+    "score": [
+      null,
+      null
+    ]
+  }
+]
