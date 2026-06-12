@@ -177,6 +177,9 @@
   .lubtn:active{transform:scale(.97)}
   .detail .lubtn{margin-top:8px}
   .feat .featlu{margin-top:14px; position:relative; z-index:1; text-align:center}
+  .lucallout{display:flex; align-items:center; gap:10px; text-align:left; font-size:12px; font-weight:500; color:var(--chalkDim); background:rgba(255,255,255,.04); border:1px solid var(--line); border-radius:10px; padding:9px 12px; line-height:1.35}
+  .lucallout .luico{font-size:17px; flex:0 0 auto; opacity:.85}
+  .detail .lucallout{margin-top:8px}
 
   /* ---------- knockout ---------- */
   .kohdr{font-family:var(--disp); font-size:23px; letter-spacing:1.6px; text-transform:uppercase; margin:28px 2px 13px; color:var(--chalk); cursor:pointer}
@@ -408,6 +411,13 @@ const mkKey=(a,b,utc)=>[norm(a),norm(b)].sort().join("|")+"|"+utc.slice(0,10);
 let SCORES={};
 function scoreOf(m){try{const utc=new Date(m.iso).toISOString().slice(0,10);return SCORES[mkKey(m.t1,m.t2,utc)];}catch(e){return null;}}
 const luURL=m=>{const c=s=>s.replace(/ & /g," and ");return "https://www.google.com/search?q="+encodeURIComponent(c(m.t1)+" vs "+c(m.t2));};
+const LU_WINDOW_MS=2*36e5; // lineups confirmed ~2h before kick-off
+function lineupHTML(m){
+  if(m.tbc) return `<div class="lucallout"><span class="luico">👥</span><span>Confirmed lineups will be posted before the match starts</span></div>`;
+  if(Date.now()>=new Date(m.iso).getTime()-LU_WINDOW_MS)
+    return `<a class="lubtn" href="${luURL(m)}" target="_blank" rel="noopener">👥 View lineups ↗</a>`;
+  return `<div class="lucallout"><span class="luico">👥</span><span>Confirmed lineups will be posted before the match starts</span></div>`;
+}
 const LIVE_STATUSES=["LIVE","IN_PLAY","PAUSED"];
 async function fetchScores(){
   try{const r=await fetch("scores.json?t="+Date.now());if(!r.ok)return;
@@ -452,7 +462,7 @@ function matchCard(m){
       <div class="drow">${s.flag} <b>${s.label}</b>: ${m.tbc?"TBC":fmtF(d,s.tz)+" · "+fmtT(d,s.tz)}</div>
       <div class="drow">📍 ${(m.st||m.city)?[m.st,m.city].filter(Boolean).join(", "):"Venue to be confirmed"}</div>
       <div class="drow">${kick}</div>
-      <div class="drow"><a class="lubtn" href="${luURL(m)}" target="_blank" rel="noopener">👥 View lineups ↗</a></div>
+      <div class="drow">${lineupHTML(m)}</div>
     </div></div>`;
 }
 function koCard(k){
@@ -495,7 +505,7 @@ function renderFeatured(){
       <span>${s.flag} ${s.short} <b>${fmtT(d,s.tz)}</b></span>
       ${m.city?`<span>📍 <b>${m.city}</b></span>`:""}
     </div>
-    <div class="featlu"><a class="lubtn" href="${luURL(m)}" target="_blank" rel="noopener">👥 View lineups ↗</a></div></div>`;
+    <div class="featlu">${lineupHTML(m)}</div></div>`;
 }
 
 function render(){
