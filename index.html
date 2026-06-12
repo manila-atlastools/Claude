@@ -607,7 +607,9 @@ function tick(){
   else if(now<FINAL+3*36e5) hc.innerHTML=`<span class="cdv">TOURNAMENT LIVE</span>`;
   else hc.innerHTML=`<span class="cdv">CHAMPIONS CROWNED</span> 🏆`;
   const fc=document.getElementById("feat-cd");
-  if(fc&&featMatch){const d=new Date(featMatch.iso).getTime();fc.textContent=statusOf(d)[0]==="live"?"LIVE":(countdown(d)||"—");}
+  if(fc&&featMatch){const d=new Date(featMatch.iso).getTime(),sc=scoreOf(featMatch);
+    if(sc&&sc.score&&sc.score[0]!=null) fc.textContent=`${sc.score[0]}–${sc.score[1]}`;
+    else fc.textContent=statusOf(d,featMatch)[0]==="live"?"LIVE":(countdown(d)||"—");}
   updLiveCd(".card.open .live-cd");
 }
 function updLiveCd(sel){document.querySelectorAll(sel).forEach(el=>{const t=+el.dataset.ts,s=statusOf(t)[0];el.textContent=s==="live"?"LIVE NOW":s==="ft"?"Full time":("Kicks off in "+(countdown(t)||"—"));});}
