@@ -173,6 +173,10 @@
   .detail .drow b{color:var(--chalk); font-weight:800}
   .detail .kick{display:inline-flex; align-items:center; gap:7px; margin-top:4px; font-weight:700; color:var(--brassSoft); background:rgba(188,165,114,.1); border:1px solid var(--line); padding:5px 12px; border-radius:999px}
   .detail .kick .live-cd{color:var(--chalk)}
+  .lubtn{display:inline-flex; align-items:center; gap:7px; font-size:12px; font-weight:800; letter-spacing:.3px; color:var(--navy2); background:linear-gradient(160deg,var(--brassSoft),var(--brass2)); padding:6px 13px; border-radius:999px; text-decoration:none; border:1px solid transparent}
+  .lubtn:active{transform:scale(.97)}
+  .detail .lubtn{margin-top:8px}
+  .feat .featlu{margin-top:14px; position:relative; z-index:1; text-align:center}
 
   /* ---------- knockout ---------- */
   .kohdr{font-family:var(--disp); font-size:23px; letter-spacing:1.6px; text-transform:uppercase; margin:28px 2px 13px; color:var(--chalk); cursor:pointer}
@@ -403,6 +407,7 @@ const norm=n=>NORM[n]||n;
 const mkKey=(a,b,utc)=>[norm(a),norm(b)].sort().join("|")+"|"+utc.slice(0,10);
 let SCORES={};
 function scoreOf(m){try{const utc=new Date(m.iso).toISOString().slice(0,10);return SCORES[mkKey(m.t1,m.t2,utc)];}catch(e){return null;}}
+const luURL=m=>"https://www.google.com/search?q="+encodeURIComponent(m.t1+" vs "+m.t2+" lineups");
 const LIVE_STATUSES=["LIVE","IN_PLAY","PAUSED"];
 async function fetchScores(){
   try{const r=await fetch("scores.json?t="+Date.now());if(!r.ok)return;
@@ -447,6 +452,7 @@ function matchCard(m){
       <div class="drow">${s.flag} <b>${s.label}</b>: ${m.tbc?"TBC":fmtF(d,s.tz)+" · "+fmtT(d,s.tz)}</div>
       <div class="drow">📍 ${(m.st||m.city)?[m.st,m.city].filter(Boolean).join(", "):"Venue to be confirmed"}</div>
       <div class="drow">${kick}</div>
+      <div class="drow"><a class="lubtn" href="${luURL(m)}" target="_blank" rel="noopener">👥 View lineups ↗</a></div>
     </div></div>`;
 }
 function koCard(k){
@@ -488,7 +494,8 @@ function renderFeatured(){
       <span>${p.flag} ${p.short} <b>${fmtT(d,p.tz)}</b> · ${fmtD(d,p.tz).split(",")[0]}</span>
       <span>${s.flag} ${s.short} <b>${fmtT(d,s.tz)}</b></span>
       ${m.city?`<span>📍 <b>${m.city}</b></span>`:""}
-    </div></div>`;
+    </div>
+    <div class="featlu"><a class="lubtn" href="${luURL(m)}" target="_blank" rel="noopener">👥 View lineups ↗</a></div></div>`;
 }
 
 function render(){
