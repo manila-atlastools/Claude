@@ -44,7 +44,7 @@
   /* ---------- hero ---------- */
   .hero{position:relative; padding:12px 16px 12px}
   .herobanner{display:none; position:relative; width:100%; max-width:440px; margin:0 auto; line-height:0; cursor:pointer}
-  .herobanner img{width:auto; max-width:100%; height:auto; max-height:30vh; object-fit:contain; display:block; margin:0 auto}
+  .herobanner img{width:100%; max-width:100%; height:auto; max-height:40vh; object-fit:contain; display:block; margin:0 auto}
   .herobanner::after{content:""; position:absolute; left:0; right:0; bottom:0; height:38px; background:linear-gradient(to top,var(--navy2),transparent); pointer-events:none}
   .masthead{display:flex; justify-content:center; align-items:center; margin:12px 0 9px}
   .masthead .crest{display:block; width:88px; height:auto; animation:bob 7s ease-in-out infinite; filter:drop-shadow(0 8px 16px rgba(0,0,20,.45))}
@@ -213,7 +213,6 @@
   footer{text-align:center; color:var(--chalkDim); font-size:11px; padding:10px 16px 36px; line-height:1.7; opacity:.7}
   @media (max-width:560px){
     .mclock{display:none}
-    .herobanner img{max-height:22vh}
     .hero{padding:8px 16px 10px}
     .tagline{margin:0 0 9px}
   }
