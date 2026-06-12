@@ -407,7 +407,7 @@ const norm=n=>NORM[n]||n;
 const mkKey=(a,b,utc)=>[norm(a),norm(b)].sort().join("|")+"|"+utc.slice(0,10);
 let SCORES={};
 function scoreOf(m){try{const utc=new Date(m.iso).toISOString().slice(0,10);return SCORES[mkKey(m.t1,m.t2,utc)];}catch(e){return null;}}
-const luURL=m=>"https://www.google.com/search?q="+encodeURIComponent(m.t1+" vs "+m.t2+" lineups");
+const luURL=m=>{const c=s=>s.replace(/ & /g," and ");return "https://www.google.com/search?q="+encodeURIComponent(c(m.t1)+" vs "+c(m.t2));};
 const LIVE_STATUSES=["LIVE","IN_PLAY","PAUSED"];
 async function fetchScores(){
   try{const r=await fetch("scores.json?t="+Date.now());if(!r.ok)return;
