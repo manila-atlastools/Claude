@@ -47,10 +47,10 @@
     "home": "Qatar",
     "away": "Switzerland",
     "utcDate": "2026-06-13T19:00:00Z",
-    "status": "IN_PLAY",
+    "status": "FINISHED",
     "minute": null,
     "score": [
-      0,
+      1,
       1
     ]
   },
@@ -58,11 +58,11 @@
     "home": "Brazil",
     "away": "Morocco",
     "utcDate": "2026-06-13T22:00:00Z",
-    "status": "TIMED",
+    "status": "IN_PLAY",
     "minute": null,
     "score": [
-      null,
-      null
+      0,
+      0
     ]
   },
   {
