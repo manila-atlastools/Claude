@@ -58,7 +58,7 @@
     "home": "Brazil",
     "away": "Morocco",
     "utcDate": "2026-06-13T22:00:00Z",
-    "status": "IN_PLAY",
+    "status": "FINISHED",
     "minute": null,
     "score": [
       1,
@@ -69,11 +69,11 @@
     "home": "Haiti",
     "away": "Scotland",
     "utcDate": "2026-06-14T01:00:00Z",
-    "status": "TIMED",
+    "status": "IN_PLAY",
     "minute": null,
     "score": [
-      null,
-      null
+      0,
+      1
     ]
   },
   {
@@ -113,7 +113,7 @@
     "home": "Ivory Coast",
     "away": "Ecuador",
     "utcDate": "2026-06-14T23:00:00Z",
-    "status": "TIMED",
+    "status": "SCHEDULED",
     "minute": null,
     "score": [
       null,
