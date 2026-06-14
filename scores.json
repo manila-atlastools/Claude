@@ -91,11 +91,11 @@
     "home": "Germany",
     "away": "Curaçao",
     "utcDate": "2026-06-14T17:00:00Z",
-    "status": "TIMED",
+    "status": "PAUSED",
     "minute": null,
     "score": [
-      null,
-      null
+      3,
+      1
     ]
   },
   {
