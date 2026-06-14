@@ -28,8 +28,8 @@
     "status": "FINISHED",
     "minute": null,
     "score": [
-      null,
-      null
+      1,
+      1
     ]
   },
   {
@@ -102,7 +102,7 @@
     "home": "Netherlands",
     "away": "Japan",
     "utcDate": "2026-06-14T20:00:00Z",
-    "status": "IN_PLAY",
+    "status": "FINISHED",
     "minute": null,
     "score": [
       2,
