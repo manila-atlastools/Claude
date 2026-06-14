@@ -102,18 +102,18 @@
     "home": "Netherlands",
     "away": "Japan",
     "utcDate": "2026-06-14T20:00:00Z",
-    "status": "TIMED",
+    "status": "IN_PLAY",
     "minute": null,
     "score": [
-      null,
-      null
+      0,
+      0
     ]
   },
   {
     "home": "Ivory Coast",
     "away": "Ecuador",
     "utcDate": "2026-06-14T23:00:00Z",
-    "status": "SCHEDULED",
+    "status": "TIMED",
     "minute": null,
     "score": [
       null,
