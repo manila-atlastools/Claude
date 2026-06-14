@@ -91,10 +91,10 @@
     "home": "Germany",
     "away": "Curaçao",
     "utcDate": "2026-06-14T17:00:00Z",
-    "status": "PAUSED",
+    "status": "FINISHED",
     "minute": null,
     "score": [
-      3,
+      7,
       1
     ]
   },
@@ -113,7 +113,7 @@
     "home": "Ivory Coast",
     "away": "Ecuador",
     "utcDate": "2026-06-14T23:00:00Z",
-    "status": "TIMED",
+    "status": "SCHEDULED",
     "minute": null,
     "score": [
       null,
