@@ -28,8 +28,8 @@
     "status": "FINISHED",
     "minute": null,
     "score": [
-      1,
-      1
+      null,
+      null
     ]
   },
   {
@@ -105,8 +105,8 @@
     "status": "IN_PLAY",
     "minute": null,
     "score": [
-      0,
-      0
+      2,
+      2
     ]
   },
   {
