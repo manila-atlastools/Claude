@@ -146,10 +146,10 @@
     "home": "Belgium",
     "away": "Egypt",
     "utcDate": "2026-06-15T19:00:00Z",
-    "status": "PAUSED",
+    "status": "FINISHED",
     "minute": null,
     "score": [
-      0,
+      1,
       1
     ]
   },
@@ -157,11 +157,11 @@
     "home": "Saudi Arabia",
     "away": "Uruguay",
     "utcDate": "2026-06-15T22:00:00Z",
-    "status": "TIMED",
+    "status": "IN_PLAY",
     "minute": null,
     "score": [
-      null,
-      null
+      0,
+      0
     ]
   },
   {
