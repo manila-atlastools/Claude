@@ -135,11 +135,11 @@
     "home": "Spain",
     "away": "Cape Verde Islands",
     "utcDate": "2026-06-15T16:00:00Z",
-    "status": "TIMED",
+    "status": "IN_PLAY",
     "minute": null,
     "score": [
-      null,
-      null
+      0,
+      0
     ]
   },
   {
