@@ -135,7 +135,7 @@
     "home": "Spain",
     "away": "Cape Verde Islands",
     "utcDate": "2026-06-15T16:00:00Z",
-    "status": "IN_PLAY",
+    "status": "FINISHED",
     "minute": null,
     "score": [
       0,
@@ -146,11 +146,11 @@
     "home": "Belgium",
     "away": "Egypt",
     "utcDate": "2026-06-15T19:00:00Z",
-    "status": "TIMED",
+    "status": "PAUSED",
     "minute": null,
     "score": [
-      null,
-      null
+      0,
+      1
     ]
   },
   {
