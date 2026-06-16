@@ -28,8 +28,8 @@
     "status": "FINISHED",
     "minute": null,
     "score": [
-      1,
-      1
+      null,
+      null
     ]
   },
   {
@@ -179,11 +179,11 @@
     "home": "France",
     "away": "Senegal",
     "utcDate": "2026-06-16T19:00:00Z",
-    "status": "TIMED",
+    "status": "FINISHED",
     "minute": null,
     "score": [
-      null,
-      null
+      3,
+      1
     ]
   },
   {
