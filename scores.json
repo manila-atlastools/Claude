@@ -28,8 +28,8 @@
     "status": "FINISHED",
     "minute": null,
     "score": [
-      null,
-      null
+      1,
+      1
     ]
   },
   {
@@ -190,11 +190,11 @@
     "home": "Iraq",
     "away": "Norway",
     "utcDate": "2026-06-16T22:00:00Z",
-    "status": "TIMED",
+    "status": "PAUSED",
     "minute": null,
     "score": [
-      null,
-      null
+      1,
+      2
     ]
   },
   {
