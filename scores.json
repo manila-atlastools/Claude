@@ -223,11 +223,11 @@
     "home": "Portugal",
     "away": "Congo DR",
     "utcDate": "2026-06-17T17:00:00Z",
-    "status": "TIMED",
+    "status": "IN_PLAY",
     "minute": null,
     "score": [
-      null,
-      null
+      1,
+      0
     ]
   },
   {
