@@ -245,7 +245,7 @@
     "home": "Ghana",
     "away": "Panama",
     "utcDate": "2026-06-17T23:00:00Z",
-    "status": "IN_PLAY",
+    "status": "FINISHED",
     "minute": null,
     "score": [
       1,
@@ -256,11 +256,11 @@
     "home": "Uzbekistan",
     "away": "Colombia",
     "utcDate": "2026-06-18T02:00:00Z",
-    "status": "IN_PLAY",
+    "status": "FINISHED",
     "minute": null,
     "score": [
-      0,
-      1
+      1,
+      3
     ]
   },
   {
