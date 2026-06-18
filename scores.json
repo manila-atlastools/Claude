@@ -289,11 +289,11 @@
     "home": "Canada",
     "away": "Qatar",
     "utcDate": "2026-06-18T22:00:00Z",
-    "status": "TIMED",
+    "status": "PAUSED",
     "minute": null,
     "score": [
-      null,
-      null
+      3,
+      0
     ]
   },
   {
