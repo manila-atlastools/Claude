@@ -267,11 +267,11 @@
     "home": "Czechia",
     "away": "South Africa",
     "utcDate": "2026-06-18T16:00:00Z",
-    "status": "TIMED",
+    "status": "FINISHED",
     "minute": null,
     "score": [
-      null,
-      null
+      1,
+      1
     ]
   },
   {
