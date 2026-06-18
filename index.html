@@ -347,11 +347,11 @@ const M=[
   {g:"A",t1:"Czechia",t2:"South Africa",city:"Atlanta",st:"Mercedes-Benz Stadium",iso:"2026-06-18T12:00:00-04:00"},
   {g:"B",t1:"Switzerland",t2:"Bosnia & Herzegovina",city:"Los Angeles",st:"SoFi Stadium",iso:"2026-06-18T15:00:00-04:00"},
   {g:"B",t1:"Canada",t2:"Qatar",city:"Vancouver",st:"BC Place",iso:"2026-06-18T18:00:00-04:00"},
-  {g:"A",t1:"Mexico",t2:"Korea Republic",city:"Guadalajara",st:"Estadio Akron",iso:"2026-06-18T23:00:00-04:00"},
+  {g:"A",t1:"Mexico",t2:"Korea Republic",city:"Guadalajara",st:"Estadio Akron",iso:"2026-06-18T21:00:00-04:00"},
   {g:"D",t1:"United States",t2:"Australia",city:"Seattle",st:"Lumen Field",iso:"2026-06-19T15:00:00-04:00"},
   {g:"C",t1:"Scotland",t2:"Morocco",city:"Boston",st:"Gillette Stadium",iso:"2026-06-19T18:00:00-04:00"},
-  {g:"C",t1:"Brazil",t2:"Haiti",city:"Philadelphia",st:"Lincoln Financial Field",iso:"2026-06-19T21:00:00-04:00"},
-  {g:"D",t1:"Türkiye",t2:"Paraguay",city:"San Francisco Bay",st:"Levi's Stadium",iso:"2026-06-20T00:00:00-04:00"},
+  {g:"C",t1:"Brazil",t2:"Haiti",city:"Philadelphia",st:"Lincoln Financial Field",iso:"2026-06-19T20:30:00-04:00"},
+  {g:"D",t1:"Türkiye",t2:"Paraguay",city:"San Francisco Bay",st:"Levi's Stadium",iso:"2026-06-19T23:00:00-04:00"},
   {g:"F",t1:"Netherlands",t2:"Sweden",city:"Houston",st:"NRG Stadium",iso:"2026-06-20T13:00:00-04:00"},
   {g:"E",t1:"Germany",t2:"Ivory Coast",city:"Toronto",st:"BMO Field",iso:"2026-06-20T16:00:00-04:00"},
   {g:"E",t1:"Ecuador",t2:"Curaçao",city:"Kansas City",st:"Arrowhead Stadium",iso:"2026-06-20T20:00:00-04:00"},
@@ -430,6 +430,11 @@ async function fetchScores(){
     const arr=await r.json();const next={};
     arr.forEach(x=>{if(!x.utcDate)return;next[mkKey(x.home,x.away,x.utcDate)]=x;});
     SCORES=next;
+    // The feed carries the authoritative kick-off time — correct any drift in
+    // the hard-coded schedule by overriding each match's iso from the feed.
+    const byPair={};
+    arr.forEach(x=>{if(x.home&&x.away&&x.utcDate)byPair[[norm(x.home),norm(x.away)].sort().join("|")]=x.utcDate;});
+    M.forEach(m=>{if(m.tbc)return;const u=byPair[[norm(m.t1),norm(m.t2)].sort().join("|")];if(u)m.iso=u;});
     if(!document.querySelector(".card.open"))refresh();
   }catch(e){}
 }
