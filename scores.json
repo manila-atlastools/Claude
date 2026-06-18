@@ -245,11 +245,11 @@
     "home": "Ghana",
     "away": "Panama",
     "utcDate": "2026-06-17T23:00:00Z",
-    "status": "TIMED",
+    "status": "IN_PLAY",
     "minute": null,
     "score": [
-      null,
-      null
+      0,
+      0
     ]
   },
   {
