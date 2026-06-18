@@ -18,7 +18,7 @@
     --brass:#bca572; --brass2:#9c875a; --brassSoft:#cdbb92;
     --chalk:#ece8dd; --chalkDim:#aeb1bd;
     --line:rgba(201,184,134,.22); --line2:rgba(201,184,134,.34);
-    --live:#cd9070;
+    --live:#cd9070; --qual:#5b9bff;
     --disp:'Anton','Archivo Black','Oswald',Impact,sans-serif;
     --body:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
   }
@@ -199,6 +199,12 @@
   .grpteams li.stdrow .nm{font-size:12px; font-weight:600}
   .grpteams li.stdrow .n{text-align:center; font-size:12px; font-weight:600; color:var(--chalkDim); font-variant-numeric:tabular-nums}
   .grpteams li.stdrow .n.pts{color:var(--brassSoft); font-weight:800; font-family:var(--disp); font-size:14px}
+  .grpteams li.stdrow.q{background:linear-gradient(90deg,rgba(91,155,255,.22),transparent 74%); box-shadow:inset 3px 0 0 var(--qual); border-radius:6px}
+  .grpteams li.stdrow.q3{background:linear-gradient(90deg,rgba(91,155,255,.11),transparent 74%); box-shadow:inset 3px 0 0 rgba(91,155,255,.55); border-radius:6px}
+  .grpteams li.stdrow.q .rk,.grpteams li.stdrow.q3 .rk{color:var(--qual)}
+  .qlegend{display:flex; flex-wrap:wrap; gap:6px 16px; font-size:11px; font-weight:600; color:var(--chalkDim); margin:0 2px 13px}
+  .qlegend .qd{display:inline-block; width:11px; height:11px; border-radius:3px; background:var(--qual); margin-right:6px; vertical-align:-1px}
+  .qlegend .qd.q3d{background:rgba(91,155,255,.5)}
   .grpcard{position:relative; border-radius:14px; padding:12px 13px 11px; overflow:hidden; cursor:pointer;
     background:linear-gradient(165deg,var(--panel),var(--panel2)); border:1px solid var(--line);
     box-shadow:0 16px 36px -26px rgba(0,0,20,.8); transition:transform .18s, border-color .25s}
@@ -548,10 +554,28 @@ function computeStandings(g){
   Object.values(T).forEach(t=>t.GD=t.GF-t.GA);
   return Object.values(T).sort((a,b)=>b.Pts-a.Pts||b.GD-a.GD||b.GF-a.GF||a.t.localeCompare(b.t));
 }
+// WC26: top 2 of each group + 8 best 3rd-placed advance to Round of 32.
+// Returns {team: 'q' (top-2) | 'q3' (best third)} for groups that have results.
+function qualMap(){
+  const q={},thirds=[];
+  "ABCDEFGHIJKL".split("").forEach(g=>{
+    const played=M.filter(m=>m.g===g).some(m=>{const sc=scoreOf(m);return sc&&sc.status==="FINISHED";});
+    if(!played)return;
+    const st=computeStandings(g);
+    if(st[0])q[st[0].t]='q';
+    if(st[1])q[st[1].t]='q';
+    if(st[2])thirds.push(st[2]);
+  });
+  thirds.sort((a,b)=>b.Pts-a.Pts||b.GD-a.GD||b.GF-a.GF||a.t.localeCompare(b.t));
+  thirds.slice(0,8).forEach(t=>{if(!q[t.t])q[t.t]='q3';});
+  return q;
+}
 function renderGroups(){
   activeView="groups"; renderFeatured();
   const groups="ABCDEFGHIJKL".split("");
-  let html=`<div class="grpgrid">`;
+  const Q=qualMap();
+  const anyResults=Object.keys(Q).length>0;
+  let html=(anyResults?`<div class="qlegend"><span><span class="qd"></span>Round of 32 place</span><span><span class="qd q3d"></span>Best 3rd-placed</span></div>`:"")+`<div class="grpgrid">`;
   groups.forEach(g=>{
     const ms=M.filter(m=>m.g===g);
     const played=ms.filter(m=>{const sc=scoreOf(m);return sc&&sc.status==="FINISHED";}).length;
@@ -560,7 +584,7 @@ function renderGroups(){
     html+=`<div class="grpcard" style="--gc:${GC[g]}" data-g="${g}">
       <div class="grphdr"><span class="grpbadge">GROUP ${g}</span><span class="grpprog">${played}/${ms.length} played</span></div>
       ${anyPlayed?`<div class="stcols"><span></span><span></span><span></span><span>P</span><span>W</span><span>D</span><span>L</span><span>GD</span><span class="ptsh">Pts</span></div>`:""}
-      <ul class="grpteams">${st.map((s,i)=>`<li class="${anyPlayed?'stdrow':''}">
+      <ul class="grpteams">${st.map((s,i)=>`<li class="${anyPlayed?'stdrow':''} ${Q[s.t]||''}">
         ${anyPlayed?`<span class="rk">${i+1}</span>`:""}
         <span class="flag">${fl(s.t)}</span>
         <span class="nm">${s.t}</span>
