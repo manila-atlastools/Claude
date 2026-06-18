@@ -278,11 +278,11 @@
     "home": "Switzerland",
     "away": "Bosnia-Herzegovina",
     "utcDate": "2026-06-18T19:00:00Z",
-    "status": "TIMED",
+    "status": "FINISHED",
     "minute": null,
     "score": [
-      null,
-      null
+      4,
+      1
     ]
   },
   {
