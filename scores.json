@@ -311,11 +311,11 @@
     "home": "United States",
     "away": "Australia",
     "utcDate": "2026-06-19T19:00:00Z",
-    "status": "TIMED",
+    "status": "PAUSED",
     "minute": null,
     "score": [
-      null,
-      null
+      2,
+      0
     ]
   },
   {
