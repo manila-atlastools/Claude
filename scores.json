@@ -366,10 +366,10 @@
     "home": "Germany",
     "away": "Ivory Coast",
     "utcDate": "2026-06-20T20:00:00Z",
-    "status": "IN_PLAY",
+    "status": "FINISHED",
     "minute": null,
     "score": [
-      1,
+      2,
       1
     ]
   },
