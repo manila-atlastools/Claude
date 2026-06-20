@@ -355,7 +355,7 @@
     "home": "Netherlands",
     "away": "Sweden",
     "utcDate": "2026-06-20T17:00:00Z",
-    "status": "IN_PLAY",
+    "status": "FINISHED",
     "minute": null,
     "score": [
       5,
@@ -366,11 +366,11 @@
     "home": "Germany",
     "away": "Ivory Coast",
     "utcDate": "2026-06-20T20:00:00Z",
-    "status": "TIMED",
+    "status": "IN_PLAY",
     "minute": null,
     "score": [
-      null,
-      null
+      0,
+      0
     ]
   },
   {
