@@ -388,11 +388,11 @@
     "home": "Tunisia",
     "away": "Japan",
     "utcDate": "2026-06-21T04:00:00Z",
-    "status": "TIMED",
+    "status": "FINISHED",
     "minute": null,
     "score": [
-      null,
-      null
+      0,
+      4
     ]
   },
   {
