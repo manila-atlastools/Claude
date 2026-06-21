@@ -410,7 +410,7 @@
     "home": "Belgium",
     "away": "Iran",
     "utcDate": "2026-06-21T19:00:00Z",
-    "status": "IN_PLAY",
+    "status": "FINISHED",
     "minute": null,
     "score": [
       0,
@@ -421,11 +421,11 @@
     "home": "Uruguay",
     "away": "Cape Verde Islands",
     "utcDate": "2026-06-21T22:00:00Z",
-    "status": "TIMED",
+    "status": "IN_PLAY",
     "minute": null,
     "score": [
-      null,
-      null
+      0,
+      0
     ]
   },
   {
