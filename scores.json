@@ -399,11 +399,11 @@
     "home": "Spain",
     "away": "Saudi Arabia",
     "utcDate": "2026-06-21T16:00:00Z",
-    "status": "TIMED",
+    "status": "IN_PLAY",
     "minute": null,
     "score": [
-      null,
-      null
+      1,
+      0
     ]
   },
   {
