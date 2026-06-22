@@ -454,11 +454,11 @@
     "home": "France",
     "away": "Iraq",
     "utcDate": "2026-06-22T21:00:00Z",
-    "status": "TIMED",
+    "status": "PAUSED",
     "minute": null,
     "score": [
-      null,
-      null
+      1,
+      0
     ]
   },
   {
