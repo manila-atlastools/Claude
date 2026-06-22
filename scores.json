@@ -443,11 +443,11 @@
     "home": "Argentina",
     "away": "Austria",
     "utcDate": "2026-06-22T17:00:00Z",
-    "status": "TIMED",
+    "status": "IN_PLAY",
     "minute": null,
     "score": [
-      null,
-      null
+      0,
+      0
     ]
   },
   {
