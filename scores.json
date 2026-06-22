@@ -432,11 +432,11 @@
     "home": "New Zealand",
     "away": "Egypt",
     "utcDate": "2026-06-22T01:00:00Z",
-    "status": "IN_PLAY",
+    "status": "FINISHED",
     "minute": null,
     "score": [
       1,
-      0
+      3
     ]
   },
   {
