@@ -487,11 +487,11 @@
     "home": "Portugal",
     "away": "Uzbekistan",
     "utcDate": "2026-06-23T17:00:00Z",
-    "status": "TIMED",
+    "status": "IN_PLAY",
     "minute": null,
     "score": [
-      null,
-      null
+      3,
+      0
     ]
   },
   {
