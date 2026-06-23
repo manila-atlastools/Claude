@@ -28,8 +28,8 @@
     "status": "FINISHED",
     "minute": null,
     "score": [
-      null,
-      null
+      1,
+      1
     ]
   },
   {
@@ -498,7 +498,7 @@
     "home": "England",
     "away": "Ghana",
     "utcDate": "2026-06-23T20:00:00Z",
-    "status": "LIVE",
+    "status": "FINISHED",
     "minute": null,
     "score": [
       0,
