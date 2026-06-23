@@ -454,10 +454,10 @@
     "home": "France",
     "away": "Iraq",
     "utcDate": "2026-06-22T21:00:00Z",
-    "status": "PAUSED",
+    "status": "FINISHED",
     "minute": null,
     "score": [
-      1,
+      3,
       0
     ]
   },
@@ -465,11 +465,11 @@
     "home": "Norway",
     "away": "Senegal",
     "utcDate": "2026-06-23T00:00:00Z",
-    "status": "TIMED",
+    "status": "IN_PLAY",
     "minute": null,
     "score": [
-      null,
-      null
+      3,
+      1
     ]
   },
   {
