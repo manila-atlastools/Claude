@@ -465,22 +465,22 @@
     "home": "Norway",
     "away": "Senegal",
     "utcDate": "2026-06-23T00:00:00Z",
-    "status": "IN_PLAY",
+    "status": "FINISHED",
     "minute": null,
     "score": [
       3,
-      1
+      2
     ]
   },
   {
     "home": "Jordan",
     "away": "Algeria",
     "utcDate": "2026-06-23T03:00:00Z",
-    "status": "TIMED",
+    "status": "FINISHED",
     "minute": null,
     "score": [
-      null,
-      null
+      1,
+      2
     ]
   },
   {
