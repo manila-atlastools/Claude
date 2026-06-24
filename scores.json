@@ -509,11 +509,11 @@
     "home": "Panama",
     "away": "Croatia",
     "utcDate": "2026-06-23T23:00:00Z",
-    "status": "TIMED",
+    "status": "PAUSED",
     "minute": null,
     "score": [
-      null,
-      null
+      0,
+      0
     ]
   },
   {
