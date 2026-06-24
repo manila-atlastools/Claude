@@ -531,22 +531,22 @@
     "home": "Switzerland",
     "away": "Canada",
     "utcDate": "2026-06-24T19:00:00Z",
-    "status": "TIMED",
+    "status": "IN_PLAY",
     "minute": null,
     "score": [
-      null,
-      null
+      2,
+      1
     ]
   },
   {
     "home": "Bosnia-Herzegovina",
     "away": "Qatar",
     "utcDate": "2026-06-24T19:00:00Z",
-    "status": "TIMED",
+    "status": "IN_PLAY",
     "minute": null,
     "score": [
-      null,
-      null
+      3,
+      1
     ]
   },
   {
