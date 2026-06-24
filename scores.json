@@ -814,7 +814,7 @@
     ]
   },
   {
-    "home": null,
+    "home": "Germany",
     "away": null,
     "utcDate": "2026-06-29T20:30:00Z",
     "status": "TIMED",
@@ -858,7 +858,7 @@
     ]
   },
   {
-    "home": null,
+    "home": "Mexico",
     "away": null,
     "utcDate": "2026-07-01T01:00:00Z",
     "status": "TIMED",
@@ -891,7 +891,7 @@
     ]
   },
   {
-    "home": null,
+    "home": "United States",
     "away": null,
     "utcDate": "2026-07-02T00:00:00Z",
     "status": "TIMED",
@@ -946,7 +946,7 @@
     ]
   },
   {
-    "home": null,
+    "home": "Argentina",
     "away": null,
     "utcDate": "2026-07-03T22:00:00Z",
     "status": "TIMED",
