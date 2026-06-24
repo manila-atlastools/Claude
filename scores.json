@@ -28,8 +28,8 @@
     "status": "FINISHED",
     "minute": null,
     "score": [
-      1,
-      1
+      null,
+      null
     ]
   },
   {
@@ -553,22 +553,22 @@
     "home": "Morocco",
     "away": "Haiti",
     "utcDate": "2026-06-24T22:00:00Z",
-    "status": "TIMED",
+    "status": "IN_PLAY",
     "minute": null,
     "score": [
-      null,
-      null
+      2,
+      2
     ]
   },
   {
     "home": "Scotland",
     "away": "Brazil",
     "utcDate": "2026-06-24T22:00:00Z",
-    "status": "TIMED",
+    "status": "PAUSED",
     "minute": null,
     "score": [
-      null,
-      null
+      0,
+      2
     ]
   },
   {
@@ -814,7 +814,7 @@
     ]
   },
   {
-    "home": "Germany",
+    "home": null,
     "away": null,
     "utcDate": "2026-06-29T20:30:00Z",
     "status": "TIMED",
@@ -858,7 +858,7 @@
     ]
   },
   {
-    "home": "Mexico",
+    "home": null,
     "away": null,
     "utcDate": "2026-07-01T01:00:00Z",
     "status": "TIMED",
@@ -891,7 +891,7 @@
     ]
   },
   {
-    "home": "United States",
+    "home": null,
     "away": null,
     "utcDate": "2026-07-02T00:00:00Z",
     "status": "TIMED",
@@ -946,7 +946,7 @@
     ]
   },
   {
-    "home": "Argentina",
+    "home": null,
     "away": null,
     "utcDate": "2026-07-03T22:00:00Z",
     "status": "TIMED",
