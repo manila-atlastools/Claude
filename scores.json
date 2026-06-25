@@ -651,7 +651,7 @@
     "home": "Ecuador",
     "away": "Germany",
     "utcDate": "2026-06-25T20:00:00Z",
-    "status": "IN_PLAY",
+    "status": "FINISHED",
     "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
@@ -663,7 +663,7 @@
     "home": "Curaçao",
     "away": "Ivory Coast",
     "utcDate": "2026-06-25T20:00:00Z",
-    "status": "IN_PLAY",
+    "status": "FINISHED",
     "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
@@ -675,24 +675,24 @@
     "home": "Tunisia",
     "away": "Netherlands",
     "utcDate": "2026-06-25T23:00:00Z",
-    "status": "TIMED",
+    "status": "IN_PLAY",
     "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
-      null,
-      null
+      0,
+      1
     ]
   },
   {
     "home": "Japan",
     "away": "Sweden",
     "utcDate": "2026-06-25T23:00:00Z",
-    "status": "TIMED",
+    "status": "IN_PLAY",
     "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
-      null,
-      null
+      0,
+      0
     ]
   },
   {
