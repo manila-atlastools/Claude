@@ -4,6 +4,7 @@
     "away": "South Africa",
     "utcDate": "2026-06-11T19:00:00Z",
     "status": "FINISHED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       2,
@@ -15,6 +16,7 @@
     "away": "Czechia",
     "utcDate": "2026-06-12T02:00:00Z",
     "status": "FINISHED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       2,
@@ -26,6 +28,7 @@
     "away": "Bosnia-Herzegovina",
     "utcDate": "2026-06-12T19:00:00Z",
     "status": "FINISHED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       1,
@@ -37,6 +40,7 @@
     "away": "Paraguay",
     "utcDate": "2026-06-13T01:00:00Z",
     "status": "FINISHED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       4,
@@ -48,6 +52,7 @@
     "away": "Switzerland",
     "utcDate": "2026-06-13T19:00:00Z",
     "status": "FINISHED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       1,
@@ -59,6 +64,7 @@
     "away": "Morocco",
     "utcDate": "2026-06-13T22:00:00Z",
     "status": "FINISHED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       1,
@@ -70,6 +76,7 @@
     "away": "Scotland",
     "utcDate": "2026-06-14T01:00:00Z",
     "status": "FINISHED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       0,
@@ -81,6 +88,7 @@
     "away": "Turkey",
     "utcDate": "2026-06-14T04:00:00Z",
     "status": "FINISHED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       2,
@@ -92,6 +100,7 @@
     "away": "Curaçao",
     "utcDate": "2026-06-14T17:00:00Z",
     "status": "FINISHED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       7,
@@ -103,6 +112,7 @@
     "away": "Japan",
     "utcDate": "2026-06-14T20:00:00Z",
     "status": "FINISHED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       2,
@@ -114,6 +124,7 @@
     "away": "Ecuador",
     "utcDate": "2026-06-14T23:00:00Z",
     "status": "FINISHED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       1,
@@ -125,6 +136,7 @@
     "away": "Tunisia",
     "utcDate": "2026-06-15T02:00:00Z",
     "status": "FINISHED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       5,
@@ -136,6 +148,7 @@
     "away": "Cape Verde Islands",
     "utcDate": "2026-06-15T16:00:00Z",
     "status": "FINISHED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       0,
@@ -147,6 +160,7 @@
     "away": "Egypt",
     "utcDate": "2026-06-15T19:00:00Z",
     "status": "FINISHED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       1,
@@ -158,6 +172,7 @@
     "away": "Uruguay",
     "utcDate": "2026-06-15T22:00:00Z",
     "status": "FINISHED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       1,
@@ -169,6 +184,7 @@
     "away": "New Zealand",
     "utcDate": "2026-06-16T01:00:00Z",
     "status": "FINISHED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       2,
@@ -180,6 +196,7 @@
     "away": "Senegal",
     "utcDate": "2026-06-16T19:00:00Z",
     "status": "FINISHED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       3,
@@ -191,6 +208,7 @@
     "away": "Norway",
     "utcDate": "2026-06-16T22:00:00Z",
     "status": "FINISHED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       1,
@@ -202,6 +220,7 @@
     "away": "Algeria",
     "utcDate": "2026-06-17T01:00:00Z",
     "status": "FINISHED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       3,
@@ -213,6 +232,7 @@
     "away": "Jordan",
     "utcDate": "2026-06-17T04:00:00Z",
     "status": "FINISHED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       3,
@@ -224,6 +244,7 @@
     "away": "Congo DR",
     "utcDate": "2026-06-17T17:00:00Z",
     "status": "FINISHED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       1,
@@ -235,6 +256,7 @@
     "away": "Croatia",
     "utcDate": "2026-06-17T20:00:00Z",
     "status": "FINISHED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       4,
@@ -246,6 +268,7 @@
     "away": "Panama",
     "utcDate": "2026-06-17T23:00:00Z",
     "status": "FINISHED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       1,
@@ -257,6 +280,7 @@
     "away": "Colombia",
     "utcDate": "2026-06-18T02:00:00Z",
     "status": "FINISHED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       1,
@@ -268,6 +292,7 @@
     "away": "South Africa",
     "utcDate": "2026-06-18T16:00:00Z",
     "status": "FINISHED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       1,
@@ -279,6 +304,7 @@
     "away": "Bosnia-Herzegovina",
     "utcDate": "2026-06-18T19:00:00Z",
     "status": "FINISHED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       4,
@@ -290,6 +316,7 @@
     "away": "Qatar",
     "utcDate": "2026-06-18T22:00:00Z",
     "status": "FINISHED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       6,
@@ -301,6 +328,7 @@
     "away": "South Korea",
     "utcDate": "2026-06-19T01:00:00Z",
     "status": "FINISHED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       1,
@@ -312,6 +340,7 @@
     "away": "Australia",
     "utcDate": "2026-06-19T19:00:00Z",
     "status": "FINISHED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       2,
@@ -323,6 +352,7 @@
     "away": "Morocco",
     "utcDate": "2026-06-19T22:00:00Z",
     "status": "FINISHED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       0,
@@ -334,6 +364,7 @@
     "away": "Haiti",
     "utcDate": "2026-06-20T00:30:00Z",
     "status": "FINISHED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       3,
@@ -345,6 +376,7 @@
     "away": "Paraguay",
     "utcDate": "2026-06-20T03:00:00Z",
     "status": "FINISHED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       0,
@@ -356,6 +388,7 @@
     "away": "Sweden",
     "utcDate": "2026-06-20T17:00:00Z",
     "status": "FINISHED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       5,
@@ -367,6 +400,7 @@
     "away": "Ivory Coast",
     "utcDate": "2026-06-20T20:00:00Z",
     "status": "FINISHED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       2,
@@ -378,6 +412,7 @@
     "away": "Curaçao",
     "utcDate": "2026-06-21T00:00:00Z",
     "status": "FINISHED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       0,
@@ -389,6 +424,7 @@
     "away": "Japan",
     "utcDate": "2026-06-21T04:00:00Z",
     "status": "FINISHED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       0,
@@ -400,6 +436,7 @@
     "away": "Saudi Arabia",
     "utcDate": "2026-06-21T16:00:00Z",
     "status": "FINISHED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       4,
@@ -411,6 +448,7 @@
     "away": "Iran",
     "utcDate": "2026-06-21T19:00:00Z",
     "status": "FINISHED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       0,
@@ -422,6 +460,7 @@
     "away": "Cape Verde Islands",
     "utcDate": "2026-06-21T22:00:00Z",
     "status": "FINISHED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       2,
@@ -433,6 +472,7 @@
     "away": "Egypt",
     "utcDate": "2026-06-22T01:00:00Z",
     "status": "FINISHED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       1,
@@ -444,6 +484,7 @@
     "away": "Austria",
     "utcDate": "2026-06-22T17:00:00Z",
     "status": "FINISHED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       2,
@@ -455,6 +496,7 @@
     "away": "Iraq",
     "utcDate": "2026-06-22T21:00:00Z",
     "status": "FINISHED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       3,
@@ -466,6 +508,7 @@
     "away": "Senegal",
     "utcDate": "2026-06-23T00:00:00Z",
     "status": "FINISHED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       3,
@@ -477,6 +520,7 @@
     "away": "Algeria",
     "utcDate": "2026-06-23T03:00:00Z",
     "status": "FINISHED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       1,
@@ -488,6 +532,7 @@
     "away": "Uzbekistan",
     "utcDate": "2026-06-23T17:00:00Z",
     "status": "FINISHED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       5,
@@ -499,6 +544,7 @@
     "away": "Ghana",
     "utcDate": "2026-06-23T20:00:00Z",
     "status": "FINISHED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       0,
@@ -510,6 +556,7 @@
     "away": "Croatia",
     "utcDate": "2026-06-23T23:00:00Z",
     "status": "FINISHED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       0,
@@ -521,6 +568,7 @@
     "away": "Congo DR",
     "utcDate": "2026-06-24T02:00:00Z",
     "status": "FINISHED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       1,
@@ -532,6 +580,7 @@
     "away": "Canada",
     "utcDate": "2026-06-24T19:00:00Z",
     "status": "FINISHED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       2,
@@ -543,6 +592,7 @@
     "away": "Qatar",
     "utcDate": "2026-06-24T19:00:00Z",
     "status": "FINISHED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       3,
@@ -554,6 +604,7 @@
     "away": "Haiti",
     "utcDate": "2026-06-24T22:00:00Z",
     "status": "FINISHED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       4,
@@ -565,6 +616,7 @@
     "away": "Brazil",
     "utcDate": "2026-06-24T22:00:00Z",
     "status": "FINISHED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       0,
@@ -576,6 +628,7 @@
     "away": "Mexico",
     "utcDate": "2026-06-25T01:00:00Z",
     "status": "FINISHED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       0,
@@ -587,6 +640,7 @@
     "away": "South Korea",
     "utcDate": "2026-06-25T01:00:00Z",
     "status": "FINISHED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       1,
@@ -598,6 +652,7 @@
     "away": "Germany",
     "utcDate": "2026-06-25T20:00:00Z",
     "status": "TIMED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       null,
@@ -609,6 +664,7 @@
     "away": "Ivory Coast",
     "utcDate": "2026-06-25T20:00:00Z",
     "status": "TIMED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       null,
@@ -620,6 +676,7 @@
     "away": "Netherlands",
     "utcDate": "2026-06-25T23:00:00Z",
     "status": "TIMED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       null,
@@ -631,6 +688,7 @@
     "away": "Sweden",
     "utcDate": "2026-06-25T23:00:00Z",
     "status": "TIMED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       null,
@@ -642,6 +700,7 @@
     "away": "United States",
     "utcDate": "2026-06-26T02:00:00Z",
     "status": "TIMED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       null,
@@ -653,6 +712,7 @@
     "away": "Australia",
     "utcDate": "2026-06-26T02:00:00Z",
     "status": "TIMED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       null,
@@ -664,6 +724,7 @@
     "away": "France",
     "utcDate": "2026-06-26T19:00:00Z",
     "status": "TIMED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       null,
@@ -675,6 +736,7 @@
     "away": "Iraq",
     "utcDate": "2026-06-26T19:00:00Z",
     "status": "TIMED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       null,
@@ -686,6 +748,7 @@
     "away": "Spain",
     "utcDate": "2026-06-27T00:00:00Z",
     "status": "TIMED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       null,
@@ -697,6 +760,7 @@
     "away": "Saudi Arabia",
     "utcDate": "2026-06-27T00:00:00Z",
     "status": "TIMED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       null,
@@ -708,6 +772,7 @@
     "away": "Belgium",
     "utcDate": "2026-06-27T03:00:00Z",
     "status": "TIMED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       null,
@@ -719,6 +784,7 @@
     "away": "Iran",
     "utcDate": "2026-06-27T03:00:00Z",
     "status": "TIMED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       null,
@@ -730,6 +796,7 @@
     "away": "England",
     "utcDate": "2026-06-27T21:00:00Z",
     "status": "TIMED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       null,
@@ -741,6 +808,7 @@
     "away": "Ghana",
     "utcDate": "2026-06-27T21:00:00Z",
     "status": "TIMED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       null,
@@ -752,6 +820,7 @@
     "away": "Portugal",
     "utcDate": "2026-06-27T23:30:00Z",
     "status": "TIMED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       null,
@@ -763,6 +832,7 @@
     "away": "Uzbekistan",
     "utcDate": "2026-06-27T23:30:00Z",
     "status": "TIMED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       null,
@@ -774,6 +844,7 @@
     "away": "Argentina",
     "utcDate": "2026-06-28T02:00:00Z",
     "status": "TIMED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       null,
@@ -785,6 +856,7 @@
     "away": "Austria",
     "utcDate": "2026-06-28T02:00:00Z",
     "status": "TIMED",
+    "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       null,
@@ -796,6 +868,7 @@
     "away": null,
     "utcDate": "2026-06-28T19:00:00Z",
     "status": "TIMED",
+    "stage": "LAST_32",
     "minute": null,
     "score": [
       null,
@@ -807,6 +880,7 @@
     "away": null,
     "utcDate": "2026-06-29T17:00:00Z",
     "status": "TIMED",
+    "stage": "LAST_32",
     "minute": null,
     "score": [
       null,
@@ -814,10 +888,11 @@
     ]
   },
   {
-    "home": null,
+    "home": "Germany",
     "away": null,
     "utcDate": "2026-06-29T20:30:00Z",
     "status": "TIMED",
+    "stage": "LAST_32",
     "minute": null,
     "score": [
       null,
@@ -829,6 +904,7 @@
     "away": null,
     "utcDate": "2026-06-30T01:00:00Z",
     "status": "TIMED",
+    "stage": "LAST_32",
     "minute": null,
     "score": [
       null,
@@ -840,6 +916,7 @@
     "away": null,
     "utcDate": "2026-06-30T17:00:00Z",
     "status": "TIMED",
+    "stage": "LAST_32",
     "minute": null,
     "score": [
       null,
@@ -851,6 +928,7 @@
     "away": null,
     "utcDate": "2026-06-30T21:00:00Z",
     "status": "TIMED",
+    "stage": "LAST_32",
     "minute": null,
     "score": [
       null,
@@ -858,10 +936,11 @@
     ]
   },
   {
-    "home": null,
+    "home": "Mexico",
     "away": null,
     "utcDate": "2026-07-01T01:00:00Z",
     "status": "TIMED",
+    "stage": "LAST_32",
     "minute": null,
     "score": [
       null,
@@ -873,6 +952,7 @@
     "away": null,
     "utcDate": "2026-07-01T16:00:00Z",
     "status": "TIMED",
+    "stage": "LAST_32",
     "minute": null,
     "score": [
       null,
@@ -884,6 +964,7 @@
     "away": null,
     "utcDate": "2026-07-01T20:00:00Z",
     "status": "TIMED",
+    "stage": "LAST_32",
     "minute": null,
     "score": [
       null,
@@ -891,10 +972,11 @@
     ]
   },
   {
-    "home": null,
+    "home": "United States",
     "away": null,
     "utcDate": "2026-07-02T00:00:00Z",
     "status": "TIMED",
+    "stage": "LAST_32",
     "minute": null,
     "score": [
       null,
@@ -906,6 +988,7 @@
     "away": null,
     "utcDate": "2026-07-02T19:00:00Z",
     "status": "TIMED",
+    "stage": "LAST_32",
     "minute": null,
     "score": [
       null,
@@ -917,6 +1000,7 @@
     "away": null,
     "utcDate": "2026-07-02T23:00:00Z",
     "status": "TIMED",
+    "stage": "LAST_32",
     "minute": null,
     "score": [
       null,
@@ -928,6 +1012,7 @@
     "away": null,
     "utcDate": "2026-07-03T03:00:00Z",
     "status": "TIMED",
+    "stage": "LAST_32",
     "minute": null,
     "score": [
       null,
@@ -939,6 +1024,7 @@
     "away": null,
     "utcDate": "2026-07-03T18:00:00Z",
     "status": "TIMED",
+    "stage": "LAST_32",
     "minute": null,
     "score": [
       null,
@@ -946,10 +1032,11 @@
     ]
   },
   {
-    "home": null,
+    "home": "Argentina",
     "away": null,
     "utcDate": "2026-07-03T22:00:00Z",
     "status": "TIMED",
+    "stage": "LAST_32",
     "minute": null,
     "score": [
       null,
@@ -961,6 +1048,7 @@
     "away": null,
     "utcDate": "2026-07-04T01:30:00Z",
     "status": "TIMED",
+    "stage": "LAST_32",
     "minute": null,
     "score": [
       null,
@@ -972,6 +1060,7 @@
     "away": null,
     "utcDate": "2026-07-04T17:00:00Z",
     "status": "TIMED",
+    "stage": "LAST_16",
     "minute": null,
     "score": [
       null,
@@ -983,6 +1072,7 @@
     "away": null,
     "utcDate": "2026-07-04T21:00:00Z",
     "status": "TIMED",
+    "stage": "LAST_16",
     "minute": null,
     "score": [
       null,
@@ -994,6 +1084,7 @@
     "away": null,
     "utcDate": "2026-07-05T20:00:00Z",
     "status": "TIMED",
+    "stage": "LAST_16",
     "minute": null,
     "score": [
       null,
@@ -1005,6 +1096,7 @@
     "away": null,
     "utcDate": "2026-07-06T00:00:00Z",
     "status": "TIMED",
+    "stage": "LAST_16",
     "minute": null,
     "score": [
       null,
@@ -1016,6 +1108,7 @@
     "away": null,
     "utcDate": "2026-07-06T19:00:00Z",
     "status": "TIMED",
+    "stage": "LAST_16",
     "minute": null,
     "score": [
       null,
@@ -1027,6 +1120,7 @@
     "away": null,
     "utcDate": "2026-07-07T00:00:00Z",
     "status": "TIMED",
+    "stage": "LAST_16",
     "minute": null,
     "score": [
       null,
@@ -1038,6 +1132,7 @@
     "away": null,
     "utcDate": "2026-07-07T16:00:00Z",
     "status": "TIMED",
+    "stage": "LAST_16",
     "minute": null,
     "score": [
       null,
@@ -1049,6 +1144,7 @@
     "away": null,
     "utcDate": "2026-07-07T20:00:00Z",
     "status": "TIMED",
+    "stage": "LAST_16",
     "minute": null,
     "score": [
       null,
@@ -1060,6 +1156,7 @@
     "away": null,
     "utcDate": "2026-07-09T20:00:00Z",
     "status": "TIMED",
+    "stage": "QUARTER_FINALS",
     "minute": null,
     "score": [
       null,
@@ -1071,6 +1168,7 @@
     "away": null,
     "utcDate": "2026-07-10T19:00:00Z",
     "status": "TIMED",
+    "stage": "QUARTER_FINALS",
     "minute": null,
     "score": [
       null,
@@ -1082,6 +1180,7 @@
     "away": null,
     "utcDate": "2026-07-11T21:00:00Z",
     "status": "TIMED",
+    "stage": "QUARTER_FINALS",
     "minute": null,
     "score": [
       null,
@@ -1093,6 +1192,7 @@
     "away": null,
     "utcDate": "2026-07-12T01:00:00Z",
     "status": "TIMED",
+    "stage": "QUARTER_FINALS",
     "minute": null,
     "score": [
       null,
@@ -1104,6 +1204,7 @@
     "away": null,
     "utcDate": "2026-07-14T19:00:00Z",
     "status": "TIMED",
+    "stage": "SEMI_FINALS",
     "minute": null,
     "score": [
       null,
@@ -1115,6 +1216,7 @@
     "away": null,
     "utcDate": "2026-07-15T19:00:00Z",
     "status": "TIMED",
+    "stage": "SEMI_FINALS",
     "minute": null,
     "score": [
       null,
@@ -1126,6 +1228,7 @@
     "away": null,
     "utcDate": "2026-07-18T21:00:00Z",
     "status": "TIMED",
+    "stage": "THIRD_PLACE",
     "minute": null,
     "score": [
       null,
@@ -1137,6 +1240,7 @@
     "away": null,
     "utcDate": "2026-07-19T19:00:00Z",
     "status": "TIMED",
+    "stage": "FINAL",
     "minute": null,
     "score": [
       null,
