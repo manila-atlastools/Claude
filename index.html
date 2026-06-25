@@ -185,6 +185,25 @@
   .kohdr{font-family:var(--disp); font-size:23px; letter-spacing:1.6px; text-transform:uppercase; margin:28px 2px 13px; color:var(--chalk); cursor:pointer}
   .koround{display:flex; align-items:baseline; gap:9px; font-family:var(--disp); font-size:15px; letter-spacing:1.4px; text-transform:uppercase; color:var(--brassSoft); margin:18px 2px 11px; padding-bottom:7px; border-bottom:1px solid var(--line)}
   .koround-n{font-family:var(--body); font-size:10.5px; font-weight:700; letter-spacing:1px; color:var(--chalkDim)}
+  /* ---------- knockout bracket ---------- */
+  .bracket{display:flex; gap:16px; overflow-x:auto; padding:4px 2px 16px; -webkit-overflow-scrolling:touch}
+  .bracket::-webkit-scrollbar{height:6px}
+  .bracket::-webkit-scrollbar-thumb{background:var(--line2); border-radius:3px}
+  .bcol{display:flex; flex-direction:column; justify-content:space-around; gap:10px; min-width:188px; flex:0 0 auto}
+  .bcol-title{font-family:var(--disp); font-size:11.5px; letter-spacing:1.3px; text-transform:uppercase; color:var(--brassSoft); text-align:center; padding-bottom:6px; border-bottom:1px solid var(--line)}
+  .bmatch{background:linear-gradient(165deg,var(--panel),var(--panel2)); border:1px solid var(--line); border-radius:11px; padding:8px 11px; box-shadow:0 12px 26px -22px rgba(0,0,20,.85)}
+  .bmatch.live{border-color:rgba(205,144,112,.55)}
+  .bmatch .bd{display:flex; justify-content:space-between; gap:6px; font-size:9.5px; font-weight:700; letter-spacing:.4px; color:var(--chalkDim); margin-bottom:7px}
+  .bmatch .bd .st{color:var(--live)}
+  .bteam{display:flex; align-items:center; gap:8px; padding:3px 0; font-size:13px; font-weight:600; color:var(--chalk)}
+  .bteam.tbd{color:var(--chalkDim)}
+  .bteam .flag{font-size:17px; flex:0 0 auto}
+  .bteam .nm{flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+  .bteam .sc{font-family:var(--disp); font-size:14px; font-variant-numeric:tabular-nums; color:var(--chalkDim)}
+  .bteam.win .nm,.bteam.win .sc{color:var(--brassSoft)}
+  .bteam.lose{opacity:.55}
+  .bsplit{height:1px; background:var(--line); margin:1px 0}
+  .brackethint{font-size:10.5px; color:var(--chalkDim); margin:0 2px 11px; letter-spacing:.4px}
   .card.final{background:linear-gradient(165deg,#26284a,#1a1c32); border:1px solid var(--brass2)}
   .card.final::before{background:linear-gradient(var(--brassSoft),var(--brass2)); opacity:1}
   .card.final .badge{background:linear-gradient(160deg,var(--brassSoft),var(--brass2)); color:var(--navy2); border-color:transparent}
@@ -518,6 +537,32 @@ function r32Cards(){
   const ms=FEED.filter(x=>x.stage==="LAST_32").sort((a,b)=>new Date(a.utcDate)-new Date(b.utcDate));
   return ms.length?ms.map(feedCard).join(""):"";
 }
+// One bracket cell: date/status header + two stacked teams (flag, name, score).
+function bCell(x){
+  const d=new Date(x.utcDate),p=P();
+  const fin=x.status==="FINISHED",live=LIVE_STATUSES.includes(x.status);
+  const hs=x.score&&x.score[0]!=null;
+  const st=live?`<span class="st">● ${x.minute?x.minute+"'":"LIVE"}</span>`
+    :fin?`<span class="st" style="color:var(--brassSoft)">FT</span>`:"";
+  const hw=hs&&x.score[0]>x.score[1], aw=hs&&x.score[1]>x.score[0];
+  const row=(n,sc,win,lose)=>`<div class="bteam ${n?'':'tbd'} ${win?'win':''} ${fin&&lose?'lose':''}">`+
+    `<span class="flag">${n?fl(n):'🏳️'}</span><span class="nm">${n||'TBD'}</span>`+
+    `${sc!=null?`<span class="sc">${sc}</span>`:''}</div>`;
+  return `<div class="bmatch ${live?'live':''}">
+    <div class="bd"><span>${fmtD(d,p.tz)} · ${fmtT(d,p.tz)}</span>${st}</div>
+    ${row(x.home, hs?x.score[0]:null, hw, aw)}
+    <div class="bsplit"></div>
+    ${row(x.away, hs?x.score[1]:null, aw, hw)}
+  </div>`;
+}
+function bracketHTML(){
+  const rounds=[["LAST_32","Round of 32"],["LAST_16","Round of 16"],["QUARTER_FINALS","Quarter-finals"],["SEMI_FINALS","Semi-finals"],["FINAL","Final"]];
+  const cols=rounds.map(([s,label])=>{
+    const ms=FEED.filter(x=>x.stage===s).sort((a,b)=>new Date(a.utcDate)-new Date(b.utcDate));
+    return ms.length?`<div class="bcol"><div class="bcol-title">${label}</div>${ms.map(bCell).join("")}</div>`:"";
+  }).filter(Boolean).join("");
+  return cols?`<div class="bracket">${cols}</div>`:"";
+}
 
 function pickFeatured(){return M.filter(m=>!m.tbc&&!isDone(m)&&(!team||m.t1===team||m.t2===team)).sort((a,b)=>new Date(a.iso)-new Date(b.iso))[0]||null;}
 function renderFeatured(){
@@ -564,12 +609,19 @@ function render(){
       html+=matchCard(m);});
     if(!ms.length&&stage==="group")html+=`<div class="empty">No group matches for this filter.</div>`;
   }
-  if(showK){html+=`<div class="kohdr" id="kohdr">🏆 Knockout Stage</div>`;
-    const r32=r32Cards();
-    KO.forEach((k,i)=>{
-      if(i===0&&r32)html+=`<div class="koround">${k.r} <span class="koround-n">16 matches</span></div>`+r32;
-      else html+=koCard(k);
-    });}
+  if(showK){
+    const bracket=stage==="ko"?bracketHTML():"";
+    if(bracket){
+      html+=`<div class="kohdr" id="kohdr">🏆 Knockout Bracket</div><div class="brackethint">Scroll sideways to follow the rounds →</div>`+bracket;
+    }else{
+      html+=`<div class="kohdr" id="kohdr">🏆 Knockout Stage</div>`;
+      const r32=r32Cards();
+      KO.forEach((k,i)=>{
+        if(i===0&&r32)html+=`<div class="koround">${k.r} <span class="koround-n">16 matches</span></div>`+r32;
+        else html+=koCard(k);
+      });
+    }
+  }
   list.innerHTML=html||`<div class="empty">Nothing matches your filters.<br/>Tap “All”.</div>`;
 }
 
