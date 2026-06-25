@@ -183,6 +183,8 @@
 
   /* ---------- knockout ---------- */
   .kohdr{font-family:var(--disp); font-size:23px; letter-spacing:1.6px; text-transform:uppercase; margin:28px 2px 13px; color:var(--chalk); cursor:pointer}
+  .koround{display:flex; align-items:baseline; gap:9px; font-family:var(--disp); font-size:15px; letter-spacing:1.4px; text-transform:uppercase; color:var(--brassSoft); margin:18px 2px 11px; padding-bottom:7px; border-bottom:1px solid var(--line)}
+  .koround-n{font-family:var(--body); font-size:10.5px; font-weight:700; letter-spacing:1px; color:var(--chalkDim)}
   .card.final{background:linear-gradient(165deg,#26284a,#1a1c32); border:1px solid var(--brass2)}
   .card.final::before{background:linear-gradient(var(--brassSoft),var(--brass2)); opacity:1}
   .card.final .badge{background:linear-gradient(160deg,var(--brassSoft),var(--brass2)); color:var(--navy2); border-color:transparent}
@@ -414,7 +416,7 @@ const dayKey=d=>new Intl.DateTimeFormat("en-CA",{year:"numeric",month:"2-digit",
 const NORM={"South Korea":"Korea Republic","Czech Republic":"Czechia","Bosnia and Herzegovina":"Bosnia & Herzegovina","Bosnia-Herzegovina":"Bosnia & Herzegovina","Côte d'Ivoire":"Ivory Coast","Cape Verde Islands":"Cape Verde","Cabo Verde":"Cape Verde","Turkey":"Türkiye","Congo DR":"DR Congo","USA":"United States","IR Iran":"Iran","Korea DPR":"Korea Republic"};
 const norm=n=>NORM[n]||n;
 const mkKey=(a,b,utc)=>[norm(a),norm(b)].sort().join("|")+"|"+utc.slice(0,10);
-let SCORES={};
+let SCORES={},FEED=[];
 function scoreOf(m){try{const utc=new Date(m.iso).toISOString().slice(0,10);return SCORES[mkKey(m.t1,m.t2,utc)];}catch(e){return null;}}
 const luURL=m=>{const c=s=>s.replace(/ & /g," and ");return "https://www.google.com/search?q="+encodeURIComponent(c(m.t1)+" vs "+c(m.t2));};
 const LU_WINDOW_MS=2*36e5; // lineups confirmed ~2h before kick-off
@@ -428,6 +430,7 @@ const LIVE_STATUSES=["LIVE","IN_PLAY","PAUSED"];
 async function fetchScores(){
   try{const r=await fetch("scores.json?t="+Date.now());if(!r.ok)return;
     const arr=await r.json();const next={};
+    FEED=arr;
     arr.forEach(x=>{if(!x.utcDate)return;next[mkKey(x.home,x.away,x.utcDate)]=x;});
     SCORES=next;
     // The feed carries the authoritative kick-off time — correct any drift in
@@ -495,6 +498,27 @@ function koCard(k){
     <div class="meta"><span class="venue">📍 ${k.venue}</span>${tb}</div>${detail}</div>`;
 }
 
+// A single knockout match rendered straight from the feed (teams fill in as
+// groups finish; score/status update live like the group games).
+function feedCard(x){
+  const d=new Date(x.utcDate),ts=d.getTime(),p=P(),s=S();
+  const hasScore=x.score&&x.score[0]!=null;
+  const live=LIVE_STATUSES.includes(x.status);
+  const sc=x.status==="FINISHED"?["ft","FULL TIME"]:live?["live",x.minute?`● ${x.minute}'`:"● LIVE"]:["up",fmtD(d,p.tz)];
+  const mid=hasScore?`<span class="vs score">${x.score[0]}–${x.score[1]}</span>`:`<span class="vs">VS</span>`;
+  const side=(n,away)=>`<div class="side ${away?'away':'home'}"><span class="flag">${n?fl(n):"🏳️"}</span><span class="nm"${n?'':' style="color:var(--chalkDim)"'}>${n||"TBD"}</span></div>`;
+  return `<div class="card ${sc[0]==='live'?'live':''}" style="--gc:#bca572">
+    <div class="top"><span class="badge">R32</span><span class="status ${sc[0]}">${sc[1]}</span></div>
+    <div class="teams">${side(x.home)}<div class="mid">${mid}</div>${side(x.away,1)}</div>
+    <div class="meta"><span class="venue">📅 ${fmtF(d,p.tz)}</span>
+      <div class="timebox"><div class="tpv">${fmtT(d,p.tz)}</div><div class="ts">${s.flag} ${s.short} <b>${fmtT(d,s.tz)}</b></div></div>
+    </div></div>`;
+}
+function r32Cards(){
+  const ms=FEED.filter(x=>x.stage==="LAST_32").sort((a,b)=>new Date(a.utcDate)-new Date(b.utcDate));
+  return ms.length?ms.map(feedCard).join(""):"";
+}
+
 function pickFeatured(){return M.filter(m=>!m.tbc&&!isDone(m)&&(!team||m.t1===team||m.t2===team)).sort((a,b)=>new Date(a.iso)-new Date(b.iso))[0]||null;}
 function renderFeatured(){
   const el=document.getElementById("featured"); featMatch=pickFeatured();
@@ -540,7 +564,12 @@ function render(){
       html+=matchCard(m);});
     if(!ms.length&&stage==="group")html+=`<div class="empty">No group matches for this filter.</div>`;
   }
-  if(showK){html+=`<div class="kohdr" id="kohdr">🏆 Knockout Stage</div>`;KO.forEach(k=>html+=koCard(k));}
+  if(showK){html+=`<div class="kohdr" id="kohdr">🏆 Knockout Stage</div>`;
+    const r32=r32Cards();
+    KO.forEach((k,i)=>{
+      if(i===0&&r32)html+=`<div class="koround">${k.r} <span class="koround-n">16 matches</span></div>`+r32;
+      else html+=koCard(k);
+    });}
   list.innerHTML=html||`<div class="empty">Nothing matches your filters.<br/>Tap “All”.</div>`;
 }
 
