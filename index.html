@@ -83,8 +83,8 @@
 
   .backdrop{position:fixed; inset:0; z-index:90; background:rgba(5,9,20,.55); -webkit-backdrop-filter:blur(4px); backdrop-filter:blur(4px); opacity:0; pointer-events:none; transition:opacity .25s}
   .backdrop.open{opacity:1; pointer-events:auto}
-  .drawer{position:fixed; top:0; left:0; bottom:0; width:288px; max-width:84vw; z-index:91; background:linear-gradient(170deg,#1a2440,#121a31); border-right:1px solid var(--line2); transform:translateX(-100%); transition:transform .28s ease; display:flex; flex-direction:column; padding-top:env(safe-area-inset-top); padding-bottom:env(safe-area-inset-bottom); overflow-y:auto; box-shadow:24px 0 48px -24px rgba(0,0,0,.6)}
-  .drawer.open{transform:translateX(0)}
+  .drawer{position:absolute; top:calc(100% + 6px); left:10px; width:252px; max-width:calc(100vw - 20px); max-height:72vh; overflow-y:auto; z-index:60; background:linear-gradient(170deg,#1a2440,#121a31); border:1px solid var(--line2); border-radius:14px; padding:6px 0; transform:translateY(-8px); transform-origin:top left; opacity:0; pointer-events:none; transition:opacity .18s ease, transform .18s ease; box-shadow:0 24px 50px -20px rgba(0,0,0,.72)}
+  .drawer.open{transform:translateY(0); opacity:1; pointer-events:auto}
   .drawer .dhdr{display:flex; align-items:center; justify-content:space-between; padding:16px 18px 12px; border-bottom:1px solid var(--line)}
   .drawer .dhdr .dt{font-family:var(--disp); font-size:15px; letter-spacing:1.6px; color:var(--chalk)}
   .drawer .dx{font-size:24px; color:var(--chalkDim); cursor:pointer; line-height:1; padding:2px 8px; border-radius:6px}
@@ -301,18 +301,16 @@
     </div>
     <div class="mclock"><div>🇨🇦 <b id="mc-tor">—</b></div><div>🇮🇳 <b id="mc-ist">—</b></div></div>
   </div>
+  <div class="drawer" id="dr" role="menu" aria-hidden="true">
+    <div class="dlist" id="filters"></div>
+    <div class="dsec">Filter</div>
+    <select id="teamSel"><option value="">⚽ All teams</option></select>
+    <select id="groupSel"><option value="">All groups</option>
+      <option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option>
+      <option>G</option><option>H</option><option>I</option><option>J</option><option>K</option><option>L</option></select>
+  </div>
 </div>
-
 <div class="backdrop" id="bd"></div>
-<aside class="drawer" id="dr" aria-hidden="true">
-  <div class="dhdr"><span class="dt">⚽ World Cup 26</span><span class="dx" id="drx" aria-label="Close menu">×</span></div>
-  <div class="dlist" id="filters"></div>
-  <div class="dsec">Filter</div>
-  <select id="teamSel"><option value="">⚽ All teams</option></select>
-  <select id="groupSel"><option value="">All groups</option>
-    <option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option>
-    <option>G</option><option>H</option><option>I</option><option>J</option><option>K</option><option>L</option></select>
-</aside>
 
 <main>
   <div id="featured"></div>
@@ -733,8 +731,8 @@ const STAGES=[
   ["next","Upcoming","⏭"],
   ["done","Completed","✅"]
 ];
-function closeDrawer(){document.getElementById("dr").classList.remove("open");document.getElementById("bd").classList.remove("open");}
-function openDrawer(){document.getElementById("dr").classList.add("open");document.getElementById("bd").classList.add("open");}
+function closeDrawer(){document.getElementById("dr").classList.remove("open");}
+function openDrawer(){document.getElementById("dr").classList.add("open");}
 function setViewLabel(k){const s=STAGES.find(x=>x[0]===k);if(s)document.getElementById("viewlabel").textContent=s[1];}
 const isDone=m=>{const sc=scoreOf(m);if(sc){if(sc.status==="FINISHED")return true;if(LIVE_STATUSES.includes(sc.status))return false;}return !m.tbc&&Date.now()>new Date(m.iso).getTime()+125*6e4;};
 function buildFilters(){
@@ -746,9 +744,8 @@ function buildFilters(){
     const k=c.dataset.k; setViewLabel(k); closeDrawer();
     if(k==="today")quickDay();else if(k==="next")quickNext();else if(k==="groups")renderGroups();else{stage=k;render();}
   });
-  document.getElementById("hamb").onclick=openDrawer;
-  document.getElementById("drx").onclick=closeDrawer;
-  document.getElementById("bd").onclick=closeDrawer;
+  document.getElementById("hamb").onclick=e=>{e.stopPropagation();document.getElementById("dr").classList.toggle("open");};
+  document.addEventListener("click",e=>{const dr=document.getElementById("dr");if(dr.classList.contains("open")&&!e.target.closest("#dr")&&!e.target.closest("#hamb"))dr.classList.remove("open");});
 }
 function setSegSel(){document.querySelectorAll("#seg button").forEach(b=>b.classList.toggle("active",b.dataset.loc===loc));}
 function buildLoc(){
