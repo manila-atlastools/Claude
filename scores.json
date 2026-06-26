@@ -679,8 +679,8 @@
     "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
-      0,
-      1
+      1,
+      2
     ]
   },
   {
@@ -691,7 +691,7 @@
     "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
-      0,
+      1,
       0
     ]
   },
