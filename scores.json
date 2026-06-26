@@ -699,11 +699,11 @@
     "home": "Turkey",
     "away": "United States",
     "utcDate": "2026-06-26T02:00:00Z",
-    "status": "IN_PLAY",
+    "status": "FINISHED",
     "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
-      2,
+      3,
       2
     ]
   },
@@ -711,7 +711,7 @@
     "home": "Paraguay",
     "away": "Australia",
     "utcDate": "2026-06-26T02:00:00Z",
-    "status": "IN_PLAY",
+    "status": "FINISHED",
     "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
