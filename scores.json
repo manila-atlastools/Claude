@@ -723,24 +723,24 @@
     "home": "Norway",
     "away": "France",
     "utcDate": "2026-06-26T19:00:00Z",
-    "status": "TIMED",
+    "status": "LIVE",
     "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
-      null,
-      null
+      0,
+      0
     ]
   },
   {
     "home": "Senegal",
     "away": "Iraq",
     "utcDate": "2026-06-26T19:00:00Z",
-    "status": "TIMED",
+    "status": "IN_PLAY",
     "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
-      null,
-      null
+      0,
+      0
     ]
   },
   {
