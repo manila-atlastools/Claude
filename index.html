@@ -523,7 +523,7 @@ function feedCard(x){
   const live=LIVE_STATUSES.includes(x.status);
   const sc=x.status==="FINISHED"?["ft","FULL TIME"]:live?["live",x.minute?`● ${x.minute}'`:"● LIVE"]:["up",fmtD(d,p.tz)];
   const mid=hasScore?`<span class="vs score">${x.score[0]}–${x.score[1]}</span>`:`<span class="vs">VS</span>`;
-  const side=(n,away)=>`<div class="side ${away?'away':'home'}"><span class="flag">${n?fl(n):"🏳️"}</span><span class="nm"${n?'':' style="color:var(--chalkDim)"'}>${n||"TBD"}</span></div>`;
+  const side=(n,away)=>{n=n&&norm(n);return `<div class="side ${away?'away':'home'}"><span class="flag">${n?fl(n):"🏳️"}</span><span class="nm"${n?'':' style="color:var(--chalkDim)"'}>${n||"TBD"}</span></div>`;};
   return `<div class="card ${sc[0]==='live'?'live':''}" style="--gc:#bca572">
     <div class="top"><span class="badge">R32</span><span class="status ${sc[0]}">${sc[1]}</span></div>
     <div class="teams">${side(x.home)}<div class="mid">${mid}</div>${side(x.away,1)}</div>
@@ -543,9 +543,9 @@ function bCell(x){
   const st=live?`<span class="st">● ${x.minute?x.minute+"'":"LIVE"}</span>`
     :fin?`<span class="st" style="color:var(--brassSoft)">FT</span>`:"";
   const hw=hs&&x.score[0]>x.score[1], aw=hs&&x.score[1]>x.score[0];
-  const row=(n,sc,win,lose)=>`<div class="bteam ${n?'':'tbd'} ${win?'win':''} ${fin&&lose?'lose':''}">`+
+  const row=(n,sc,win,lose)=>{n=n&&norm(n);return `<div class="bteam ${n?'':'tbd'} ${win?'win':''} ${fin&&lose?'lose':''}">`+
     `<span class="flag">${n?fl(n):'🏳️'}</span><span class="nm">${n||'TBD'}</span>`+
-    `${sc!=null?`<span class="sc">${sc}</span>`:''}</div>`;
+    `${sc!=null?`<span class="sc">${sc}</span>`:''}</div>`;};
   return `<div class="bmatch ${live?'live':''}">
     <div class="bd"><span>${fmtD(d,p.tz)} · ${fmtT(d,p.tz)}</span>${st}</div>
     ${row(x.home, hs?x.score[0]:null, hw, aw)}
