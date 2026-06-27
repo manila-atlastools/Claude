@@ -723,24 +723,24 @@
     "home": "Norway",
     "away": "France",
     "utcDate": "2026-06-26T19:00:00Z",
-    "status": "TIMED",
+    "status": "FINISHED",
     "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
-      null,
-      null
+      1,
+      4
     ]
   },
   {
     "home": "Senegal",
     "away": "Iraq",
     "utcDate": "2026-06-26T19:00:00Z",
-    "status": "TIMED",
+    "status": "FINISHED",
     "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
-      null,
-      null
+      5,
+      0
     ]
   },
   {
@@ -788,7 +788,7 @@
     "minute": null,
     "score": [
       1,
-      2
+      1
     ]
   },
   {
@@ -912,7 +912,7 @@
     ]
   },
   {
-    "home": null,
+    "home": "Ivory Coast",
     "away": null,
     "utcDate": "2026-06-30T17:00:00Z",
     "status": "TIMED",
