@@ -771,24 +771,24 @@
     "home": "New Zealand",
     "away": "Belgium",
     "utcDate": "2026-06-27T03:00:00Z",
-    "status": "TIMED",
+    "status": "IN_PLAY",
     "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
-      null,
-      null
+      0,
+      1
     ]
   },
   {
     "home": "Egypt",
     "away": "Iran",
     "utcDate": "2026-06-27T03:00:00Z",
-    "status": "TIMED",
+    "status": "PAUSED",
     "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
-      null,
-      null
+      1,
+      1
     ]
   },
   {
