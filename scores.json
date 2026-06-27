@@ -795,24 +795,24 @@
     "home": "Panama",
     "away": "England",
     "utcDate": "2026-06-27T21:00:00Z",
-    "status": "IN_PLAY",
+    "status": "FINISHED",
     "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
       0,
-      0
+      2
     ]
   },
   {
     "home": "Croatia",
     "away": "Ghana",
     "utcDate": "2026-06-27T21:00:00Z",
-    "status": "LIVE",
+    "status": "FINISHED",
     "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
-      1,
-      0
+      2,
+      1
     ]
   },
   {
@@ -864,8 +864,8 @@
     ]
   },
   {
-    "home": null,
-    "away": null,
+    "home": "South Africa",
+    "away": "Canada",
     "utcDate": "2026-06-28T19:00:00Z",
     "status": "TIMED",
     "stage": "LAST_32",
@@ -876,8 +876,8 @@
     ]
   },
   {
-    "home": null,
-    "away": null,
+    "home": "Brazil",
+    "away": "Japan",
     "utcDate": "2026-06-29T17:00:00Z",
     "status": "TIMED",
     "stage": "LAST_32",
@@ -888,7 +888,7 @@
     ]
   },
   {
-    "home": null,
+    "home": "Germany",
     "away": null,
     "utcDate": "2026-06-29T20:30:00Z",
     "status": "TIMED",
@@ -900,8 +900,8 @@
     ]
   },
   {
-    "home": null,
-    "away": null,
+    "home": "Netherlands",
+    "away": "Morocco",
     "utcDate": "2026-06-30T01:00:00Z",
     "status": "TIMED",
     "stage": "LAST_32",
@@ -912,7 +912,7 @@
     ]
   },
   {
-    "home": null,
+    "home": "Ivory Coast",
     "away": null,
     "utcDate": "2026-06-30T17:00:00Z",
     "status": "TIMED",
@@ -936,7 +936,7 @@
     ]
   },
   {
-    "home": null,
+    "home": "Mexico",
     "away": null,
     "utcDate": "2026-07-01T01:00:00Z",
     "status": "TIMED",
@@ -972,8 +972,8 @@
     ]
   },
   {
-    "home": null,
-    "away": null,
+    "home": "United States",
+    "away": "Bosnia-Herzegovina",
     "utcDate": "2026-07-02T00:00:00Z",
     "status": "TIMED",
     "stage": "LAST_32",
@@ -1008,7 +1008,7 @@
     ]
   },
   {
-    "home": null,
+    "home": "Switzerland",
     "away": null,
     "utcDate": "2026-07-03T03:00:00Z",
     "status": "TIMED",
@@ -1020,7 +1020,7 @@
     ]
   },
   {
-    "home": null,
+    "home": "Australia",
     "away": null,
     "utcDate": "2026-07-03T18:00:00Z",
     "status": "TIMED",
@@ -1032,7 +1032,7 @@
     ]
   },
   {
-    "home": null,
+    "home": "Argentina",
     "away": null,
     "utcDate": "2026-07-03T22:00:00Z",
     "status": "TIMED",
