@@ -819,24 +819,24 @@
     "home": "Colombia",
     "away": "Portugal",
     "utcDate": "2026-06-27T23:30:00Z",
-    "status": "TIMED",
+    "status": "LIVE",
     "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
-      null,
-      null
+      0,
+      0
     ]
   },
   {
     "home": "Congo DR",
     "away": "Uzbekistan",
     "utcDate": "2026-06-27T23:30:00Z",
-    "status": "TIMED",
+    "status": "LIVE",
     "stage": "GROUP_STAGE",
     "minute": null,
     "score": [
-      null,
-      null
+      1,
+      1
     ]
   },
   {
