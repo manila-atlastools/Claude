@@ -889,7 +889,7 @@
   },
   {
     "home": "Germany",
-    "away": null,
+    "away": "Paraguay",
     "utcDate": "2026-06-29T20:30:00Z",
     "status": "TIMED",
     "stage": "LAST_32",
@@ -913,7 +913,7 @@
   },
   {
     "home": "Ivory Coast",
-    "away": null,
+    "away": "Norway",
     "utcDate": "2026-06-30T17:00:00Z",
     "status": "TIMED",
     "stage": "LAST_32",
@@ -924,8 +924,8 @@
     ]
   },
   {
-    "home": null,
-    "away": null,
+    "home": "France",
+    "away": "Sweden",
     "utcDate": "2026-06-30T21:00:00Z",
     "status": "TIMED",
     "stage": "LAST_32",
@@ -937,7 +937,7 @@
   },
   {
     "home": "Mexico",
-    "away": null,
+    "away": "Ecuador",
     "utcDate": "2026-07-01T01:00:00Z",
     "status": "TIMED",
     "stage": "LAST_32",
@@ -948,8 +948,8 @@
     ]
   },
   {
-    "home": null,
-    "away": null,
+    "home": "England",
+    "away": "Congo DR",
     "utcDate": "2026-07-01T16:00:00Z",
     "status": "TIMED",
     "stage": "LAST_32",
@@ -960,8 +960,8 @@
     ]
   },
   {
-    "home": null,
-    "away": null,
+    "home": "Belgium",
+    "away": "Senegal",
     "utcDate": "2026-07-01T20:00:00Z",
     "status": "TIMED",
     "stage": "LAST_32",
@@ -984,8 +984,8 @@
     ]
   },
   {
-    "home": null,
-    "away": null,
+    "home": "Spain",
+    "away": "Austria",
     "utcDate": "2026-07-02T19:00:00Z",
     "status": "TIMED",
     "stage": "LAST_32",
@@ -996,8 +996,8 @@
     ]
   },
   {
-    "home": null,
-    "away": null,
+    "home": "Portugal",
+    "away": "Croatia",
     "utcDate": "2026-07-02T23:00:00Z",
     "status": "TIMED",
     "stage": "LAST_32",
@@ -1009,7 +1009,7 @@
   },
   {
     "home": "Switzerland",
-    "away": null,
+    "away": "Algeria",
     "utcDate": "2026-07-03T03:00:00Z",
     "status": "TIMED",
     "stage": "LAST_32",
@@ -1021,7 +1021,7 @@
   },
   {
     "home": "Australia",
-    "away": null,
+    "away": "Egypt",
     "utcDate": "2026-07-03T18:00:00Z",
     "status": "TIMED",
     "stage": "LAST_32",
@@ -1033,7 +1033,7 @@
   },
   {
     "home": "Argentina",
-    "away": null,
+    "away": "Cape Verde Islands",
     "utcDate": "2026-07-03T22:00:00Z",
     "status": "TIMED",
     "stage": "LAST_32",
@@ -1044,8 +1044,8 @@
     ]
   },
   {
-    "home": null,
-    "away": null,
+    "home": "Colombia",
+    "away": "Ghana",
     "utcDate": "2026-07-04T01:30:00Z",
     "status": "TIMED",
     "stage": "LAST_32",
