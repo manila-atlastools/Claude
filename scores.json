@@ -867,12 +867,12 @@
     "home": "South Africa",
     "away": "Canada",
     "utcDate": "2026-06-28T19:00:00Z",
-    "status": "TIMED",
+    "status": "PAUSED",
     "stage": "LAST_32",
     "minute": null,
     "score": [
-      null,
-      null
+      0,
+      0
     ]
   },
   {
