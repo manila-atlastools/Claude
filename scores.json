@@ -879,12 +879,12 @@
     "home": "Brazil",
     "away": "Japan",
     "utcDate": "2026-06-29T17:00:00Z",
-    "status": "TIMED",
+    "status": "IN_PLAY",
     "stage": "LAST_32",
     "minute": null,
     "score": [
-      null,
-      null
+      0,
+      0
     ]
   },
   {
