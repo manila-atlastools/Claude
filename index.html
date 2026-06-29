@@ -204,6 +204,17 @@
   .bteam.lose{opacity:.55}
   .bsplit{height:1px; background:var(--line); margin:1px 0}
   .brackethint{font-size:10.5px; color:var(--chalkDim); margin:0 2px 11px; letter-spacing:.4px}
+  /* ---------- bracket wheel ---------- */
+  .wheelhdr{font-family:var(--disp); font-size:20px; letter-spacing:1.4px; text-transform:uppercase; color:var(--chalk); margin:16px 2px 2px}
+  .wheelhdr .wsub{font-family:var(--body); font-size:10px; font-weight:700; letter-spacing:1px; color:var(--chalkDim); margin-left:7px}
+  .wheelwrap{position:relative; width:min(96vw,560px); margin:6px auto 28px; aspect-ratio:1/1; container-type:inline-size}
+  .wheelwrap::before{content:""; position:absolute; left:50%; top:50%; width:48%; height:48%; transform:translate(-50%,-50%); border-radius:50%; background:radial-gradient(circle,rgba(188,165,114,.30),rgba(188,165,114,.05) 55%,transparent 72%); pointer-events:none}
+  .wheelsvg{position:absolute; inset:0; width:100%; height:100%; overflow:visible}
+  .wheelsvg line{stroke:rgba(201,184,134,.28); stroke-width:1.6}
+  .wnode{position:absolute; transform:translate(-50%,-50%); width:1.75em; height:1.75em; display:flex; align-items:center; justify-content:center; line-height:1; border-radius:50%; background:linear-gradient(160deg,var(--panel),var(--panel2)); border:1px solid var(--line2); box-shadow:0 4px 10px rgba(0,0,20,.5)}
+  .wnode.empty{width:2.2cqw; height:2.2cqw; min-width:6px; min-height:6px; background:rgba(255,255,255,.07); border:1px solid var(--line); box-shadow:none}
+  .wcenter{position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); font-size:13cqw; line-height:1; display:flex; flex-direction:column; align-items:center; filter:drop-shadow(0 6px 16px rgba(0,0,20,.7)); z-index:2}
+  .wchamp{font-size:7cqw; margin-top:1px}
   .card.final{background:linear-gradient(165deg,#26284a,#1a1c32); border:1px solid var(--brass2)}
   .card.final::before{background:linear-gradient(var(--brassSoft),var(--brass2)); opacity:1}
   .card.final .badge{background:linear-gradient(160deg,var(--brassSoft),var(--brass2)); color:var(--navy2); border-color:transparent}
@@ -691,7 +702,38 @@ function quickNext(){
   let html="",cur=""; ms.forEach(m=>{const d=new Date(m.iso),k=dayKey(d);if(k!==cur){cur=k;html+=`<div class="daterow"><span class="dt">${fmtF(d,P().tz)}</span><span class="line"></span></div>`;}html+=matchCard(m);});
   document.getElementById("list").innerHTML=html||`<div class="empty">Group stage finished — check Knockout.</div>`;
 }
-function refresh(){activeView==="today"?quickDay():activeView==="next"?quickNext():activeView==="groups"?renderGroups():render();buildTicker();}
+function refresh(){activeView==="today"?quickDay():activeView==="next"?quickNext():activeView==="groups"?renderGroups():activeView==="wheel"?renderWheel():render();buildTicker();}
+// Radial knockout: 32 teams ringed around a central trophy, lines converging inward.
+function wheelHTML(){
+  const C=500;
+  const rings=[
+    {s:"LAST_32",n:32,R:444,fs:"4.3cqw"},
+    {s:"LAST_16",n:16,R:350,fs:"4.8cqw"},
+    {s:"QUARTER_FINALS",n:8,R:262,fs:"5.2cqw"},
+    {s:"SEMI_FINALS",n:4,R:182,fs:"5.2cqw"},
+    {s:"FINAL",n:2,R:108,fs:"5.2cqw"}
+  ];
+  const byStage=s=>FEED.filter(x=>x.stage===s).sort((a,b)=>new Date(a.utcDate)-new Date(b.utcDate));
+  rings.forEach(r=>{const a=[];byStage(r.s).forEach(m=>a.push(m.home,m.away));while(a.length<r.n)a.push(null);r.teams=a.slice(0,r.n);});
+  const pos=(R,i,c)=>{const ang=(-90+i*360/c)*Math.PI/180;return [C+R*Math.cos(ang),C+R*Math.sin(ang)];};
+  let lines="";
+  for(let k=1;k<rings.length;k++){const par=rings[k],ch=rings[k-1];
+    for(let j=0;j<par.n;j++){const [px,py]=pos(par.R,j,par.n);
+      [2*j,2*j+1].forEach(ci=>{if(ci<ch.n){const [x,y]=pos(ch.R,ci,ch.n);lines+=`<line x1="${px.toFixed(1)}" y1="${py.toFixed(1)}" x2="${x.toFixed(1)}" y2="${y.toFixed(1)}"/>`;}});}}
+  const last=rings[rings.length-1];
+  for(let j=0;j<last.n;j++){const [x,y]=pos(last.R,j,last.n);lines+=`<line x1="${C}" y1="${C}" x2="${x.toFixed(1)}" y2="${y.toFixed(1)}"/>`;}
+  let nodes="";
+  rings.forEach(r=>{for(let i=0;i<r.n;i++){const [x,y]=pos(r.R,i,r.n),t=r.teams[i]&&norm(r.teams[i]);
+    const L=(x/10).toFixed(2),T=(y/10).toFixed(2);
+    nodes+=t?`<div class="wnode" style="left:${L}%;top:${T}%;font-size:${r.fs}" title="${t}">${fl(t)}</div>`
+            :`<div class="wnode empty" style="left:${L}%;top:${T}%"></div>`;}});
+  const fin=byStage("FINAL")[0];let champ=null;
+  if(fin&&fin.status==="FINISHED"&&fin.score&&fin.score[0]!=null)champ=fin.score[0]>fin.score[1]?fin.home:(fin.score[1]>fin.score[0]?fin.away:null);
+  const center=`<div class="wcenter">🏆${champ?`<div class="wchamp">${fl(norm(champ))}</div>`:""}</div>`;
+  return `<div class="wheelhdr">◎ Bracket Wheel <span class="wsub">Round of 32 → Final</span></div>
+    <div class="wheelwrap"><svg viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid meet" class="wheelsvg">${lines}</svg>${nodes}${center}</div>`;
+}
+function renderWheel(){activeView="wheel";document.getElementById("featured").innerHTML="";document.getElementById("list").innerHTML=wheelHTML();}
 
 function buildTicker(){
   const now=Date.now(),p=P(),end=now+48*36e5;
@@ -727,6 +769,7 @@ const STAGES=[
   ["groups","Groups","🅰"],
   ["group","Group stage","🏟"],
   ["ko","Knockout","🏆"],
+  ["wheel","Bracket Wheel","◎"],
   ["today","Today","📅"],
   ["next","Upcoming","⏭"],
   ["done","Completed","✅"]
@@ -742,7 +785,7 @@ function buildFilters(){
     f.querySelectorAll(".ditem").forEach(x=>x.classList.remove("active"));
     c.classList.add("active");
     const k=c.dataset.k; setViewLabel(k); closeDrawer();
-    if(k==="today")quickDay();else if(k==="next")quickNext();else if(k==="groups")renderGroups();else{stage=k;render();}
+    if(k==="today")quickDay();else if(k==="next")quickNext();else if(k==="groups")renderGroups();else if(k==="wheel")renderWheel();else{stage=k;render();}
   });
   document.getElementById("hamb").onclick=e=>{e.stopPropagation();document.getElementById("dr").classList.toggle("open");};
   document.addEventListener("click",e=>{const dr=document.getElementById("dr");if(dr.classList.contains("open")&&!e.target.closest("#dr")&&!e.target.closest("#hamb"))dr.classList.remove("open");});
