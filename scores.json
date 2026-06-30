@@ -891,12 +891,12 @@
     "home": "Germany",
     "away": "Paraguay",
     "utcDate": "2026-06-29T20:30:00Z",
-    "status": "PAUSED",
+    "status": "FINISHED",
     "stage": "LAST_32",
     "minute": null,
     "score": [
-      2,
-      1
+      5,
+      6
     ]
   },
   {
