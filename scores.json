@@ -927,11 +927,11 @@
     "home": "France",
     "away": "Sweden",
     "utcDate": "2026-06-30T21:00:00Z",
-    "status": "IN_PLAY",
+    "status": "FINISHED",
     "stage": "LAST_32",
     "minute": null,
     "score": [
-      2,
+      3,
       0
     ]
   },
