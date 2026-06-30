@@ -895,20 +895,20 @@
     "stage": "LAST_32",
     "minute": null,
     "score": [
-      5,
-      6
+      4,
+      5
     ]
   },
   {
     "home": "Netherlands",
     "away": "Morocco",
     "utcDate": "2026-06-30T01:00:00Z",
-    "status": "TIMED",
+    "status": "FINISHED",
     "stage": "LAST_32",
     "minute": null,
     "score": [
-      null,
-      null
+      3,
+      4
     ]
   },
   {
