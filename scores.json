@@ -1057,7 +1057,7 @@
   },
   {
     "home": "Canada",
-    "away": null,
+    "away": "Morocco",
     "utcDate": "2026-07-04T17:00:00Z",
     "status": "TIMED",
     "stage": "LAST_16",
@@ -1068,7 +1068,7 @@
     ]
   },
   {
-    "home": null,
+    "home": "Paraguay",
     "away": null,
     "utcDate": "2026-07-04T21:00:00Z",
     "status": "TIMED",
@@ -1080,7 +1080,7 @@
     ]
   },
   {
-    "home": null,
+    "home": "Brazil",
     "away": null,
     "utcDate": "2026-07-05T20:00:00Z",
     "status": "TIMED",
