@@ -939,7 +939,7 @@
     "home": "Mexico",
     "away": "Ecuador",
     "utcDate": "2026-07-01T01:00:00Z",
-    "status": "IN_PLAY",
+    "status": "FINISHED",
     "stage": "LAST_32",
     "minute": null,
     "score": [
@@ -1069,7 +1069,7 @@
   },
   {
     "home": "Paraguay",
-    "away": null,
+    "away": "France",
     "utcDate": "2026-07-04T21:00:00Z",
     "status": "TIMED",
     "stage": "LAST_16",
@@ -1081,7 +1081,7 @@
   },
   {
     "home": "Brazil",
-    "away": null,
+    "away": "Norway",
     "utcDate": "2026-07-05T20:00:00Z",
     "status": "TIMED",
     "stage": "LAST_16",
