@@ -963,11 +963,11 @@
     "home": "Belgium",
     "away": "Senegal",
     "utcDate": "2026-07-01T20:00:00Z",
-    "status": "IN_PLAY",
+    "status": "FINISHED",
     "stage": "LAST_32",
     "minute": null,
     "score": [
-      2,
+      3,
       2
     ]
   },
