@@ -939,12 +939,12 @@
     "home": "Mexico",
     "away": "Ecuador",
     "utcDate": "2026-07-01T01:00:00Z",
-    "status": "TIMED",
+    "status": "IN_PLAY",
     "stage": "LAST_32",
     "minute": null,
     "score": [
-      null,
-      null
+      0,
+      0
     ]
   },
   {
