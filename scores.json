@@ -987,12 +987,12 @@
     "home": "Spain",
     "away": "Austria",
     "utcDate": "2026-07-02T19:00:00Z",
-    "status": "TIMED",
+    "status": "PAUSED",
     "stage": "LAST_32",
     "minute": null,
     "score": [
-      null,
-      null
+      1,
+      0
     ]
   },
   {
