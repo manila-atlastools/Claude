@@ -975,12 +975,12 @@
     "home": "United States",
     "away": "Bosnia-Herzegovina",
     "utcDate": "2026-07-02T00:00:00Z",
-    "status": "TIMED",
+    "status": "IN_PLAY",
     "stage": "LAST_32",
     "minute": null,
     "score": [
-      null,
-      null
+      1,
+      0
     ]
   },
   {
