@@ -999,12 +999,12 @@
     "home": "Portugal",
     "away": "Croatia",
     "utcDate": "2026-07-02T23:00:00Z",
-    "status": "TIMED",
+    "status": "IN_PLAY",
     "stage": "LAST_32",
     "minute": null,
     "score": [
-      null,
-      null
+      0,
+      0
     ]
   },
   {
