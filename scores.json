@@ -1023,11 +1023,11 @@
     "home": "Australia",
     "away": "Egypt",
     "utcDate": "2026-07-03T18:00:00Z",
-    "status": "IN_PLAY",
+    "status": "PAUSED",
     "stage": "LAST_32",
     "minute": null,
     "score": [
-      0,
+      1,
       1
     ]
   },
