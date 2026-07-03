@@ -1035,12 +1035,12 @@
     "home": "Argentina",
     "away": "Cape Verde Islands",
     "utcDate": "2026-07-03T22:00:00Z",
-    "status": "TIMED",
+    "status": "IN_PLAY",
     "stage": "LAST_32",
     "minute": null,
     "score": [
-      null,
-      null
+      0,
+      0
     ]
   },
   {
