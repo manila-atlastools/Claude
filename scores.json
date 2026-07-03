@@ -999,24 +999,24 @@
     "home": "Portugal",
     "away": "Croatia",
     "utcDate": "2026-07-02T23:00:00Z",
-    "status": "IN_PLAY",
+    "status": "FINISHED",
     "stage": "LAST_32",
     "minute": null,
     "score": [
       2,
-      2
+      1
     ]
   },
   {
     "home": "Switzerland",
     "away": "Algeria",
     "utcDate": "2026-07-03T03:00:00Z",
-    "status": "TIMED",
+    "status": "IN_PLAY",
     "stage": "LAST_32",
     "minute": null,
     "score": [
-      null,
-      null
+      2,
+      0
     ]
   },
   {
