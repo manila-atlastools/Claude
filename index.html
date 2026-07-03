@@ -516,8 +516,9 @@ function koCard(k){
     <div class="meta"><span class="venue">📍 ${k.venue}</span>${tb}</div>${detail}</div>`;
 }
 
+const STG={LAST_32:"R32",LAST_16:"R16",QUARTER_FINALS:"QF",SEMI_FINALS:"SF",THIRD_PLACE:"3rd",FINAL:"Final"};
 // A single knockout match rendered straight from the feed (teams fill in as
-// groups finish; score/status update live like the group games).
+// rounds resolve; score/status update live like the group games).
 function feedCard(x){
   const d=new Date(x.utcDate),ts=d.getTime(),p=P(),s=S();
   const hasScore=x.score&&x.score[0]!=null;
@@ -526,15 +527,20 @@ function feedCard(x){
   const mid=hasScore?`<span class="vs score">${x.score[0]}–${x.score[1]}</span>`:`<span class="vs">VS</span>`;
   const side=(n,away)=>{n=n&&norm(n);return `<div class="side ${away?'away':'home'}"><span class="flag">${n?fl(n):"🏳️"}</span><span class="nm"${n?'':' style="color:var(--chalkDim)"'}>${n||"TBD"}</span></div>`;};
   return `<div class="card ${sc[0]==='live'?'live':''}" style="--gc:#bca572">
-    <div class="top"><span class="badge">R32</span><span class="status ${sc[0]}">${sc[1]}</span></div>
+    <div class="top"><span class="badge">${STG[x.stage]||"KO"}</span><span class="status ${sc[0]}">${sc[1]}</span></div>
     <div class="teams">${side(x.home)}<div class="mid">${mid}</div>${side(x.away,1)}</div>
     <div class="meta"><span class="venue">📅 ${fmtF(d,p.tz)}</span>
       <div class="timebox"><div class="tpv">${fmtT(d,p.tz)}</div><div class="ts">${s.flag} ${s.short} <b>${fmtT(d,s.tz)}</b></div>${sc[0]==="up"?`<div class="cdmini">⏱ <span class="cd-mini" data-ts="${ts}">…</span></div>`:""}</div>
     </div></div>`;
 }
-function r32Cards(){
-  const ms=FEED.filter(x=>x.stage==="LAST_32"&&x.status!=="FINISHED").sort((a,b)=>new Date(a.utcDate)-new Date(b.utcDate));
-  return ms.length?ms.map(feedCard).join(""):"";
+// Live cards for one knockout round. Shows the round only once it has begun
+// forming (≥1 team assigned); renders the not-yet-finished ties (finished ones
+// move to Completed). Sorted by kick-off.
+function koRoundCards(stage){
+  const all=FEED.filter(x=>x.stage===stage);
+  if(!all.some(x=>x.home||x.away))return "";
+  const ms=all.filter(x=>x.status!=="FINISHED").sort((a,b)=>new Date(a.utcDate)-new Date(b.utcDate));
+  return ms.map(feedCard).join("");
 }
 // One bracket cell: date/status header + two stacked teams (flag, name, score).
 function bCell(x){
@@ -617,11 +623,13 @@ function render(){
       html+=`<div class="kohdr" id="kohdr">🏆 Knockout Bracket</div><div class="brackethint">Scroll sideways to follow the rounds →</div>`+bracket;
     }else{
       html+=`<div class="kohdr" id="kohdr">🏆 Knockout Stage</div>`;
-      const r32=r32Cards();
-      KO.forEach((k,i)=>{
-        if(i===0&&r32)html+=`<div class="koround">${k.r} <span class="koround-n">16 matches</span></div>`+r32;
-        else html+=koCard(k);
+      // Live rounds (fill in as the tournament resolves); deeper rounds fall
+      // back to their summary cards until the feed starts forming them.
+      [["LAST_32","Round of 32","16 matches"],["LAST_16","Round of 16","8 matches"],["QUARTER_FINALS","Quarter-finals","4 matches"]].forEach(([st,label,cnt])=>{
+        const cards=koRoundCards(st);
+        if(cards)html+=`<div class="koround">${label} <span class="koround-n">${cnt}</span></div>`+cards;
       });
+      KO.filter(k=>k.iso).forEach(k=>html+=koCard(k));
     }
   }
   list.innerHTML=html||`<div class="empty">Nothing matches your filters.<br/>Tap “All”.</div>`;
