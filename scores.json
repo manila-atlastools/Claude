@@ -1071,12 +1071,12 @@
     "home": "Paraguay",
     "away": "France",
     "utcDate": "2026-07-04T21:00:00Z",
-    "status": "TIMED",
+    "status": "LIVE",
     "stage": "LAST_16",
     "minute": null,
     "score": [
-      null,
-      null
+      0,
+      0
     ]
   },
   {
