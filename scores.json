@@ -1104,8 +1104,8 @@
     ]
   },
   {
-    "home": null,
-    "away": null,
+    "home": "Portugal",
+    "away": "Spain",
     "utcDate": "2026-07-06T19:00:00Z",
     "status": "TIMED",
     "stage": "LAST_16",
@@ -1128,8 +1128,8 @@
     ]
   },
   {
-    "home": null,
-    "away": null,
+    "home": "Argentina",
+    "away": "Egypt",
     "utcDate": "2026-07-07T16:00:00Z",
     "status": "TIMED",
     "stage": "LAST_16",
@@ -1140,8 +1140,8 @@
     ]
   },
   {
-    "home": null,
-    "away": null,
+    "home": "Switzerland",
+    "away": "Colombia",
     "utcDate": "2026-07-07T20:00:00Z",
     "status": "TIMED",
     "stage": "LAST_16",
