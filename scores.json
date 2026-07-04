@@ -1059,12 +1059,12 @@
     "home": "Canada",
     "away": "Morocco",
     "utcDate": "2026-07-04T17:00:00Z",
-    "status": "TIMED",
+    "status": "IN_PLAY",
     "stage": "LAST_16",
     "minute": null,
     "score": [
-      null,
-      null
+      0,
+      0
     ]
   },
   {
