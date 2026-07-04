@@ -1047,12 +1047,12 @@
     "home": "Colombia",
     "away": "Ghana",
     "utcDate": "2026-07-04T01:30:00Z",
-    "status": "TIMED",
+    "status": "FINISHED",
     "stage": "LAST_32",
     "minute": null,
     "score": [
-      null,
-      null
+      1,
+      0
     ]
   },
   {
