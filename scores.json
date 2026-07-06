@@ -1176,8 +1176,8 @@
     ]
   },
   {
-    "home": null,
-    "away": null,
+    "home": "Norway",
+    "away": "England",
     "utcDate": "2026-07-11T21:00:00Z",
     "status": "TIMED",
     "stage": "QUARTER_FINALS",
