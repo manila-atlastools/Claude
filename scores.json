@@ -1107,12 +1107,12 @@
     "home": "Portugal",
     "away": "Spain",
     "utcDate": "2026-07-06T19:00:00Z",
-    "status": "PAUSED",
+    "status": "FINISHED",
     "stage": "LAST_16",
     "minute": null,
     "score": [
       0,
-      0
+      1
     ]
   },
   {
