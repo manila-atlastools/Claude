@@ -1143,7 +1143,7 @@
     "home": "Switzerland",
     "away": "Colombia",
     "utcDate": "2026-07-07T20:00:00Z",
-    "status": "IN_PLAY",
+    "status": "PAUSED",
     "stage": "LAST_16",
     "minute": null,
     "score": [
