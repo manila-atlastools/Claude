@@ -1131,12 +1131,12 @@
     "home": "Argentina",
     "away": "Egypt",
     "utcDate": "2026-07-07T16:00:00Z",
-    "status": "TIMED",
+    "status": "IN_PLAY",
     "stage": "LAST_16",
     "minute": null,
     "score": [
-      null,
-      null
+      3,
+      2
     ]
   },
   {
