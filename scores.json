@@ -1119,12 +1119,12 @@
     "home": "United States",
     "away": "Belgium",
     "utcDate": "2026-07-07T00:00:00Z",
-    "status": "IN_PLAY",
+    "status": "FINISHED",
     "stage": "LAST_16",
     "minute": null,
     "score": [
       1,
-      2
+      4
     ]
   },
   {
