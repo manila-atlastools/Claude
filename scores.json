@@ -1188,8 +1188,8 @@
     ]
   },
   {
-    "home": null,
-    "away": null,
+    "home": "Argentina",
+    "away": "Switzerland",
     "utcDate": "2026-07-12T01:00:00Z",
     "status": "TIMED",
     "stage": "QUARTER_FINALS",
