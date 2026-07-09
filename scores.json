@@ -1155,12 +1155,12 @@
     "home": "France",
     "away": "Morocco",
     "utcDate": "2026-07-09T20:00:00Z",
-    "status": "TIMED",
+    "status": "IN_PLAY",
     "stage": "QUARTER_FINALS",
     "minute": null,
     "score": [
-      null,
-      null
+      0,
+      0
     ]
   },
   {
