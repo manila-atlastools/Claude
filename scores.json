@@ -1167,12 +1167,12 @@
     "home": "Spain",
     "away": "Belgium",
     "utcDate": "2026-07-10T19:00:00Z",
-    "status": "TIMED",
+    "status": "IN_PLAY",
     "stage": "QUARTER_FINALS",
     "minute": null,
     "score": [
-      null,
-      null
+      0,
+      0
     ]
   },
   {
