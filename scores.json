@@ -1095,7 +1095,7 @@
     "home": "Mexico",
     "away": "England",
     "utcDate": "2026-07-06T01:00:00Z",
-    "status": "2026-07-06 01:00:00Z",
+    "status": "FINISHED",
     "stage": "LAST_16",
     "minute": null,
     "score": [
@@ -1212,8 +1212,8 @@
     ]
   },
   {
-    "home": null,
-    "away": null,
+    "home": "England",
+    "away": "Argentina",
     "utcDate": "2026-07-15T19:00:00Z",
     "status": "TIMED",
     "stage": "SEMI_FINALS",
