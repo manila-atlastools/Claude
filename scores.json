@@ -1203,12 +1203,12 @@
     "home": "France",
     "away": "Spain",
     "utcDate": "2026-07-14T19:00:00Z",
-    "status": "TIMED",
+    "status": "PAUSED",
     "stage": "SEMI_FINALS",
     "minute": null,
     "score": [
-      null,
-      null
+      0,
+      1
     ]
   },
   {
