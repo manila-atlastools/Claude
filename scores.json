@@ -1215,12 +1215,12 @@
     "home": "England",
     "away": "Argentina",
     "utcDate": "2026-07-15T19:00:00Z",
-    "status": "TIMED",
+    "status": "IN_PLAY",
     "stage": "SEMI_FINALS",
     "minute": null,
     "score": [
-      null,
-      null
+      0,
+      0
     ]
   },
   {
