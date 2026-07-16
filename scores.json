@@ -1225,7 +1225,7 @@
   },
   {
     "home": "France",
-    "away": null,
+    "away": "England",
     "utcDate": "2026-07-18T21:00:00Z",
     "status": "TIMED",
     "stage": "THIRD_PLACE",
@@ -1237,7 +1237,7 @@
   },
   {
     "home": "Spain",
-    "away": null,
+    "away": "Argentina",
     "utcDate": "2026-07-19T19:00:00Z",
     "status": "TIMED",
     "stage": "FINAL",
