@@ -526,8 +526,8 @@ function feedCard(x){
   const sc=x.status==="FINISHED"?["ft","FULL TIME"]:live?["live",x.minute?`● ${x.minute}'`:"● LIVE"]:["up",fmtD(d,p.tz)];
   const mid=hasScore?`<span class="vs score">${x.score[0]}–${x.score[1]}</span>`:`<span class="vs">VS</span>`;
   const side=(n,away)=>{n=n&&norm(n);return `<div class="side ${away?'away':'home'}"><span class="flag">${n?fl(n):"🏳️"}</span><span class="nm"${n?'':' style="color:var(--chalkDim)"'}>${n||"TBD"}</span></div>`;};
-  return `<div class="card ${sc[0]==='live'?'live':''}" style="--gc:#bca572">
-    <div class="top"><span class="badge">${STG[x.stage]||"KO"}</span><span class="status ${sc[0]}">${sc[1]}</span></div>
+  return `<div class="card ${x.stage==="FINAL"?"final":""} ${sc[0]==='live'?'live':''}" style="--gc:#bca572">
+    <div class="top"><span class="badge">${x.stage==="FINAL"?"🏆 FINAL":x.stage==="THIRD_PLACE"?"🥉 3RD PLACE":STG[x.stage]||"KO"}</span><span class="status ${sc[0]}">${sc[1]}</span></div>
     <div class="teams">${side(x.home)}<div class="mid">${mid}</div>${side(x.away,1)}</div>
     <div class="meta"><span class="venue">📅 ${fmtF(d,p.tz)}</span>
       <div class="timebox"><div class="tpv">${fmtT(d,p.tz)}</div><div class="ts">${s.flag} ${s.short} <b>${fmtT(d,s.tz)}</b></div>${sc[0]==="up"?`<div class="cdmini">⏱ <span class="cd-mini" data-ts="${ts}">…</span></div>`:""}</div>
@@ -623,13 +623,12 @@ function render(){
       html+=`<div class="kohdr" id="kohdr">🏆 Knockout Bracket</div><div class="brackethint">Scroll sideways to follow the rounds →</div>`+bracket;
     }else{
       html+=`<div class="kohdr" id="kohdr">🏆 Knockout Stage</div>`;
-      // Live rounds (fill in as the tournament resolves); deeper rounds fall
-      // back to their summary cards until the feed starts forming them.
-      [["LAST_32","Round of 32","16 matches"],["LAST_16","Round of 16","8 matches"],["QUARTER_FINALS","Quarter-finals","4 matches"]].forEach(([st,label,cnt])=>{
+      // Every round is feed-driven: each appears once it starts forming and
+      // shows its not-yet-finished ties (finished ones move to Completed).
+      [["LAST_32","Round of 32","16 matches"],["LAST_16","Round of 16","8 matches"],["QUARTER_FINALS","Quarter-finals","4 matches"],["SEMI_FINALS","Semi-finals","2 matches"],["THIRD_PLACE","Third place","1 match"],["FINAL","Final","1 match"]].forEach(([st,label,cnt])=>{
         const cards=koRoundCards(st);
         if(cards)html+=`<div class="koround">${label} <span class="koround-n">${cnt}</span></div>`+cards;
       });
-      KO.filter(k=>k.iso).forEach(k=>html+=koCard(k));
     }
   }
   list.innerHTML=html||`<div class="empty">Nothing matches your filters.<br/>Tap “All”.</div>`;
