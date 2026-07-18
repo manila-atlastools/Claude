@@ -1227,12 +1227,12 @@
     "home": "France",
     "away": "England",
     "utcDate": "2026-07-18T21:00:00Z",
-    "status": "PAUSED",
+    "status": "IN_PLAY",
     "stage": "THIRD_PLACE",
     "minute": null,
     "score": [
-      0,
-      4
+      3,
+      5
     ]
   },
   {
