@@ -1239,12 +1239,12 @@
     "home": "Spain",
     "away": "Argentina",
     "utcDate": "2026-07-19T19:00:00Z",
-    "status": "TIMED",
+    "status": "LIVE",
     "stage": "FINAL",
     "minute": null,
     "score": [
-      null,
-      null
+      0,
+      0
     ]
   }
 ]
